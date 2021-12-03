@@ -10,18 +10,22 @@ public class ThirdPersonController : MonoBehaviour
 
     public float sp = 6f;
     public float run_sp = 10f;
+    public float smoothTime = 0.1f;
     public float gravity;
     public float currentGravity;
     public float maxGravity;
+    public float actingTime = 0.5f;
+    private float atkTime = 0f;
     private bool W,A,S,D,SHIFT,CTRL,SPACE;
-    private bool rolling , dodging , jump ,aim ,atk , dfc , atking , hurt;
+    private bool rolling , dodging , jump ,aim ,atk , dfc , atking , hurt , turning ,turn ,landing;
 
     private Vector3 movement;
     private Vector3 gravityDic;
     private Vector3 gravityMovement;
     float horizontal;
     float vertical;
-    float targetAngle;
+    float turnSmoothVelocity;
+    float targetAngle  , angle;
 
     private bool IsGrounded()
     {
@@ -44,11 +48,11 @@ public class ThirdPersonController : MonoBehaviour
         if (IsGrounded()) {
             currentGravity = 0;
             animator.SetBool("IsGrounded",true);
-            if (jump && animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.20 && animator.GetCurrentAnimatorStateInfo(0).normalizedTime <= 0.21) currentGravity = -0.045f;
+            if (jump && animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.20 && animator.GetCurrentAnimatorStateInfo(0).normalizedTime <= 0.21) currentGravity = -0.05f;
         }
         else {
             if (currentGravity < maxGravity) { currentGravity += gravity * Time.deltaTime;}
-            if (currentGravity > 0.1) { animator.SetBool("IsGrounded", false); }
+            if (currentGravity > 0.03) { animator.SetBool("IsGrounded", false); }
         }
         gravityMovement = gravityDic * currentGravity;
     }
@@ -58,34 +62,46 @@ public class ThirdPersonController : MonoBehaviour
         horizontal = Input.GetAxisRaw("Horizontal"); //得到水平移動(左右)的輸入 不用判斷 a,d
         vertical = Input.GetAxisRaw("Vertical"); //得到鉛直移動(前後)的輸入 不用判斷 w,s
         Vector3 dic = new Vector3(horizontal, 0f, vertical).normalized;
-        if (dic.magnitude >= 0.1f && !dodging && !rolling && !atking && !dfc)
-        {
-            if (!aim)
-            {
-                targetAngle = cam.eulerAngles.y + Mathf.Atan2(dic.x, dic.z) * Mathf.Rad2Deg; //actan 函數 , 將 x,y 輸入後能夠得到對應角 (徑度) 在通過轉換變成角度
-                transform.rotation = Quaternion.Euler(0f, targetAngle, 0f);
+        turn = false;
 
-                if (!CTRL) { movement = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward.normalized * sp * Time.deltaTime; }
-                else { movement = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward.normalized * run_sp * Time.deltaTime; }
+        if (!animator.GetCurrentAnimatorStateInfo(0).IsName("180turn")) turning = false;
+
+        if (landing)
+        {
+            angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, smoothTime);
+            transform.rotation = Quaternion.Euler(0f, angle, 0f);
+            movement = Vector3.zero;
+        }
+        else if (turning)
+        {
+            angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, smoothTime);
+            transform.rotation = Quaternion.Euler(0f, angle, 0f);
+            movement = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward.normalized *sp * Time.deltaTime;
+        }
+        else if (dic.magnitude >= 0.1f && !dodging && !rolling && !atking && !dfc)
+        {
+            targetAngle = cam.eulerAngles.y + Mathf.Atan2(dic.x, dic.z) * Mathf.Rad2Deg; //actan 函數 , 將 x,y 輸入後能夠得到對應角 (徑度) 在通過轉換變成角度
+            angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, smoothTime);
+            if (CTRL)
+            {
+                if (Mathf.Abs((targetAngle + 360) % 360 - (transform.eulerAngles.y + 360) % 360) >= 170 && Mathf.Abs((targetAngle + 360) % 360 - (transform.eulerAngles.y + 360) % 360) <= 190) { turn = true; }
+                transform.rotation = Quaternion.Euler(0f, angle, 0f);
+                movement = Quaternion.Euler(0f, angle, 0f) * Vector3.forward.normalized * run_sp * Time.deltaTime;
+            }
+            else if (!aim)
+            {
+                transform.rotation = Quaternion.Euler(0f, angle, 0f);
+                movement = Quaternion.Euler(0f, angle, 0f) * Vector3.forward.normalized * sp * Time.deltaTime;
             }
             else
             {
-                targetAngle = cam.eulerAngles.y;
-                if (!CTRL)
-                {
-                    if (W){movement = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward.normalized * sp * Time.deltaTime;}
-                    if (S){movement = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.back.normalized * sp * Time.deltaTime;}
-                    if (A){movement = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.left.normalized * sp * Time.deltaTime;}
-                    if (D){ movement = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.right.normalized * sp * Time.deltaTime;}
-                }
-                else
-                {
-                    targetAngle += Mathf.Atan2(dic.x, dic.z) * Mathf.Rad2Deg;
-                    movement = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward.normalized * run_sp * Time.deltaTime;
-                }
-                transform.rotation = Quaternion.Euler(0f, targetAngle, 0f);
+                angle = Mathf.SmoothDampAngle(cam.eulerAngles.y, transform.eulerAngles.y, ref turnSmoothVelocity, smoothTime);
+                transform.rotation = Quaternion.Euler(0f, angle, 0f);
+                float walkangle = cam.eulerAngles.y + Mathf.Atan2(dic.x, dic.z) * Mathf.Rad2Deg;
+                movement = Quaternion.Euler(0f,walkangle, 0f) * Vector3.forward.normalized * sp * Time.deltaTime;
             }
         }
+        else if (turning) { movement = Vector3.zero; }
         else if (dodging && animator.GetCurrentAnimatorStateInfo(0).normalizedTime <= 0.6)
         {
             movement = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.back.normalized * run_sp * Time.deltaTime;
@@ -123,28 +139,36 @@ public class ThirdPersonController : MonoBehaviour
             }
         }
         else if(IsGrounded()){ movement = Vector3.zero; }
+        if(jump && animator.GetCurrentAnimatorStateInfo(0).normalizedTime <= 0.3) { movement = Vector3.zero;}
     }
 
     private void AnimationInput()
     {
         rolling = (animator.GetCurrentAnimatorStateInfo(0).IsName("roll") ? true:false);
         dodging = (animator.GetCurrentAnimatorStateInfo(0).IsName("dodge") ?true:false);
+        landing = (animator.GetCurrentAnimatorStateInfo(0).IsName("landing") ? true : false);
+        turning = (animator.GetCurrentAnimatorStateInfo(0).IsName("180turn")||turn ? true : false);
         jump = (animator.GetCurrentAnimatorStateInfo(0).IsName("jump") ? true : false);
         atking = (animator.GetCurrentAnimatorStateInfo(0).IsName("atk1") || animator.GetCurrentAnimatorStateInfo(0).IsName("atk2") || animator.GetCurrentAnimatorStateInfo(0).IsName("atk4") || animator.GetCurrentAnimatorStateInfo(0).IsName("rolling_atk") || animator.GetCurrentAnimatorStateInfo(0).IsName("run_atk") || animator.GetCurrentAnimatorStateInfo(0).IsName("jump_atk") || animator.GetCurrentAnimatorStateInfo(0).IsName("spin_atk") || animator.GetCurrentAnimatorStateInfo(0).IsName("kick") ? true : false);
         aim = (Input.GetMouseButtonDown(2)?!aim:aim);
-        atk = (Input.GetMouseButton(0) ? true : false);
+        atkTime = (Input.GetMouseButtonDown(0) ?actingTime: atkTime);
+        atk = (atkTime>0 ? true : false);
         dfc = (Input.GetMouseButton(1) ? true : false);
         animator.SetBool("IsWalking",(W || S || A || D ? true : false));
         animator.SetBool("w", (W ? true : false));
         animator.SetBool("a", (A ? true : false));
         animator.SetBool("s", (S ? true : false));
         animator.SetBool("d", (D ? true : false));
+        animator.SetBool("Turning", (turning ? true : false));
         animator.SetBool("Aim", (aim ? true : false));
         animator.SetBool("Atk", (atk ? true : false));
         animator.SetBool("Dfc", (dfc ? true : false));
         animator.SetBool("Space", (SPACE ? true : false));
         animator.SetBool("Shift", (SHIFT ? true : false));
         animator.SetBool("Ctrl", (CTRL ? true : false));
+
+        if (atkTime > 0) atkTime -= 1 * Time.deltaTime;
+        else atkTime = 0;
     }
 
     // Start is called before the first frame update
