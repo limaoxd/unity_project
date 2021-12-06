@@ -152,6 +152,8 @@ public class AI_Ancient : AI
 
     void Start()
     {
+        Health = 2000;
+
         Aim = GameObject.FindGameObjectWithTag("Player");
         p_atking = Aim.GetComponent<ThirdPersonController>().atking;
         atk[0] = "atk1";

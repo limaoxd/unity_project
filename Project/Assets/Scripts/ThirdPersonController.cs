@@ -21,7 +21,7 @@ public class ThirdPersonController : MonoBehaviour
     public float actingTime = 0.5f;
     public bool rolling, dodging, jump, aim, prev_aim, atk, dfc, atking, hurt, turning, turn, landing;
     private float degree = 0f;
-    private float atkTime = 0f;
+    private float atkTime = 0f,shiftTime = 0f;
     private bool W,A,S,D,SHIFT,CTRL,SPACE;
 
     private Vector3 movement;
@@ -43,7 +43,6 @@ public class ThirdPersonController : MonoBehaviour
         S = (Input.GetKey("s") ? true : false);
         A = (Input.GetKey("a") ? true : false);
         D = (Input.GetKey("d") ? true : false);
-        SHIFT = (Input.GetKey("left shift") ? true : false);
         SPACE = (Input.GetKey("space") ? true : false);
         CTRL = (Input.GetKey("left ctrl") ? true : false);
     }
@@ -59,13 +58,19 @@ public class ThirdPersonController : MonoBehaviour
                 Aim = GameObject.FindGameObjectWithTag("Enemy");
                 if (Aim == null)
                     aim = false;
-          
+
+                cam_free_look.m_Lens.FieldOfView = 50;
+                cam_free_look.m_YAxis.Value = 0.1f;
+                cam_free_look.m_YAxis.m_MaxSpeed = 0;
                 cam_free_look.m_XAxis.m_MaxSpeed = 0;
                 cam_free_look.m_BindingMode = Cinemachine.CinemachineTransposer.BindingMode.LockToTargetOnAssign;
             }
             else
             {
                 Aim = GameObject.FindGameObjectWithTag("Player");
+
+                cam_free_look.m_Lens.FieldOfView = 40;
+                cam_free_look.m_YAxis.m_MaxSpeed = 15;
                 cam_free_look.m_XAxis.m_MaxSpeed = 800;
                 cam_free_look.m_BindingMode = Cinemachine.CinemachineTransposer.BindingMode.SimpleFollowWithWorldUp;
             }
@@ -85,7 +90,7 @@ public class ThirdPersonController : MonoBehaviour
         if (IsGrounded()) {
             currentGravity = 0;
             animator.SetBool("IsGrounded",true);
-            if (jump && animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.20 && animator.GetCurrentAnimatorStateInfo(0).normalizedTime <= 0.21) currentGravity = -0.03f;
+            if (jump && animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.20 && animator.GetCurrentAnimatorStateInfo(0).normalizedTime <= 0.21) currentGravity = -5f * Time.deltaTime;
         }
         else {
             if (currentGravity < maxGravity) { currentGravity += gravity * Time.deltaTime;}
@@ -138,18 +143,19 @@ public class ThirdPersonController : MonoBehaviour
         else if (turning) { movement = Vector3.zero; }
         else if (dodging && animator.GetCurrentAnimatorStateInfo(0).normalizedTime <= 0.6)
         {
+            targetAngle = cam.eulerAngles.y;
             angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, cam.eulerAngles.y, ref turnSmoothVelocity, smoothTime);
             movement = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.back.normalized * run_sp * Time.deltaTime;
         }
-        else if (rolling && animator.GetCurrentAnimatorStateInfo(0).normalizedTime <= 0.7)
+        else if (rolling)
         {
             if (dfc) { targetAngle = cam.eulerAngles.y + Mathf.Atan2(dic.x, dic.z) * Mathf.Rad2Deg; }
             if (aim) {
-                if(animator.GetCurrentAnimatorStateInfo(0).normalizedTime <= 0.3) targetAngle = cam.eulerAngles.y + Mathf.Atan2(dic.x, dic.z) * Mathf.Rad2Deg;
-                transform.rotation = Quaternion.Euler(0f, targetAngle, 0f);
+                targetAngle = cam.eulerAngles.y + Mathf.Atan2(dic.x, dic.z) * Mathf.Rad2Deg;
             }
             angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, smoothTime);
-            movement = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward.normalized * run_sp * Time.deltaTime;
+            if((animator.GetCurrentAnimatorStateInfo(0).normalizedTime%1.0) < 0.7) movement = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward.normalized * run_sp * Time.deltaTime;
+            else movement = Vector3.zero;
         }
         else if (atking)
         {
@@ -197,8 +203,12 @@ public class ThirdPersonController : MonoBehaviour
         atking = (animator.GetCurrentAnimatorStateInfo(0).IsName("atk1") || animator.GetCurrentAnimatorStateInfo(0).IsName("atk2") || animator.GetCurrentAnimatorStateInfo(0).IsName("atk4") || animator.GetCurrentAnimatorStateInfo(0).IsName("rolling_atk") || animator.GetCurrentAnimatorStateInfo(0).IsName("run_atk") || animator.GetCurrentAnimatorStateInfo(0).IsName("jump_atk") || animator.GetCurrentAnimatorStateInfo(0).IsName("spin_atk") || animator.GetCurrentAnimatorStateInfo(0).IsName("kick") ? true : false);
         aim = (Input.GetMouseButtonDown(2)?!aim:aim);
         atkTime = (Input.GetMouseButtonDown(0) ?actingTime: atkTime);
+        shiftTime = (Input.GetKeyDown("left shift") ? 1.5f*actingTime : shiftTime);
+
         atk = (atkTime>0 ? true : false);
+        SHIFT = (shiftTime > 0 ? true : false);
         dfc = (Input.GetMouseButton(1) ? true : false);
+
         animator.SetBool("IsWalking",(W || S || A || D ? true : false));
         animator.SetBool("w", (W ? true : false));
         animator.SetBool("a", (A ? true : false));
@@ -214,6 +224,8 @@ public class ThirdPersonController : MonoBehaviour
 
         if (atkTime > 0) atkTime -= 1 * Time.deltaTime;
         else atkTime = 0;
+        if (shiftTime > 0) shiftTime -= 1 * Time.deltaTime;
+        else shiftTime = 0;
     }
 
     // Start is called before the first frame update

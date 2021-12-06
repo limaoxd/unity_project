@@ -9,6 +9,7 @@ public class AI : MonoBehaviour
     public GameObject Aim;
     public GameObject trail;
 
+    public float           Health = 100;
     public float           sp = 2.5f;
     public float           run_sp = 6f;
     public float           smoothTime = 0.1f;
