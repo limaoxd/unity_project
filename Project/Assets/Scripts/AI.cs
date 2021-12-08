@@ -8,7 +8,9 @@ public class AI : MonoBehaviour
     public Animator animator;
     public GameObject Aim;
     public GameObject trail;
+    public GameObject atkTrigger;
 
+    public float           maxHealth = 100;
     public float           Health = 100;
     public float           sp = 2.5f;
     public float           run_sp = 6f;
@@ -16,6 +18,7 @@ public class AI : MonoBehaviour
     public float           gravity = 0.1f;
     public float           currentGravity;
     public float           maxGravity = 5.0f;
+    public float           Damage = 0f;
     public float           poise = 100.0f;
     public float           stamina = 100.0f;
 
@@ -32,6 +35,12 @@ public class AI : MonoBehaviour
     protected Vector3      gravityMovement;
     protected float        turnSmoothVelocity;
     protected float        targetAngle, angle;
+
+    public void takeDamage(float val)
+    {
+        poise -= 200*val/maxHealth;
+        Health -= val;
+    }
 
     protected bool IsGrounded()
     {
