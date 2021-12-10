@@ -23,7 +23,7 @@ public class ThirdPersonController : MonoBehaviour
     public float currentGravity;
     public float maxGravity;
     public float actingTime = 0.5f;
-    public bool rolling, dodging, jump, aim, prev_aim, atk, dfc, atking, turning, turn, landing, hurting;
+    public bool rolling, dodging, jump,jumped, aim, prev_aim, atk, dfc, atking, turning, turn, landing, hurting;
 
     private int prev_state;
     private float defenceRate = 0.5f;
@@ -42,7 +42,7 @@ public class ThirdPersonController : MonoBehaviour
 
     public void takeDamage(float val)
     {
-        if ((dodging && timer < 0.7) || (rolling && timer <0.7) || hurting || hurtTime > 0) return;
+        if ((dodging && timer < 0.7) || (rolling && timer%1f <0.7) || hurting || hurtTime > 0) return;
         if(val > maxHealth/4) hurtTime = 0.5f;
         if (dfc) val*= defenceRate;
         health -= val;
@@ -76,7 +76,7 @@ public class ThirdPersonController : MonoBehaviour
                     aim = false;
 
                 cam_free_look.m_Lens.FieldOfView = 50;
-                cam_free_look.m_YAxis.Value = 0.1f;
+                cam_free_look.m_YAxis.Value = 0.2f;
                 cam_free_look.m_YAxis.m_MaxSpeed = 0;
                 cam_free_look.m_XAxis.m_MaxSpeed = 0;
                 cam_free_look.m_BindingMode = Cinemachine.CinemachineTransposer.BindingMode.LockToTargetOnAssign;
@@ -103,13 +103,16 @@ public class ThirdPersonController : MonoBehaviour
 
     private void Falling()
     {
-        if (IsGrounded()) {
+        Debug.Log(timer);
+        if (IsGrounded())
+        {
             currentGravity = 0;
-            animator.SetBool("IsGrounded",true);
-            if (jump && animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.20 && animator.GetCurrentAnimatorStateInfo(0).normalizedTime <= 0.21) currentGravity = -5f * Time.deltaTime;
+            animator.SetBool("IsGrounded", true);
+            if (jump && timer >= 0.20 && timer <= 0.200001) currentGravity = -7f * Time.deltaTime;
         }
-        else {
-            if (currentGravity < maxGravity) { currentGravity += gravity * Time.deltaTime;}
+        else
+        {
+            if (currentGravity < maxGravity) { currentGravity += gravity * Time.deltaTime; }
             if (currentGravity > 0.01) { animator.SetBool("IsGrounded", false); }
         }
         gravityMovement = gravityDic * currentGravity;
@@ -117,9 +120,9 @@ public class ThirdPersonController : MonoBehaviour
 
     private void Movement()
     {
-        timer = animator.GetCurrentAnimatorStateInfo(0).normalizedTime;
         horizontal = Input.GetAxisRaw("Horizontal"); //得到水平移動(左右)的輸入 不用判斷 a,d
         vertical = Input.GetAxisRaw("Vertical"); //得到鉛直移動(前後)的輸入 不用判斷 w,s
+
         Vector3 dic = new Vector3(horizontal, 0f, vertical).normalized;
         turn = false;
         if (!atking) trail.SetActive(false);
@@ -147,7 +150,7 @@ public class ThirdPersonController : MonoBehaviour
             {
                 angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, smoothTime);
                 if (Mathf.Abs((targetAngle + 360) % 360 - (transform.eulerAngles.y + 360) % 360) >= 170 && Mathf.Abs((targetAngle + 360) % 360 - (transform.eulerAngles.y + 360) % 360) <= 190) { turn = true; }
-                movement = Quaternion.Euler(0f, angle, 0f) * Vector3.forward.normalized * run_sp * Time.deltaTime;
+                if(IsGrounded()) movement = Quaternion.Euler(0f, angle, 0f) * Vector3.forward.normalized * run_sp * Time.deltaTime;
             }
             else if (!aim)
             {
@@ -232,6 +235,8 @@ public class ThirdPersonController : MonoBehaviour
 
     private void AnimationInput()
     {
+        timer = animator.GetCurrentAnimatorStateInfo(0).normalizedTime;
+
         dead = (health <= 0 ? true : false);
         rolling = (animator.GetCurrentAnimatorStateInfo(0).IsName("roll") ? true:false);
         dodging = (animator.GetCurrentAnimatorStateInfo(0).IsName("dodge") ?true:false);
@@ -242,7 +247,7 @@ public class ThirdPersonController : MonoBehaviour
         atking = (animator.GetCurrentAnimatorStateInfo(0).IsName("atk1") || animator.GetCurrentAnimatorStateInfo(0).IsName("atk2") || animator.GetCurrentAnimatorStateInfo(0).IsName("atk4") || animator.GetCurrentAnimatorStateInfo(0).IsName("rolling_atk") || animator.GetCurrentAnimatorStateInfo(0).IsName("run_atk") || animator.GetCurrentAnimatorStateInfo(0).IsName("jump_atk") || animator.GetCurrentAnimatorStateInfo(0).IsName("spin_atk") || animator.GetCurrentAnimatorStateInfo(0).IsName("kick") ? true : false);
         aim = (Input.GetMouseButtonDown(2)?!aim:aim);
         atkTime = (Input.GetMouseButtonDown(0) ?actingTime: atkTime);
-        shiftTime = (Input.GetKeyDown("left shift") ? 1.5f*actingTime : shiftTime);
+        shiftTime = (Input.GetKeyDown("left shift") ? actingTime : shiftTime);
 
         atk = (atkTime > 0 ? true : false);
         SHIFT = (shiftTime > 0 ? true : false);
