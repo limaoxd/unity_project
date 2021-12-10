@@ -65,21 +65,51 @@ public class ThirdPersonController : MonoBehaviour
 
     private void AimTheTarget()
     {
-        if(aim != prev_aim)
+        if (aim)
+        {
+            degree = Mathf.Atan2(Aim.transform.position.x - transform.position.x, Aim.transform.position.z - transform.position.z) * Mathf.Rad2Deg;
+
+            cam_free_look.m_Heading.m_Bias = degree;
+            float dis_x = Aim.transform.position.x - transform.position.x, dis_z = Aim.transform.position.z - transform.position.z;
+            float dis = Mathf.Sqrt(dis_x * dis_x + dis_z * dis_z);
+            if (dis > 25)
+                aim = false;
+        }
+
+        if (aim != prev_aim)
         {
             if(aim)
             {
                 angle = Mathf.SmoothDampAngle(cam.eulerAngles.y, transform.eulerAngles.y, ref turnSmoothVelocity, smoothTime);
                 transform.rotation = Quaternion.Euler(0f, angle, 0f);
-                Aim = GameObject.FindGameObjectWithTag("Enemy");
-                if (Aim == null)
-                    aim = false;
+                Aim = null;
 
-                cam_free_look.m_Lens.FieldOfView = 50;
-                cam_free_look.m_YAxis.Value = 0.2f;
-                cam_free_look.m_YAxis.m_MaxSpeed = 0;
-                cam_free_look.m_XAxis.m_MaxSpeed = 0;
-                cam_free_look.m_BindingMode = Cinemachine.CinemachineTransposer.BindingMode.LockToTargetOnAssign;
+                float dist = 25f;
+                foreach (var it in GameObject.FindGameObjectsWithTag("Enemy"))
+                {
+                    float dis_x = it.transform.position.x - transform.position.x, dis_z = it.transform.position.z - transform.position.z;
+                    float dis = Mathf.Sqrt(dis_x * dis_x + dis_z * dis_z);
+                    
+                    if (dis < dist)
+                    {
+                        Aim = it;
+                        dist = dis;
+                    }
+                }
+                if (Aim == null)
+                {
+                    aim = false;
+                    Aim = GameObject.FindGameObjectWithTag("Player");
+                    cam_free_look.m_BindingMode = Cinemachine.CinemachineTransposer.BindingMode.SimpleFollowWithWorldUp;
+                }
+                else
+                {
+                    cam_free_look.m_Lens.FieldOfView = 50;
+                    cam_free_look.m_YAxis.Value = 0.2f;
+                    cam_free_look.m_YAxis.m_MaxSpeed = 0;
+                    cam_free_look.m_XAxis.m_MaxSpeed = 0;
+                    cam_free_look.m_BindingMode = Cinemachine.CinemachineTransposer.BindingMode.LockToTargetOnAssign;
+                }
             }
             else
             {
@@ -91,19 +121,12 @@ public class ThirdPersonController : MonoBehaviour
                 cam_free_look.m_BindingMode = Cinemachine.CinemachineTransposer.BindingMode.SimpleFollowWithWorldUp;
             }
         }
-        if (aim)
-        {
-            degree = Mathf.Atan2(Aim.transform.position.x - transform.position.x, Aim.transform.position.z - transform.position.z) * Mathf.Rad2Deg;
-           
-            cam_free_look.m_Heading.m_Bias =  degree;
-        }
         cam_free_look.LookAt = Aim.transform;
         prev_aim = aim;
     }
 
     private void Falling()
     {
-        Debug.Log(timer);
         if (IsGrounded())
         {
             currentGravity = 0;
@@ -221,6 +244,10 @@ public class ThirdPersonController : MonoBehaviour
                 movement = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward.normalized * sp * Time.deltaTime;
             }
             else if(animator.GetCurrentAnimatorStateInfo(0).IsName("rolling_atk") && timer >= 0.2 && timer <= 0.4)
+            {
+                movement = Vector3.zero;
+            }
+            else
             {
                 movement = Vector3.zero;
             }
