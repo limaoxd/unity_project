@@ -8,6 +8,7 @@ public class AI : MonoBehaviour
     public Animator animator;
     public GameObject Aim;
     public GameObject trail;
+    public GameObject bloodEffect;
     public GameObject atkTrigger;
 
     public float           maxHealth = 100;
@@ -24,7 +25,7 @@ public class AI : MonoBehaviour
 
     public int             atk_n = 0;
 
-    protected float        player_dis = 0;
+    protected float        player_dis = 0f , hurtTime = 0f;
     protected bool[]       atk_state;
     protected bool         dead , atking , dodge ,atked;
     protected bool         p_atking;
@@ -36,8 +37,13 @@ public class AI : MonoBehaviour
     protected float        turnSmoothVelocity;
     protected float        targetAngle, angle;
 
-    public void takeDamage(float val)
+    public void takeDamage(float val,Vector3 pos)
     {
+        if (dead || hurtTime > 0) return;
+
+        hurtTime = 0.5f;
+        GameObject blood = Instantiate(bloodEffect, pos, Quaternion.identity);
+        blood.GetComponent<ParticleSystem>().Play();
         poise -= 200*val/maxHealth;
         Health -= val;
     }
@@ -45,6 +51,22 @@ public class AI : MonoBehaviour
     protected bool IsGrounded()
     {
         return controller.isGrounded;
+    }
+
+    protected void Set_state()
+    {
+        float dis_x = Aim.transform.position.x - transform.position.x, dis_z = Aim.transform.position.z - transform.position.z;
+        targetAngle = Mathf.Atan2(dis_x, dis_z) * Mathf.Rad2Deg;
+        player_dis = Mathf.Sqrt(dis_x * dis_x + dis_z * dis_z);
+        p_atking = Aim.GetComponent<ThirdPersonController>().atking;
+
+        if (hurtTime > 0) hurtTime -= 1 * Time.deltaTime;
+        else hurtTime = 0;
+        if (stamina >= 100f) { stamina = 100f; }
+        else { stamina += 2f * Time.deltaTime; }
+        if (poise >= 100f) { poise = 100f; }
+        else { poise += 0.2f * Time.deltaTime; }
+        if (Health <= 0) dead = true;
     }
 
     protected void Falling()

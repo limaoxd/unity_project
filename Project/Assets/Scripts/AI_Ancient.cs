@@ -21,20 +21,6 @@ public class AI_Ancient : AI
         map.Add(Animator.StringToHash("Death"), 9);
     }
 
-    void Set_state()
-    {
-        float dis_x = Aim.transform.position.x - transform.position.x, dis_z = Aim.transform.position.z - transform.position.z;
-        targetAngle = Mathf.Atan2(dis_x, dis_z) * Mathf.Rad2Deg;
-        player_dis = Mathf.Sqrt(dis_x * dis_x + dis_z * dis_z);
-        p_atking = Aim.GetComponent<ThirdPersonController>().atking;
-
-        if (stamina >= 100f) { stamina = 100f; }
-        else { stamina += 2f * Time.deltaTime; }
-        if (poise >= 100f) { poise = 100f; }
-        else { poise += 0.2f * Time.deltaTime; }
-        if (Health <= 0) dead = true;
-    }
-
     void choose_atk(int act_num)
     {
         atking = false;
@@ -168,7 +154,7 @@ public class AI_Ancient : AI
                 else if (timer < 0.53) {transform.rotation = Quaternion.Euler(0f, angle, 0f); movement = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward.normalized * 2.0f * run_sp * Time.deltaTime; }
                 else { movement = Vector3.zero; }
 
-                if(timer >= 0.5 && timer <= 0.6) atkTrigger.GetComponent<BoxCollider>().enabled = true;
+                if(timer >= 0.47 && timer <= 0.55) atkTrigger.GetComponent<BoxCollider>().enabled = true;
                 else atkTrigger.GetComponent<BoxCollider>().enabled = false;
 
                 if (timer <= 0.3) {atking = true; atked = false; dodge = false; }

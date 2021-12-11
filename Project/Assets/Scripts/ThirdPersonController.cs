@@ -7,6 +7,7 @@ public class ThirdPersonController : MonoBehaviour
     public CharacterController controller;
     public Transform cam;
     public Animator animator;
+    public GameObject bloodEffect;
     public GameObject Aim;
     public GameObject free_cam;
     public GameObject trail;
@@ -38,13 +39,16 @@ public class ThirdPersonController : MonoBehaviour
     float horizontal;
     float vertical;
     float turnSmoothVelocity;
-    float targetAngle  , angle;
+    float targetAngle , angle;
 
-    public void takeDamage(float val)
+    public void takeDamage(float val,Vector3 pos)
     {
-        if ((dodging && timer < 0.7) || (rolling && timer%1f <0.7) || hurting || hurtTime > 0) return;
+        if ((dodging && timer < 0.55) || (rolling && timer%1f <0.7) || hurting || hurtTime > 0 || dead) return;
         if(val > maxHealth/4) hurtTime = 0.5f;
         if (dfc) val*= defenceRate;
+
+        GameObject blood = Instantiate(bloodEffect, pos, Quaternion.identity);
+        blood.GetComponent<ParticleSystem>().Play();
         health -= val;
     }
 
@@ -131,12 +135,12 @@ public class ThirdPersonController : MonoBehaviour
         {
             currentGravity = 0;
             animator.SetBool("IsGrounded", true);
-            if (jump && timer >= 0.20 && timer <= 0.200001) currentGravity = -7f * Time.deltaTime;
+            if (jump && timer >= 0.20 && timer <= 0.200001) currentGravity = -4f * Time.deltaTime;
         }
         else
         {
             if (currentGravity < maxGravity) { currentGravity += gravity * Time.deltaTime; }
-            if (currentGravity > 0.01) { animator.SetBool("IsGrounded", false); }
+            if (currentGravity > 0.00275) { animator.SetBool("IsGrounded", false); }
         }
         gravityMovement = gravityDic * currentGravity;
     }
@@ -174,6 +178,7 @@ public class ThirdPersonController : MonoBehaviour
                 angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, smoothTime);
                 if (Mathf.Abs((targetAngle + 360) % 360 - (transform.eulerAngles.y + 360) % 360) >= 170 && Mathf.Abs((targetAngle + 360) % 360 - (transform.eulerAngles.y + 360) % 360) <= 190) { turn = true; }
                 if(IsGrounded()) movement = Quaternion.Euler(0f, angle, 0f) * Vector3.forward.normalized * run_sp * Time.deltaTime;
+                else movement = Quaternion.Euler(0f, angle, 0f) * Vector3.forward.normalized * sp * Time.deltaTime;
             }
             else if (!aim)
             {
@@ -243,9 +248,9 @@ public class ThirdPersonController : MonoBehaviour
                 atkTrigger.GetComponent<BoxCollider>().enabled = true;
                 movement = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward.normalized * sp * Time.deltaTime;
             }
-            else if(animator.GetCurrentAnimatorStateInfo(0).IsName("rolling_atk") && timer >= 0.2 && timer <= 0.4)
+            else if(animator.GetCurrentAnimatorStateInfo(0).IsName("rolling_atk") && timer <= 0.4)
             {
-                movement = Vector3.zero;
+                atkTrigger.GetComponent<BoxCollider>().enabled = true;
             }
             else
             {

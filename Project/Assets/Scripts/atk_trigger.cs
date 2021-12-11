@@ -7,15 +7,18 @@ public class atk_trigger : MonoBehaviour
     public bool isEnemy = true;
     public float Damage = 50;
     private int t = 0;
+
     public void OnTriggerEnter(Collider other)
     {
         if (!isEnemy && other.GetComponentInParent<AI>())
         {
-            other.GetComponentInParent<AI>().takeDamage(Damage);
+            Vector3 point = other.ClosestPoint(transform.position);
+            other.GetComponentInParent<AI>().takeDamage(Damage,point);
         }
         else if (isEnemy && other.GetComponentInParent<ThirdPersonController>())
         {
-            other.GetComponentInParent<ThirdPersonController>().takeDamage(Damage);
+            Vector3 point = other.ClosestPoint(transform.position);
+            other.GetComponentInParent<ThirdPersonController>().takeDamage(Damage, point);
         }
     }
 
