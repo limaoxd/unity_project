@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ThirdPersonController : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class ThirdPersonController : MonoBehaviour
     public GameObject Aim;
     public GameObject free_cam;
     public GameObject trail;
+    public Image Health_bar;
+    public Image Health_load;
     public GameObject atkTrigger;
     public Cinemachine.CinemachineFreeLook cam_free_look;
 
@@ -39,6 +42,7 @@ public class ThirdPersonController : MonoBehaviour
     float horizontal;
     float vertical;
     float turnSmoothVelocity;
+    float healthTurnSmoothVelocity;
     float targetAngle , angle;
 
     public void takeDamage(float val,Vector3 pos)
@@ -140,7 +144,7 @@ public class ThirdPersonController : MonoBehaviour
         else
         {
             if (currentGravity < maxGravity) { currentGravity += gravity * Time.deltaTime; }
-            if (currentGravity > 0.00275) { animator.SetBool("IsGrounded", false); }
+            if (currentGravity > 0.00375) { animator.SetBool("IsGrounded", false); }
         }
         gravityMovement = gravityDic * currentGravity;
     }
@@ -309,6 +313,12 @@ public class ThirdPersonController : MonoBehaviour
         if (health > maxHealth) health = maxHealth;
     }
 
+    void Healthbar()
+    {
+        Health_bar.fillAmount = health/maxHealth;
+        Health_load.fillAmount = Mathf.SmoothDampAngle(Health_load.fillAmount, Health_bar.fillAmount, ref healthTurnSmoothVelocity, 3*smoothTime);
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -323,6 +333,7 @@ public class ThirdPersonController : MonoBehaviour
     {
         KeyInput();
         AnimationInput();
+        Healthbar();
         AimTheTarget();
         Falling();
         Movement();
