@@ -84,12 +84,20 @@ public class AI_Ancient : AI
         {
             case 0:
                 transform.rotation = Quaternion.Euler(0f, angle, 0f);
-                movement = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward.normalized * sp * Time.deltaTime;
+                agent.speed = sp/100;
+                agent.enabled = true;
+                agent.SetDestination(Aim.transform.position);
+                movement = agent.velocity;
+
                 if (!atked) choose_atk(act_num);
                 break;
             case 1:
                 transform.rotation = Quaternion.Euler(0f, angle, 0f);
-                movement = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward.normalized * run_sp * Time.deltaTime;
+                agent.speed = run_sp / 100;
+                agent.enabled = true;
+                agent.SetDestination(Aim.transform.position);
+                movement = agent.velocity;
+
                 if (!atked) choose_atk(act_num);
                 break;
             case 2:

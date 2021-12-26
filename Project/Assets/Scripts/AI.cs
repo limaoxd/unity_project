@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.UI;
 
 public class AI : MonoBehaviour
@@ -11,6 +12,7 @@ public class AI : MonoBehaviour
     public GameObject trail;
     public GameObject bloodEffect;
     public GameObject atkTrigger;
+    public NavMeshAgent agent;
     public Image Health_bar;
     public Image Health_load;
 
@@ -85,6 +87,7 @@ public class AI : MonoBehaviour
     {
         controller = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
+        agent = GetComponent<NavMeshAgent>();
         gravityDic = Vector3.down;
         atk_state = new bool[atk_n];
         atk = new string[atk_n];

@@ -444,7 +444,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.4}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3140,6 +3140,7 @@ GameObject:
   - component: {fileID: 6656265634424006456}
   - component: {fileID: 3630757368125025762}
   - component: {fileID: 3630757368125025765}
+  - component: {fileID: 462979304}
   m_Layer: 0
   m_Name: Ancient_Glaive
   m_TagString: Enemy
@@ -3202,7 +3203,7 @@ CharacterController:
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 1.06, z: 0}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!114 &3630757368125025765
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3221,6 +3222,7 @@ MonoBehaviour:
   trail: {fileID: 512650032961805654}
   bloodEffect: {fileID: 186584, guid: b85ef8139fbcfa746b2954a470627418, type: 3}
   atkTrigger: {fileID: 1584975568540855730}
+  agent: {fileID: 0}
   Health_bar: {fileID: 7936958856753641618}
   Health_load: {fileID: 3721824746178164170}
   maxHealth: 2000
@@ -3235,6 +3237,28 @@ MonoBehaviour:
   poise: 100
   stamina: 100
   atk_n: 4
+--- !u!195 &462979304
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5809264746647629145}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 0.06
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 36
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &6126789106260463851
 GameObject:
   m_ObjectHideFlags: 0
@@ -4498,14 +4522,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 11bc4e8187c8b744cb7874e924e92758, type: 3}
---- !u!1 &512650032961805654 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2401889839583187352, guid: 11bc4e8187c8b744cb7874e924e92758, type: 3}
-  m_PrefabInstance: {fileID: 2758584962712997070}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2212716905523623688 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4106526555730262982, guid: 11bc4e8187c8b744cb7874e924e92758, type: 3}
+  m_PrefabInstance: {fileID: 2758584962712997070}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &512650032961805654 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2401889839583187352, guid: 11bc4e8187c8b744cb7874e924e92758, type: 3}
   m_PrefabInstance: {fileID: 2758584962712997070}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1584975568540855730 stripped
