@@ -188,6 +188,7 @@ public class AI_Ancient : AI
         maxHealth = 2000;
         Health = 2000;
         smoothTime = 0.4f;
+
         for(int i=0;i<4;i++){
             edge.Add(new List<int>());
         }
@@ -208,6 +209,7 @@ public class AI_Ancient : AI
     public override void Update()
     {
         Set_state();
+        Healthbar();
         Anime_set();
         Falling();
         Movement();

@@ -65,6 +65,18 @@
       },
       "url": "https://packages.unity.com"
     },
+    "com.unity.render-pipelines.high-definition": {
+      "version": "10.6.0",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.render-pipelines.core": "10.6.0",
+        "com.unity.shadergraph": "10.6.0",
+        "com.unity.visualeffectgraph": "10.6.0",
+        "com.unity.render-pipelines.high-definition-config": "10.6.0"
+      },
+      "url": "https://packages.unity.com"
+    },
     "com.unity.render-pipelines.high-definition-config": {
       "version": "file:../LocalPackages/com.unity.render-pipelines.high-definition-config",
       "depth": 0,

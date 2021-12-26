@@ -310,11 +310,11 @@ public class ThirdPersonController : MonoBehaviour
         else shiftTime = 0;
         if (hurtTime > 0) hurtTime -= 1 * Time.deltaTime;
         else hurtTime = 0;
-        if (health > maxHealth) health = maxHealth;
     }
 
     void Healthbar()
     {
+        if (health > maxHealth) health = maxHealth;
         Health_bar.fillAmount = health/maxHealth;
         Health_load.fillAmount = Mathf.SmoothDampAngle(Health_load.fillAmount, Health_bar.fillAmount, ref healthTurnSmoothVelocity, 3*smoothTime);
     }
@@ -322,6 +322,7 @@ public class ThirdPersonController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Cursor.visible = false;
         gravityDic = Vector3.down;
         Aim = GameObject.FindGameObjectWithTag("Player");
   

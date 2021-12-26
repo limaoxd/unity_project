@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class AI : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class AI : MonoBehaviour
     public GameObject trail;
     public GameObject bloodEffect;
     public GameObject atkTrigger;
+    public Image Health_bar;
+    public Image Health_load;
 
     public float           maxHealth = 100;
     public float           Health = 100;
@@ -35,6 +38,7 @@ public class AI : MonoBehaviour
     protected Vector3      gravityDic;
     protected Vector3      gravityMovement;
     protected float        turnSmoothVelocity;
+    protected float        healthTurnSmoothVelocity;
     protected float        targetAngle, angle;
 
     public void takeDamage(float val,Vector3 pos)
@@ -84,6 +88,13 @@ public class AI : MonoBehaviour
         gravityDic = Vector3.down;
         atk_state = new bool[atk_n];
         atk = new string[atk_n];
+    }
+
+    public void Healthbar()
+    {
+        if (Health > maxHealth) Health = maxHealth;
+        Health_bar.fillAmount = Health / maxHealth;
+        Health_load.fillAmount = Mathf.SmoothDampAngle(Health_load.fillAmount, Health_bar.fillAmount, ref healthTurnSmoothVelocity, 3 * smoothTime);
     }
 
     // Update is called once per frame
