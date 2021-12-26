@@ -58,7 +58,8 @@ public class ThirdPersonController : MonoBehaviour
 
     private bool IsGrounded()
     {
-        return controller.isGrounded;
+        if(Physics.Raycast(transform.position, Vector3.down.normalized, 0.1f)) return true;
+        return false;
     }
 
     private void KeyInput()
