@@ -188,7 +188,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6198719273164034039, guid: 15789796ab9727348b6a53829668bc36, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.06416157
+      value: 0.06416156
       objectReference: {fileID: 0}
     - target: {fileID: 6198719273164034039, guid: 15789796ab9727348b6a53829668bc36, type: 3}
       propertyPath: m_LocalRotation.y
@@ -319,14 +319,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 462979304, guid: 1e7a2c1c0ab767440b4c45d37f5cda04, type: 3}
-      propertyPath: m_Speed
-      value: 0.06
-      objectReference: {fileID: 0}
-    - target: {fileID: 462979304, guid: 1e7a2c1c0ab767440b4c45d37f5cda04, type: 3}
-      propertyPath: m_AngularSpeed
-      value: 36
-      objectReference: {fileID: 0}
     - target: {fileID: 5809264746647629145, guid: 1e7a2c1c0ab767440b4c45d37f5cda04, type: 3}
       propertyPath: m_Name
       value: Ancient_Glaive

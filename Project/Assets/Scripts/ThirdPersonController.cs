@@ -84,6 +84,15 @@ public class ThirdPersonController : MonoBehaviour
             if (dis > 25)
                 aim = false;
         }
+        else
+        {
+            Aim = GameObject.FindGameObjectWithTag("Player");
+
+            cam_free_look.m_Lens.FieldOfView = 50;
+            cam_free_look.m_YAxis.m_MaxSpeed = 15;
+            cam_free_look.m_XAxis.m_MaxSpeed = 800;
+            cam_free_look.m_BindingMode = Cinemachine.CinemachineTransposer.BindingMode.SimpleFollowWithWorldUp;
+        }
 
         if (aim != prev_aim)
         {
@@ -119,15 +128,6 @@ public class ThirdPersonController : MonoBehaviour
                     cam_free_look.m_XAxis.m_MaxSpeed = 0;
                     cam_free_look.m_BindingMode = Cinemachine.CinemachineTransposer.BindingMode.LockToTargetOnAssign;
                 }
-            }
-            else
-            {
-                Aim = GameObject.FindGameObjectWithTag("Player");
-
-                cam_free_look.m_Lens.FieldOfView = 50;
-                cam_free_look.m_YAxis.m_MaxSpeed = 15;
-                cam_free_look.m_XAxis.m_MaxSpeed = 800;
-                cam_free_look.m_BindingMode = Cinemachine.CinemachineTransposer.BindingMode.SimpleFollowWithWorldUp;
             }
         }
         cam_free_look.LookAt = Aim.transform;
