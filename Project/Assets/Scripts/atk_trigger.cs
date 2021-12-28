@@ -6,7 +6,6 @@ public class atk_trigger : MonoBehaviour
 {
     public bool isEnemy = true;
     public float Damage = 50;
-    private int t = 0;
 
     public void OnTriggerEnter(Collider other)
     {

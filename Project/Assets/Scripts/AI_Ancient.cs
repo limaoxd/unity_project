@@ -71,18 +71,19 @@ public class AI_Ancient : AI
     {
 
         int act_num;
-        map.TryGetValue(animator.GetCurrentAnimatorStateInfo(0).shortNameHash, out act_num);
         float timer = animator.GetCurrentAnimatorStateInfo(0).normalizedTime;
+        map.TryGetValue(animator.GetCurrentAnimatorStateInfo(0).shortNameHash, out act_num);
         angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, smoothTime);
 
-        if (atking) {trail.SetActive(true); }
-        else { trail.SetActive(false); }
+        if (atking) trail.SetActive(true);
+        else trail.SetActive(false);
 
         if (player_dis < 2 && p_atking) dodge = true;
 
         switch (act_num)
         {
             case 0:
+                targetAngle = transform.rotation.y+agent.angularSpeed;
                 transform.rotation = Quaternion.Euler(0f, angle, 0f);
                 agent.speed = sp/100;
                 agent.enabled = true;
@@ -92,6 +93,7 @@ public class AI_Ancient : AI
                 if (!atked) choose_atk(act_num);
                 break;
             case 1:
+                targetAngle = transform.rotation.y+agent.angularSpeed;
                 transform.rotation = Quaternion.Euler(0f, angle, 0f);
                 agent.speed = run_sp / 100;
                 agent.enabled = true;
