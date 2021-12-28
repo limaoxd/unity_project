@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
+  - Load_Bar
+  - Bar
   layers:
   - Default
   - TransparentFX
