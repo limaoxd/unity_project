@@ -23,7 +23,6 @@ public class AI_Ancient : AI
 
     void choose_atk(int act_num)
     {
-        atking = false;
         for (int i = 0; i < 4; i++) atk_state[i] = false;
         if (stamina <= 70 || player_dis > 5.5) return;
 
@@ -83,6 +82,7 @@ public class AI_Ancient : AI
         switch (act_num)
         {
             case 0:
+                atking = false;
                 targetAngle = transform.rotation.y+agent.angularSpeed;
                 transform.rotation = Quaternion.Euler(0f, angle, 0f);
                 agent.speed = sp/100;
@@ -93,6 +93,7 @@ public class AI_Ancient : AI
                 if (!atked) choose_atk(act_num);
                 break;
             case 1:
+                atking = false;
                 targetAngle = transform.rotation.y+agent.angularSpeed;
                 transform.rotation = Quaternion.Euler(0f, angle, 0f);
                 agent.speed = run_sp / 100;

@@ -34,7 +34,7 @@ public class ThirdPersonController : MonoBehaviour
 
     private int prev_state;
     private float defenceRate = 0.5f;
-    private float degree = 0f;
+    private float degree = 0f , ini_degree = 0f;
     private float atkTime = 0f,shiftTime = 0f,hurtTime = 0f;
     private bool W,A,S,D,SHIFT,CTRL,SPACE;
     private bool acted = false,dead = false;
@@ -81,7 +81,10 @@ public class ThirdPersonController : MonoBehaviour
         {
             degree = Mathf.Atan2(Aim.transform.position.x - transform.position.x, Aim.transform.position.z - transform.position.z) * Mathf.Rad2Deg;
 
-            cam_free_look.m_Heading.m_Bias = degree;
+            if(degree - ini_degree < -180) cam_free_look.m_Heading.m_Bias = degree - ini_degree + 360;
+            cam_free_look.m_Heading.m_Bias = degree - ini_degree;
+
+
             float dis_x = Aim.transform.position.x - transform.position.x, dis_z = Aim.transform.position.z - transform.position.z;
             float dis = Mathf.Sqrt(dis_x * dis_x + dis_z * dis_z);
             if (dis > 25)
@@ -187,7 +190,7 @@ public class ThirdPersonController : MonoBehaviour
             targetAngle = cam.eulerAngles.y + Mathf.Atan2(dic.x, dic.z) * Mathf.Rad2Deg;
             if (CTRL)
             {
-                stamina -= 40f*Time.deltaTime;
+                stamina -= 30f*Time.deltaTime;
                 angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, smoothTime);
                 if (Mathf.Abs((targetAngle + 360) % 360 - (transform.eulerAngles.y + 360) % 360) >= 170 && Mathf.Abs((targetAngle + 360) % 360 - (transform.eulerAngles.y + 360) % 360) <= 190) { turn = true; }
                 if(IsGrounded()) movement = Quaternion.Euler(0f, angle, 0f) * Vector3.forward.normalized * run_sp * Time.deltaTime;
@@ -346,10 +349,16 @@ public class ThirdPersonController : MonoBehaviour
         Hp_load.fillAmount = Mathf.SmoothDampAngle(Hp_load.fillAmount, Hp_bar.fillAmount, ref hpTurnSmoothVelocity, 0.3f);
         
         if (stamina > maxStamina) stamina = maxStamina;
-        if (stamina < maxStamina && Mathf.Abs(Sp_load.fillAmount-Sp_bar.fillAmount) < 0.05f) stamina += maxStamina/7.5f*Time.deltaTime;
+        if (stamina < maxStamina && Sp_load.fillAmount - Sp_bar.fillAmount < 0.01f) stamina += maxStamina/7f*Time.deltaTime;
         if(stamina <= 0) stamina = 0;
         Sp_bar.fillAmount = stamina/maxStamina;
         Sp_load.fillAmount = Mathf.SmoothDampAngle(Sp_load.fillAmount, Sp_bar.fillAmount, ref spTurnSmoothVelocity, 0.3f);
+    }
+
+    void Awake() {
+        ini_degree = transform.eulerAngles.y;
+        targetAngle = ini_degree;
+        angle = targetAngle;
     }
 
     // Start is called before the first frame update

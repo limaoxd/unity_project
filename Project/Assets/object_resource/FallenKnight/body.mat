@@ -492,7 +492,7 @@ Material:
     - _LinkDetailsWithBase2: 1
     - _LinkDetailsWithBase3: 1
     - _MaterialID: 1
-    - _Metallic: 0
+    - _Metallic: 0.744
     - _Metallic0: 0
     - _Metallic1: 0
     - _Metallic2: 0
@@ -513,7 +513,7 @@ Material:
     - _NormalMapSpace1: 0
     - _NormalMapSpace2: 0
     - _NormalMapSpace3: 0
-    - _NormalScale: 1
+    - _NormalScale: 0.6
     - _NormalScale0: 1
     - _NormalScale1: 1
     - _NormalScale2: 1
