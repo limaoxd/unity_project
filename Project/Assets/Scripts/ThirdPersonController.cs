@@ -12,7 +12,6 @@ public class ThirdPersonController : MonoBehaviour
     public GameObject Aim;
     public GameObject free_cam;
     public GameObject trail;
-    public GameObject UI;
     public Image Hp_bar;
     public Image Hp_load;
     public Image Sp_bar;
