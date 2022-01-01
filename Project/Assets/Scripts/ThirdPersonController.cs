@@ -11,6 +11,7 @@ public class ThirdPersonController : MonoBehaviour
     public GameObject bloodEffect;
     public GameObject Aim;
     public GameObject free_cam;
+    public GameObject aim_point;
     public GameObject trail;
     public Image Hp_bar;
     public Image Hp_load;
@@ -33,6 +34,7 @@ public class ThirdPersonController : MonoBehaviour
     public float actingTime = 0.5f;
     public bool rolling, dodging, jump,jumped, aim, prev_aim, atk, dfc, atking, turning, turn, landing, hurting;
 
+    private Transform point_to_aim;
     private int prev_state;
     private float defenceRate = 0.5f;
     private float degree = 0f , ini_degree = 0f;
@@ -79,29 +81,6 @@ public class ThirdPersonController : MonoBehaviour
 
     private void AimTheTarget()
     {
-        if (aim && Aim.tag!="Player")
-        {
-            degree = Mathf.Atan2(Aim.transform.position.x - transform.position.x, Aim.transform.position.z - transform.position.z) * Mathf.Rad2Deg;
-
-            if(degree - ini_degree < -180) cam_free_look.m_Heading.m_Bias = degree - ini_degree + 360;
-            cam_free_look.m_Heading.m_Bias = degree - ini_degree;
-
-
-            float dis_x = Aim.transform.position.x - transform.position.x, dis_z = Aim.transform.position.z - transform.position.z;
-            float dis = Mathf.Sqrt(dis_x * dis_x + dis_z * dis_z);
-            if (dis > 25 || Aim.tag!="Enemy" )
-                aim = false;
-        }
-        else
-        {
-            Aim = GameObject.FindGameObjectWithTag("Player");
-
-            cam_free_look.m_Lens.FieldOfView = 50;
-            cam_free_look.m_YAxis.m_MaxSpeed = 15;
-            cam_free_look.m_XAxis.m_MaxSpeed = 800;
-            cam_free_look.m_BindingMode = Cinemachine.CinemachineTransposer.BindingMode.SimpleFollowWithWorldUp;
-        }
-
         if (aim != prev_aim)
         {
             if(aim)
@@ -122,6 +101,13 @@ public class ThirdPersonController : MonoBehaviour
                         dist = dis;
                     }
                 }
+
+                Aim.GetComponentInChildren<bar_on_head>().gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(200, 15);
+
+                foreach(var it in GameObject.FindGameObjectsWithTag("Aim_point"))
+                    if(it.GetComponentInParent<AI>().gameObject == Aim)
+                        point_to_aim = it.transform;
+
                 if (Aim == null)
                 {
                     aim = false;
@@ -136,8 +122,39 @@ public class ThirdPersonController : MonoBehaviour
                     cam_free_look.m_XAxis.m_MaxSpeed = 0;
                     cam_free_look.m_BindingMode = Cinemachine.CinemachineTransposer.BindingMode.LockToTargetOnAssign;
                 }
+            }else{
+                foreach(var it in GameObject.FindGameObjectsWithTag("Bar"))
+                    it.GetComponent<RectTransform>().sizeDelta = new Vector2(0, 0);
             }
         }
+
+        if (aim && Aim.tag!="Player")
+        {
+            aim_point.SetActive(true);
+            aim_point.transform.position = Camera.main.WorldToScreenPoint(point_to_aim.position);
+            degree = Mathf.Atan2(Aim.transform.position.x - transform.position.x, Aim.transform.position.z - transform.position.z) * Mathf.Rad2Deg;
+
+            if(degree - ini_degree < -180) cam_free_look.m_Heading.m_Bias = degree - ini_degree + 360;
+            cam_free_look.m_Heading.m_Bias = degree - ini_degree;
+
+
+            float dis_x = Aim.transform.position.x - transform.position.x, dis_z = Aim.transform.position.z - transform.position.z;
+            float dis = Mathf.Sqrt(dis_x * dis_x + dis_z * dis_z);
+            if (dis > 25 || Aim.tag!="Enemy" )
+                aim = false;
+        }
+        else
+        {
+            aim_point.SetActive(false);
+            point_to_aim = null;
+            Aim = GameObject.FindGameObjectWithTag("Player");
+
+            cam_free_look.m_Lens.FieldOfView = 50;
+            cam_free_look.m_YAxis.m_MaxSpeed = 15;
+            cam_free_look.m_XAxis.m_MaxSpeed = 800;
+            cam_free_look.m_BindingMode = Cinemachine.CinemachineTransposer.BindingMode.SimpleFollowWithWorldUp;
+        }
+
         cam_free_look.LookAt = Aim.transform;
         prev_aim = aim;
     }
