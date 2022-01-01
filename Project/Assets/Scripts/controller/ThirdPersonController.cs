@@ -32,7 +32,7 @@ public class ThirdPersonController : MonoBehaviour
     public float currentGravity;
     public float maxGravity;
     public float actingTime = 0.5f;
-    public bool rolling, dodging, jump,jumped, aim, prev_aim, atk, dfc, atking, turning, turn, landing, hurting;
+    public bool rolling, dodging, jump,jumped, aim, prev_aim, atk, dfc, atking, turning, turn, landing, hurting,dead = false;
 
     private Transform point_to_aim;
     private int prev_state;
@@ -40,7 +40,7 @@ public class ThirdPersonController : MonoBehaviour
     private float degree = 0f , ini_degree = 0f;
     private float atkTime = 0f,shiftTime = 0f,hurtTime = 0f;
     private bool W,A,S,D,SHIFT,CTRL,SPACE;
-    private bool acted = false,dead = false;
+    private bool acted = false;
 
     private Vector3 movement;
     private Vector3 gravityDic;
