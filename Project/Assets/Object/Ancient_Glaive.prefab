@@ -5379,5 +5379,4 @@ MonoBehaviour:
   run: 0
   audioSource: {fileID: 0}
   audios:
-  - {fileID: 8300000, guid: cc90c3a5b60e53340924cb45773a3a0a, type: 3}
-  - {fileID: 8300000, guid: 6729b404102d130419a99699478e89cd, type: 3}
+  - {fileID: 8300000, guid: 69e10c4a1aa0e1747a38daa036516403, type: 3}

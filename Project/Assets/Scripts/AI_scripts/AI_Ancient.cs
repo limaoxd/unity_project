@@ -149,8 +149,8 @@ public class AI_Ancient : AI
                 else if (timer < 0.64) {transform.rotation = Quaternion.Euler(0f, angle, 0f); movement = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward.normalized * sp * Time.deltaTime; }
                 else { movement = Vector3.zero; }
 
-                if (timer >= 0.28 && timer <= 0.35) atkTrigger.GetComponent<atk_trigger>().atk = true;
-                else if (timer >= 0.55 && timer <= 0.65) atkTrigger.GetComponent<atk_trigger>().atk = true;
+                if (timer >= 0.26 && timer <= 0.35) atkTrigger.GetComponent<atk_trigger>().atk = true;
+                else if (timer >= 0.525 && timer <= 0.65) atkTrigger.GetComponent<atk_trigger>().atk = true;
                 else atkTrigger.GetComponent<atk_trigger>().atk = false;
 
                 if (timer <= 0.3) { atking = true; atked = false; dodge = false; }
