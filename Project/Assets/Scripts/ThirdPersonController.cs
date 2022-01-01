@@ -18,6 +18,8 @@ public class ThirdPersonController : MonoBehaviour
     public Image Sp_load;
     public GameObject atkTrigger;
     public Cinemachine.CinemachineFreeLook cam_free_look;
+    public AudioSource audioSource;
+    public AudioClip[] audios;
 
     public float maxHealth = 200f,maxStamina = 150f;
     public float health = 200f,stamina = 150f;
@@ -50,9 +52,10 @@ public class ThirdPersonController : MonoBehaviour
     public void takeDamage(float val,Vector3 pos)
     {
         if ((dodging && timer < 0.55) || (rolling && timer%1f <0.7) || hurting || hurtTime > 0 || dead) return;
-        if(val > maxHealth/4) hurtTime = 0.5f;
+        hurtTime = 0.5f;
         if (dfc) val*= defenceRate;
 
+        audioSource.PlayOneShot(audios[Random.Range(0,audios.Length)]);
         GameObject blood = Instantiate(bloodEffect, pos, Quaternion.identity);
         blood.GetComponent<ParticleSystem>().Play();
         health -= val;
@@ -76,7 +79,7 @@ public class ThirdPersonController : MonoBehaviour
 
     private void AimTheTarget()
     {
-        if (aim)
+        if (aim && Aim.tag!="Player")
         {
             degree = Mathf.Atan2(Aim.transform.position.x - transform.position.x, Aim.transform.position.z - transform.position.z) * Mathf.Rad2Deg;
 
@@ -86,7 +89,7 @@ public class ThirdPersonController : MonoBehaviour
 
             float dis_x = Aim.transform.position.x - transform.position.x, dis_z = Aim.transform.position.z - transform.position.z;
             float dis = Mathf.Sqrt(dis_x * dis_x + dis_z * dis_z);
-            if (dis > 25)
+            if (dis > 25 || Aim.tag!="Enemy" )
                 aim = false;
         }
         else
@@ -250,50 +253,54 @@ public class ThirdPersonController : MonoBehaviour
             if(!animator.GetCurrentAnimatorStateInfo(0).IsName("kick")) trail.SetActive(true);
             if (animator.GetCurrentAnimatorStateInfo(0).IsName("jump_atk") && timer <= 0.56)
             {
-                atkTrigger.GetComponent<BoxCollider>().enabled = true;
+                atkTrigger.GetComponent<atk_trigger>().atk = true;
                 movement = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward.normalized * 2.0f * sp * Time.deltaTime;
             }
             else if (animator.GetCurrentAnimatorStateInfo(0).IsName("run_atk") && timer <= 0.6)
             {
-                atkTrigger.GetComponent<BoxCollider>().enabled = true;
+                atkTrigger.GetComponent<atk_trigger>().atk = true;
                 movement = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward.normalized * sp * Time.deltaTime;
             }
             else if (animator.GetCurrentAnimatorStateInfo(0).IsName("spin_atk") && timer <= 0.4)
             {
-                atkTrigger.GetComponent<BoxCollider>().enabled = true;
+                atkTrigger.GetComponent<atk_trigger>().atk = true;
                 movement = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward.normalized * sp * Time.deltaTime;
             }
-            else if((animator.GetCurrentAnimatorStateInfo(0).IsName("atk1") || animator.GetCurrentAnimatorStateInfo(0).IsName("atk2")) && timer <= 0.32){
+            else if((animator.GetCurrentAnimatorStateInfo(0).IsName("atk1")&& timer <= 0.25 || animator.GetCurrentAnimatorStateInfo(0).IsName("atk2")) && timer <= 0.25){
+                atkTrigger.GetComponent<atk_trigger>().atk = false;
                 movement = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward.normalized * sp * Time.deltaTime;
             }
-            else if (animator.GetCurrentAnimatorStateInfo(0).IsName("atk1") && timer >= 0.4 && timer <= 0.6)
+            else if (animator.GetCurrentAnimatorStateInfo(0).IsName("atk1") && timer > 0.25 && timer <= 0.6)
             {
-                atkTrigger.GetComponent<BoxCollider>().enabled = true;
+                atkTrigger.GetComponent<atk_trigger>().atk = true;
                 movement =  Vector3.zero;
             }
             else if (animator.GetCurrentAnimatorStateInfo(0).IsName("atk2") && timer >= 0.4 && timer <= 0.6)
             {
-                atkTrigger.GetComponent<BoxCollider>().enabled = true;
+                atkTrigger.GetComponent<atk_trigger>().atk = true;
                 movement =  Vector3.zero;
             }
-            else if (animator.GetCurrentAnimatorStateInfo(0).IsName("atk4") && timer <= 0.66)
+            else if (animator.GetCurrentAnimatorStateInfo(0).IsName("atk4") && timer <= 0.5)
             {
-                atkTrigger.GetComponent<BoxCollider>().enabled = true;
+                atkTrigger.GetComponent<atk_trigger>().atk = false;
                 movement = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward.normalized * sp * Time.deltaTime;
+            }
+            else if(animator.GetCurrentAnimatorStateInfo(0).IsName("atk4")){
+                atkTrigger.GetComponent<atk_trigger>().atk = true;
             }
             else if(animator.GetCurrentAnimatorStateInfo(0).IsName("rolling_atk") && timer <= 0.4)
             {
-                atkTrigger.GetComponent<BoxCollider>().enabled = true;
+                atkTrigger.GetComponent<atk_trigger>().atk = true;
             }
             else
             {
+                atkTrigger.GetComponent<atk_trigger>().atk = false;
                 movement = Vector3.zero;
             }
         }
         else if(IsGrounded()){ movement = Vector3.zero;acted = false; }
-        if(jump && timer <= 0.3) { movement = Vector3.zero;}
-        if (hurting) { movement = Vector3.zero; }
-        if(!atking) atkTrigger.GetComponent<BoxCollider>().enabled = false;
+        if(jump && timer <= 0.3) movement = Vector3.zero;
+        if (hurting) { atkTrigger.GetComponent<atk_trigger>().atk = false ; movement = Vector3.zero; }
 
         transform.rotation = Quaternion.Euler(0f, angle, 0f);
     }
@@ -348,16 +355,10 @@ public class ThirdPersonController : MonoBehaviour
         Hp_load.fillAmount = Mathf.SmoothDampAngle(Hp_load.fillAmount, Hp_bar.fillAmount, ref hpTurnSmoothVelocity, 0.3f);
         
         if (stamina > maxStamina) stamina = maxStamina;
-        if (stamina < maxStamina && Sp_load.fillAmount - Sp_bar.fillAmount < 0.01f) stamina += maxStamina/7f*Time.deltaTime;
+        if (stamina < maxStamina && Sp_load.fillAmount - Sp_bar.fillAmount < 0.01f) stamina += maxStamina/5f*Time.deltaTime;
         if(stamina <= 0) stamina = 0;
         Sp_bar.fillAmount = stamina/maxStamina;
         Sp_load.fillAmount = Mathf.SmoothDampAngle(Sp_load.fillAmount, Sp_bar.fillAmount, ref spTurnSmoothVelocity, 0.3f);
-    }
-
-    void Awake() {
-        ini_degree = transform.eulerAngles.y;
-        targetAngle = ini_degree;
-        angle = targetAngle;
     }
 
     // Start is called before the first frame update
@@ -365,9 +366,13 @@ public class ThirdPersonController : MonoBehaviour
     {
         Cursor.visible = false;
         gravityDic = Vector3.down;
+        ini_degree = transform.eulerAngles.y;
+        targetAngle = ini_degree;
+        angle = targetAngle;
         Aim = GameObject.FindGameObjectWithTag("Player");
   
         cam_free_look = free_cam.GetComponent<Cinemachine.CinemachineFreeLook>();
+        audioSource = this.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame

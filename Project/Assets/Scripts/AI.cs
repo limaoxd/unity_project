@@ -12,9 +12,13 @@ public class AI : MonoBehaviour
     public GameObject trail;
     public GameObject bloodEffect;
     public GameObject atkTrigger;
+    public GameObject bar;
     public NavMeshAgent agent;
+    public NavMeshObstacle obstacle;
     public Image Health_bar;
     public Image Health_load;
+    public AudioSource audioSource;
+    public AudioClip[] audios;
 
     public float           maxHealth = 100;
     public float           Health = 100;
@@ -47,6 +51,7 @@ public class AI : MonoBehaviour
     {
         if (dead || hurtTime > 0) return;
 
+        audioSource.PlayOneShot(audios[Random.Range(0,audios.Length)]);
         hurtTime = 0.5f;
         GameObject blood = Instantiate(bloodEffect, pos, Quaternion.identity);
         blood.GetComponent<ParticleSystem>().Play();
@@ -88,6 +93,8 @@ public class AI : MonoBehaviour
         controller = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
         agent = GetComponent<NavMeshAgent>();
+        audioSource = this.GetComponent<AudioSource>();
+        obstacle = GetComponent<NavMeshObstacle>();
         gravityDic = Vector3.down;
         atk_state = new bool[atk_n];
         atk = new string[atk_n];

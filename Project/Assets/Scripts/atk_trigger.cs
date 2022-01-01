@@ -5,8 +5,14 @@ using UnityEngine;
 public class atk_trigger : MonoBehaviour
 {
     public bool isEnemy = true;
+    public bool atk = false;
+    public bool play = false;
     public float Damage = 50;
-
+    public AudioSource audioSource;
+    public AudioClip[] audios;
+    public int ind = 0;
+    public float time = 0f;
+    private bool preAtk = false;
     public void OnTriggerEnter(Collider other)
     {
         if (!isEnemy && other.GetComponentInParent<AI>())
@@ -24,12 +30,24 @@ public class atk_trigger : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        audioSource = this.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(atk) this.GetComponent<BoxCollider>().enabled = true;
+        else this.GetComponent<BoxCollider>().enabled = false;
+        
+        if(preAtk != atk && atk == true) play = true; 
+        
+        time = audioSource.time;
 
+        if(play){
+            ind = Random.Range(0,audios.Length);
+            audioSource.PlayOneShot(audios[ind]);
+            play = false;
+        }
+        preAtk = atk;
     }
 }

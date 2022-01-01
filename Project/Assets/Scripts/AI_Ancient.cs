@@ -82,91 +82,107 @@ public class AI_Ancient : AI
         switch (act_num)
         {
             case 0:
+                obstacle.enabled = false;
                 atking = false;
                 targetAngle = transform.rotation.y+agent.angularSpeed;
                 transform.rotation = Quaternion.Euler(0f, angle, 0f);
-                agent.speed = sp/100;
+                agent.speed = sp;
                 agent.enabled = true;
                 agent.SetDestination(Aim.transform.position);
-                movement = agent.velocity;
+                movement = agent.velocity/100f;
 
                 if (!atked) choose_atk(act_num);
                 break;
             case 1:
+                obstacle.enabled = false;
                 atking = false;
                 targetAngle = transform.rotation.y+agent.angularSpeed;
                 transform.rotation = Quaternion.Euler(0f, angle, 0f);
-                agent.speed = run_sp / 100;
+                agent.speed = run_sp;
                 agent.enabled = true;
                 agent.SetDestination(Aim.transform.position);
-                movement = agent.velocity;
+                movement = agent.velocity/100f;
 
                 if (!atked) choose_atk(act_num);
                 break;
             case 2:
+                obstacle.enabled = true;
+                agent.enabled = false;
                 Damage = 100;
                 if (timer >= 0.8) dodge = false;
 
                 transform.rotation = Quaternion.Euler(0f, angle, 0f);
                 if (timer <= 0.5)
                 {
-                    atkTrigger.GetComponent<BoxCollider>().enabled = true;
+                    atkTrigger.GetComponent<atk_trigger>().atk = true;
                     movement = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.back.normalized * run_sp * Time.deltaTime;
                     atking = true;
                 }
-                else { movement = Vector3.zero; stamina += 20f * Time.deltaTime; atking = false; atkTrigger.GetComponent<BoxCollider>().enabled = false; }
+                else { movement = Vector3.zero; stamina += 20f * Time.deltaTime; atking = false; atkTrigger.GetComponent<atk_trigger>().atk = false; }
                 break;
 
             case 3:
+                obstacle.enabled = true;
+                agent.enabled = false;
+
                 if (timer < 0.3) movement = Vector3.zero;
                 else if (timer < 0.5) { transform.rotation = Quaternion.Euler(0f, angle, 0f); movement = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward.normalized * run_sp * Time.deltaTime; }
                 else if (timer < 0.55) { movement = Vector3.zero; }
                 else if (timer < 0.68) { transform.rotation = Quaternion.Euler(0f, angle, 0f); movement = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward.normalized * sp * Time.deltaTime; }
                 else { movement = Vector3.zero; }
 
-                if (timer >= 0.35 && timer <= 0.45) atkTrigger.GetComponent<BoxCollider>().enabled = true;
-                else if (timer >= 0.58 && timer <= 0.68) atkTrigger.GetComponent<BoxCollider>().enabled = true;
-                else atkTrigger.GetComponent<BoxCollider>().enabled = false;
+                if (timer >= 0.35 && timer <= 0.45) atkTrigger.GetComponent<atk_trigger>().atk = true;
+                else if (timer >= 0.58 && timer <= 0.68) atkTrigger.GetComponent<atk_trigger>().atk = true;
+                else atkTrigger.GetComponent<atk_trigger>().atk = false;
 
                 if (timer < 0.7) { atking = true; atked = false; dodge = false; }
                 if (!atked && timer >= 0.8 && timer < 0.9) choose_atk(act_num);
                 else if (timer >= 0.9) atked = false;
                 break;
             case 4:
+                obstacle.enabled = true;
+                agent.enabled = false;
+
                 if (timer < 0.1) movement = Vector3.zero;
                 else if (timer < 0.3) {transform.rotation = Quaternion.Euler(0f, angle, 0f); movement = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward.normalized * run_sp * Time.deltaTime; }
                 else if (timer < 0.48) { movement = Vector3.zero; }
                 else if (timer < 0.64) {transform.rotation = Quaternion.Euler(0f, angle, 0f); movement = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward.normalized * sp * Time.deltaTime; }
                 else { movement = Vector3.zero; }
 
-                if (timer >= 0.28 && timer <= 0.35) atkTrigger.GetComponent<BoxCollider>().enabled = true;
-                else if (timer >= 0.55 && timer <= 0.65) atkTrigger.GetComponent<BoxCollider>().enabled = true;
-                else atkTrigger.GetComponent<BoxCollider>().enabled = false;
+                if (timer >= 0.28 && timer <= 0.35) atkTrigger.GetComponent<atk_trigger>().atk = true;
+                else if (timer >= 0.55 && timer <= 0.65) atkTrigger.GetComponent<atk_trigger>().atk = true;
+                else atkTrigger.GetComponent<atk_trigger>().atk = false;
 
                 if (timer <= 0.3) { atking = true; atked = false; dodge = false; }
                 if (!atked && timer >= 0.8 && timer < 0.9) choose_atk(act_num);
                 else if (timer >= 0.9) atked = false;
                 break;
             case 5:
+                obstacle.enabled = true;
+                agent.enabled = false;
+
                 if (timer < 0.42) movement = Vector3.zero;
                 else if (timer < 0.60) {transform.rotation = Quaternion.Euler(0f, angle, 0f); movement = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward.normalized * 2.0f*run_sp * Time.deltaTime; }
                 else movement = Vector3.zero;
 
-                if (timer >= 0.55 && timer <= 0.6) atkTrigger.GetComponent<BoxCollider>().enabled = true;
-                else atkTrigger.GetComponent<BoxCollider>().enabled = false;
+                if (timer >= 0.55 && timer <= 0.6) atkTrigger.GetComponent<atk_trigger>().atk = true;
+                else atkTrigger.GetComponent<atk_trigger>().atk = false;
 
                 if (timer <= 0.3) { atking = true; atked = false; dodge = false; }
                 if (!atked && timer >= 0.8 && timer < 0.9) choose_atk(act_num);
                 else if (timer >= 0.9) atked = false;
                 break;
             case 6:
+                obstacle.enabled = true;
+                agent.enabled = false;
+
                 if (timer < 0.2) { transform.rotation = Quaternion.Euler(0f, angle, 0f); movement = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.back.normalized * 1.5f*sp * Time.deltaTime; }
                 else if (timer < 0.346) { movement = Vector3.zero; }
                 else if (timer < 0.53) {transform.rotation = Quaternion.Euler(0f, angle, 0f); movement = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward.normalized * 2.0f * run_sp * Time.deltaTime; }
                 else { movement = Vector3.zero; }
 
-                if(timer >= 0.47 && timer <= 0.55) atkTrigger.GetComponent<BoxCollider>().enabled = true;
-                else atkTrigger.GetComponent<BoxCollider>().enabled = false;
+                if(timer >= 0.47 && timer <= 0.55) atkTrigger.GetComponent<atk_trigger>().atk = true;
+                else atkTrigger.GetComponent<atk_trigger>().atk = false;
 
                 if (timer <= 0.3) {atking = true; atked = false; dodge = false; }
                 if (!atked && timer >= 0.8 && timer < 0.9) choose_atk(act_num);
@@ -174,15 +190,23 @@ public class AI_Ancient : AI
 
                 break;
             case 7:
+                obstacle.enabled = true;
+                agent.enabled = false;
+
                 transform.rotation = Quaternion.Euler(0f, angle, 0f);
                 movement = Vector3.zero;
                 stamina += 15f * Time.deltaTime;
                 break;
             case 8:
+                obstacle.enabled = true;
+                agent.enabled = false;
                 movement = Vector3.zero;
                 poise = 100;
                 break;
             case 9:
+                bar.SetActive(false);
+                agent.enabled = false;
+                obstacle.enabled = false;
                 movement = Vector3.zero;
                 break;
         }
