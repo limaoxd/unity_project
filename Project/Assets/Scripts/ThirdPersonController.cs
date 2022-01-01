@@ -102,7 +102,8 @@ public class ThirdPersonController : MonoBehaviour
                     }
                 }
 
-                Aim.GetComponentInChildren<bar_on_head>().gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(200, 15);
+                if(Aim.GetComponentInChildren<bar_on_head>())
+                    Aim.GetComponentInChildren<bar_on_head>().gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(200, 15);
 
                 foreach(var it in GameObject.FindGameObjectsWithTag("Aim_point"))
                     if(it.GetComponentInParent<AI>().gameObject == Aim)
