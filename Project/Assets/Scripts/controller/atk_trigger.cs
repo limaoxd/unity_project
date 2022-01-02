@@ -39,7 +39,7 @@ public class atk_trigger : MonoBehaviour
         if(atk) this.GetComponent<BoxCollider>().enabled = true;
         else this.GetComponent<BoxCollider>().enabled = false;
         
-        if(preAtk != atk && atk == true) play = true; 
+        if(preAtk != atk && atk == true && audios.Length>0) play = true; 
         
         time = audioSource.time;
 

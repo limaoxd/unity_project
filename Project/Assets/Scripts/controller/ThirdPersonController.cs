@@ -196,22 +196,26 @@ public class ThirdPersonController : MonoBehaviour
         if (!animator.GetCurrentAnimatorStateInfo(0).IsName("180turn")) turning = false;
         if (dead)
         {
+            atkTrigger.GetComponent<atk_trigger>().atk = false;
             movement = Vector3.zero;
             return;
         }
 
         if (landing)
         {
+            atkTrigger.GetComponent<atk_trigger>().atk = false;
             angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, smoothTime);
             movement = Vector3.zero;
         }
         else if (turning)
         {
+            atkTrigger.GetComponent<atk_trigger>().atk = false;
             angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, smoothTime);
             movement = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward.normalized *sp * Time.deltaTime;
         }
         else if (dic.magnitude >= 0.1f && !dodging && !rolling && !atking && !dfc)
         {
+            atkTrigger.GetComponent<atk_trigger>().atk = false;
             targetAngle = cam.eulerAngles.y + Mathf.Atan2(dic.x, dic.z) * Mathf.Rad2Deg;
             if (CTRL)
             {
@@ -236,6 +240,7 @@ public class ThirdPersonController : MonoBehaviour
         else if (turning) { movement = Vector3.zero; }
         else if (dodging && timer <= 0.6)
         {
+            atkTrigger.GetComponent<atk_trigger>().atk = false;
             if(timer <=0.4f&&!acted) {
                 stamina -= 30f;
                 acted = true;
@@ -247,6 +252,7 @@ public class ThirdPersonController : MonoBehaviour
         }
         else if (rolling)
         {
+            atkTrigger.GetComponent<atk_trigger>().atk = false;
             if(timer <=0.4f&&!acted) {
                 stamina -= 35f;
                 acted = true;

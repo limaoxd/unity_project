@@ -6,6 +6,7 @@ public class spawner : MonoBehaviour
 {
     public GameObject spawn;
     public bool reset = true;
+    private bool lastreset = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,9 +15,10 @@ public class spawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(reset){
+        if(lastreset!=reset && reset){
             Instantiate(spawn, this.transform.position, Quaternion.Euler(0,transform.eulerAngles.y,0));
             reset = false;
         }
+        lastreset = reset;
     }
 }

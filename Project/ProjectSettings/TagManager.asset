@@ -7,7 +7,6 @@ TagManager:
   - Enemy
   - Bar
   - Aim_point
-  - aim_point
   layers:
   - Default
   - TransparentFX

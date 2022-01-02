@@ -3537,9 +3537,12 @@ MonoBehaviour:
   run: 0
   audioSource: {fileID: 0}
   audios:
-  - {fileID: 8300000, guid: c0dfead58c78c154db4afa8441a34f5c, type: 3}
-  - {fileID: 8300000, guid: f5ca62a8f085b4a4b88d715b1564ff21, type: 3}
-  - {fileID: 8300000, guid: 02804762b58ae854b97affe38e3e48e9, type: 3}
+  - {fileID: 8300000, guid: 7e1b307156779254690a9333c49e3773, type: 3}
+  - {fileID: 8300000, guid: 8be0690036fa97d448d8f5d96c9a3f5b, type: 3}
+  - {fileID: 8300000, guid: 90c2dc6b40f928d4097419e5bd4c1d4a, type: 3}
+  - {fileID: 8300000, guid: e18da735ed91bed4a8ec624f3be639c0, type: 3}
+  - {fileID: 8300000, guid: 259b18db211c1a247b5591fa530c4e7f, type: 3}
+  - {fileID: 8300000, guid: 5d5491d171322834f8ae6da5e0e25600, type: 3}
 --- !u!82 &1901445330025425700
 AudioSource:
   m_ObjectHideFlags: 0

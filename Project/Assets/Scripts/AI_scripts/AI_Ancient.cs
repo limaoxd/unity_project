@@ -88,7 +88,7 @@ public class AI_Ancient : AI
                 targetAngle = transform.rotation.y+agent.angularSpeed;
                 transform.rotation = Quaternion.Euler(0f, angle, 0f);
                 agent.speed = sp;
-                agent.SetDestination(Aim.transform.position);
+                if(agent.isOnNavMesh) agent.SetDestination(Aim.transform.position);
                 movement = agent.velocity/50f;
 
                 if (!atked) choose_atk(act_num);
@@ -100,7 +100,7 @@ public class AI_Ancient : AI
                 targetAngle = transform.rotation.y+agent.angularSpeed;
                 transform.rotation = Quaternion.Euler(0f, angle, 0f);
                 agent.speed = run_sp;
-                agent.SetDestination(Aim.transform.position);
+                if(agent.isOnNavMesh) agent.SetDestination(Aim.transform.position);
                 movement = agent.velocity/50f;
 
                 if (!atked) choose_atk(act_num);
