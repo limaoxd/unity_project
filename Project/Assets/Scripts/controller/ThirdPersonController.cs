@@ -18,7 +18,7 @@ public class ThirdPersonController : MonoBehaviour
     public Image Sp_bar;
     public Image Sp_load;
     public GameObject atkTrigger;
-    public Cinemachine.CinemachineFreeLook cam_free_look;
+    public Transform spawnPoint;
     public AudioSource audioSource;
     public AudioClip[] audios;
 
@@ -32,8 +32,9 @@ public class ThirdPersonController : MonoBehaviour
     public float currentGravity;
     public float maxGravity;
     public float actingTime = 0.5f;
-    public bool rolling, dodging, jump,jumped, aim, prev_aim, atk, dfc, atking, turning, turn, landing, hurting,dead = false;
+    public bool rolling, dodging, jump,jumped, aim, prev_aim, atk, dfc, atking, turning, turn, landing, hurting,waking,dead = false;
 
+    private Cinemachine.CinemachineFreeLook cam_free_look;
     private Transform point_to_aim;
     private int prev_state;
     private float defenceRate = 0.5f;
@@ -41,7 +42,6 @@ public class ThirdPersonController : MonoBehaviour
     private float atkTime = 0f,shiftTime = 0f,hurtTime = 0f;
     private bool W,A,S,D,SHIFT,CTRL,SPACE;
     private bool acted = false;
-
     private Vector3 movement;
     private Vector3 gravityDic;
     private Vector3 gravityMovement;
@@ -61,6 +61,14 @@ public class ThirdPersonController : MonoBehaviour
         GameObject blood = Instantiate(bloodEffect, pos, Quaternion.identity);
         blood.GetComponent<ParticleSystem>().Play();
         health -= val;
+    }
+
+    public void Reset_state(){
+        transform.position = spawnPoint.position;
+        transform.rotation = spawnPoint.rotation;
+        dead = false;
+        health = maxHealth;
+        stamina = maxStamina;
     }
 
     private bool IsGrounded()
@@ -194,12 +202,16 @@ public class ThirdPersonController : MonoBehaviour
         turn = false;
         if (!atking) trail.SetActive(false);
         if (!animator.GetCurrentAnimatorStateInfo(0).IsName("180turn")) turning = false;
-        if (dead)
+
+        if (dead || waking)
         {
             atkTrigger.GetComponent<atk_trigger>().atk = false;
             movement = Vector3.zero;
+            controller.enabled = false;
+            aim = false;
             return;
         }
+        else controller.enabled = true;
 
         if (landing)
         {
@@ -219,7 +231,7 @@ public class ThirdPersonController : MonoBehaviour
             targetAngle = cam.eulerAngles.y + Mathf.Atan2(dic.x, dic.z) * Mathf.Rad2Deg;
             if (CTRL)
             {
-                stamina -= 33f*Time.deltaTime;
+                stamina -= 35f*Time.deltaTime;
                 angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, smoothTime);
                 if (Mathf.Abs((targetAngle + 360) % 360 - (transform.eulerAngles.y + 360) % 360) >= 170 && Mathf.Abs((targetAngle + 360) % 360 - (transform.eulerAngles.y + 360) % 360) <= 190) { turn = true; }
                 if(IsGrounded()) movement = Quaternion.Euler(0f, angle, 0f) * Vector3.forward.normalized * run_sp * Time.deltaTime;
@@ -344,6 +356,7 @@ public class ThirdPersonController : MonoBehaviour
         landing = (animator.GetCurrentAnimatorStateInfo(0).IsName("landing") ? true : false);
         turning = (animator.GetCurrentAnimatorStateInfo(0).IsName("180turn")||turn ? true : false);
         hurting = (animator.GetCurrentAnimatorStateInfo(0).IsName("hurt_lite") || animator.GetCurrentAnimatorStateInfo(0).IsName("sword_blockreact") ? true : false);
+        waking = (animator.GetCurrentAnimatorStateInfo(0).IsName("stand_up") ? true:false);
         jump = (animator.GetCurrentAnimatorStateInfo(0).IsName("jump") ? true : false);
         atking = (animator.GetCurrentAnimatorStateInfo(0).IsName("atk1") || animator.GetCurrentAnimatorStateInfo(0).IsName("atk2") || animator.GetCurrentAnimatorStateInfo(0).IsName("atk4") || animator.GetCurrentAnimatorStateInfo(0).IsName("rolling_atk") || animator.GetCurrentAnimatorStateInfo(0).IsName("run_atk") || animator.GetCurrentAnimatorStateInfo(0).IsName("jump_atk") || animator.GetCurrentAnimatorStateInfo(0).IsName("spin_atk") || animator.GetCurrentAnimatorStateInfo(0).IsName("kick") ? true : false);
         aim = (Input.GetMouseButtonDown(2)?!aim:aim);
@@ -393,7 +406,6 @@ public class ThirdPersonController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Cursor.visible = false;
         gravityDic = Vector3.down;
         ini_degree = transform.eulerAngles.y;
         targetAngle = ini_degree;

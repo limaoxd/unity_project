@@ -7,6 +7,7 @@ using UnityEngine.Rendering.HighDefinition;
 
 public class death_effect : MonoBehaviour
 {
+    public GameObject player;
     public GameObject death_text;
     public float smoothTime = 1f;
     private float val = 0;
@@ -16,6 +17,7 @@ public class death_effect : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.FindWithTag("Player");
         volume = GetComponent<Volume>();
     }
 
@@ -24,11 +26,13 @@ public class death_effect : MonoBehaviour
     {
         if(volume.profile.TryGet<ColorAdjustments>(out tmp)) color = tmp;
 
-        if(GameObject.FindGameObjectWithTag("Player").GetComponent<ThirdPersonController>().dead) {
+        if(player.GetComponent<ThirdPersonController>().dead) {
+            Cursor.visible = true;
             val-=smoothTime*Time.deltaTime;
             death_text.GetComponent<Text>().color = new Color(0.84f,0,0,Mathf.Abs(val/100));
         }
         else {
+            Cursor.visible = false;
             val = 0;
             death_text.GetComponent<Text>().color = new Color(0.84f,0,0,0);
         }

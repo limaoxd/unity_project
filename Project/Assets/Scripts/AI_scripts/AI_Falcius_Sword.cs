@@ -165,9 +165,10 @@ public class AI_Falcius_Sword : AI
 
             case 6: //Death
                 agent.enabled = false;
+                transform.rotation = transform.rotation;
                 bar.SetActive(false);
                 obstacle.enabled = false;
-                this.tag = "Untagged";
+                this.tag = "Dead";
                 movement = Vector3.zero;
                 break;
         }
@@ -183,10 +184,9 @@ public class AI_Falcius_Sword : AI
         maxHealth = 350;
         Health = 350;
         smoothTime = 0.4f;
-        for(int i=0;i<3;i++){
+        for(int i=0;i<3;i++)
             edge.Add(new List<int>());
-        }
-
+        
         edge[0].Add(1); //1 -> 2
         edge[0].Add(2); //1 -> 3
         edge[1].Add(2); //2 -> 3
