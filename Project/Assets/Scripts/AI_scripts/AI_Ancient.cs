@@ -23,6 +23,7 @@ public class AI_Ancient : AI
 
     void choose_atk(int act_num)
     {
+        atking = false;
         for (int i = 0; i < 4; i++) atk_state[i] = false;
         if (stamina <= 70 || player_dis > 5.5) return;
 
@@ -224,9 +225,8 @@ public class AI_Ancient : AI
         Health = 2000;
         smoothTime = 0.4f;
 
-        for(int i=0;i<4;i++){
+        for(int i=0;i<4;i++)
             edge.Add(new List<int>());
-        }
 
         edge[0].Add(1);
         edge[0].Add(2);

@@ -17,6 +17,7 @@ public class Restart_button : MonoBehaviour
             it.GetComponent<spawner>().reset = true;
         
         GameObject boss_gate = GameObject.Find("boss_gate");
+        if(!boss_gate) return;
         foreach(var it in boss_gate.GetComponents<BoxCollider>())
             it.enabled = !it.enabled;
     }

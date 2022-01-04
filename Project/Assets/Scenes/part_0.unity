@@ -193,7 +193,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &134118199
 Transform:
@@ -372,6 +372,10 @@ PrefabInstance:
     - target: {fileID: 2617467563987747174, guid: d769ddedecdc3d7449bb829553ef42f4, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2617467563987747174, guid: d769ddedecdc3d7449bb829553ef42f4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3380829371963304236, guid: d769ddedecdc3d7449bb829553ef42f4, type: 3}
       propertyPath: reset
@@ -1631,6 +1635,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Alluvial_Architecture_LargeVestraWall_01 (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 68e5a3e0aeb51a548947fd435bd3f159, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 68e5a3e0aeb51a548947fd435bd3f159, type: 3}
 --- !u!1 &469345759
@@ -1951,7 +1959,7 @@ MonoBehaviour:
   m_Heading:
     m_Definition: 3
     m_VelocityFilterStrength: 4
-    m_Bias: -475.6493
+    m_Bias: -197.2761
   m_RecenterToTargetHeading:
     m_enabled: 0
     m_WaitTime: 1
@@ -2082,7 +2090,7 @@ MonoBehaviour:
   m_Heading:
     m_Definition: 3
     m_VelocityFilterStrength: 4
-    m_Bias: -475.6493
+    m_Bias: -197.2761
   m_RecenterToTargetHeading:
     m_enabled: 0
     m_WaitTime: 1
@@ -2138,7 +2146,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!82 &566060914
 AudioSource:
@@ -2390,6 +2398,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Alluvial_Architecture_LargeVestraWall_01 (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 68e5a3e0aeb51a548947fd435bd3f159, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 68e5a3e0aeb51a548947fd435bd3f159, type: 3}
 --- !u!1 &631375252
@@ -2532,6 +2544,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Alluvial_Architecture_LargeVestraWall_01 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 68e5a3e0aeb51a548947fd435bd3f159, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 68e5a3e0aeb51a548947fd435bd3f159, type: 3}
 --- !u!1001 &653237872
@@ -2625,7 +2641,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &671259333
 Transform:
@@ -2662,7 +2678,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &690601991
 Transform:
@@ -2766,7 +2782,7 @@ MonoBehaviour:
   m_Heading:
     m_Definition: 3
     m_VelocityFilterStrength: 4
-    m_Bias: -475.6493
+    m_Bias: -197.2761
   m_RecenterToTargetHeading:
     m_enabled: 0
     m_WaitTime: 1
@@ -2960,27 +2976,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &754374507 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5613304519648704077, guid: 0ace3ec1520cef845aaeee40dd16faea, type: 3}
-  m_PrefabInstance: {fileID: 5613304519889857300}
-  m_PrefabAsset: {fileID: 0}
---- !u!208 &754374508
-NavMeshObstacle:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 754374507}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Shape: 1
-  m_Extents: {x: 0.71000004, y: 0.71000004, z: 0.71000004}
-  m_MoveThreshold: 0.1
-  m_Carve: 1
-  m_CarveOnlyStationary: 0
-  m_Center: {x: 0, y: 0, z: 0}
-  m_TimeToStationary: 0.5
 --- !u!1 &768656753
 GameObject:
   m_ObjectHideFlags: 0
@@ -3358,6 +3353,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Alluvial_Architecture_LargeVestraWall_01 (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 68e5a3e0aeb51a548947fd435bd3f159, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 68e5a3e0aeb51a548947fd435bd3f159, type: 3}
 --- !u!1001 &844203479
@@ -3547,6 +3546,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gate2
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 875027370249576439ba80151e779940, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 875027370249576439ba80151e779940, type: 3}
 --- !u!4 &994490486 stripped
@@ -3620,6 +3623,14 @@ PrefabInstance:
     - target: {fileID: 1931821868748480962, guid: f69e61c4191138141bfb683782bba868, type: 3}
       propertyPath: m_Name
       value: Tower0 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1931821868748480962, guid: f69e61c4191138141bfb683782bba868, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3099782661688466771, guid: f69e61c4191138141bfb683782bba868, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f69e61c4191138141bfb683782bba868, type: 3}
@@ -3695,6 +3706,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tower0
       objectReference: {fileID: 0}
+    - target: {fileID: 1931821868748480962, guid: f69e61c4191138141bfb683782bba868, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3099782661688466771, guid: f69e61c4191138141bfb683782bba868, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f69e61c4191138141bfb683782bba868, type: 3}
 --- !u!1001 &1047396816
@@ -3752,6 +3771,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Alluvial_Architecture_LargeVestraWall_01 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 68e5a3e0aeb51a548947fd435bd3f159, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 68e5a3e0aeb51a548947fd435bd3f159, type: 3}
 --- !u!1001 &1050667534
@@ -3808,6 +3831,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 68e5a3e0aeb51a548947fd435bd3f159, type: 3}
       propertyPath: m_Name
       value: Alluvial_Architecture_LargeVestraWall_01 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 68e5a3e0aeb51a548947fd435bd3f159, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 68e5a3e0aeb51a548947fd435bd3f159, type: 3}
@@ -3984,6 +4011,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Alluvial_Architecture_LargeVestraWall_01 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 68e5a3e0aeb51a548947fd435bd3f159, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 68e5a3e0aeb51a548947fd435bd3f159, type: 3}
 --- !u!4 &1108062022 stripped
@@ -4046,6 +4077,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Alluvial_Architecture_LargeVestraWall_01 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 68e5a3e0aeb51a548947fd435bd3f159, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 68e5a3e0aeb51a548947fd435bd3f159, type: 3}
 --- !u!1001 &1167885675
@@ -4102,6 +4137,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 68e5a3e0aeb51a548947fd435bd3f159, type: 3}
       propertyPath: m_Name
       value: Alluvial_Architecture_LargeVestraWall_01 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 68e5a3e0aeb51a548947fd435bd3f159, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 68e5a3e0aeb51a548947fd435bd3f159, type: 3}
@@ -4199,6 +4238,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Alluvial_Architecture_LargeVestraWall_01 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 68e5a3e0aeb51a548947fd435bd3f159, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 68e5a3e0aeb51a548947fd435bd3f159, type: 3}
 --- !u!4 &1249057692 stripped
@@ -4220,7 +4263,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1302366696
 Transform:
@@ -4351,6 +4394,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Alluvial_Architecture_LargeVestraWall_01 (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 68e5a3e0aeb51a548947fd435bd3f159, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 68e5a3e0aeb51a548947fd435bd3f159, type: 3}
 --- !u!1001 &1391834686
@@ -4375,6 +4422,10 @@ PrefabInstance:
     - target: {fileID: 5613304519648704077, guid: 0ace3ec1520cef845aaeee40dd16faea, type: 3}
       propertyPath: m_Name
       value: end_gate
+      objectReference: {fileID: 0}
+    - target: {fileID: 5613304519648704077, guid: 0ace3ec1520cef845aaeee40dd16faea, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5613304519648704078, guid: 0ace3ec1520cef845aaeee40dd16faea, type: 3}
       propertyPath: m_RootOrder
@@ -4443,6 +4494,10 @@ PrefabInstance:
     - target: {fileID: 665214040861886102, guid: cd147d37c3944fc4291e043d3e60c85e, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 665214040861886102, guid: cd147d37c3944fc4291e043d3e60c85e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5534900036071570239, guid: cd147d37c3944fc4291e043d3e60c85e, type: 3}
       propertyPath: m_RootOrder
@@ -4550,6 +4605,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Alluvial_Architecture_LargeVestraWall_01 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 68e5a3e0aeb51a548947fd435bd3f159, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 68e5a3e0aeb51a548947fd435bd3f159, type: 3}
 --- !u!1 &1479927254 stripped
@@ -4608,9 +4667,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 73628688}
     m_Modifications:
+    - target: {fileID: 2695479790813323187, guid: 4f7abe75e8a93654a88c9e767628235b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4611802572629765587, guid: 4f7abe75e8a93654a88c9e767628235b, type: 3}
       propertyPath: m_Name
       value: Tower1 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4611802572629765587, guid: 4f7abe75e8a93654a88c9e767628235b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5425635432474097513, guid: 4f7abe75e8a93654a88c9e767628235b, type: 3}
       propertyPath: m_RootOrder
@@ -5355,7 +5422,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1644209845
 Transform:
@@ -5430,6 +5497,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 68e5a3e0aeb51a548947fd435bd3f159, type: 3}
       propertyPath: m_Name
       value: Alluvial_Architecture_LargeVestraWall_01 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 68e5a3e0aeb51a548947fd435bd3f159, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 68e5a3e0aeb51a548947fd435bd3f159, type: 3}
@@ -5509,6 +5580,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 3b5b53b5870c786418440364c27d24fe, type: 3}
       propertyPath: m_Name
       value: Bridge_01A
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3b5b53b5870c786418440364c27d24fe, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3b5b53b5870c786418440364c27d24fe, type: 3}
@@ -5740,6 +5815,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 665214040861886102, guid: cd147d37c3944fc4291e043d3e60c85e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 5534900036071570239, guid: cd147d37c3944fc4291e043d3e60c85e, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -5952,6 +6031,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Alluvial_Architecture_LargeVestraWall_01
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 68e5a3e0aeb51a548947fd435bd3f159, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 68e5a3e0aeb51a548947fd435bd3f159, type: 3}
 --- !u!4 &1867792127 stripped
@@ -6077,6 +6160,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 68e5a3e0aeb51a548947fd435bd3f159, type: 3}
       propertyPath: m_Name
       value: Alluvial_Architecture_LargeVestraWall_01 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 68e5a3e0aeb51a548947fd435bd3f159, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 68e5a3e0aeb51a548947fd435bd3f159, type: 3}
@@ -6264,7 +6351,7 @@ MonoBehaviour:
   m_Heading:
     m_Definition: 3
     m_VelocityFilterStrength: 4
-    m_Bias: -475.6493
+    m_Bias: -197.2761
   m_RecenterToTargetHeading:
     m_enabled: 0
     m_WaitTime: 1
@@ -6403,6 +6490,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 665214040861886102, guid: cd147d37c3944fc4291e043d3e60c85e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 5534900036071570239, guid: cd147d37c3944fc4291e043d3e60c85e, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -6521,6 +6612,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tower2
       objectReference: {fileID: 0}
+    - target: {fileID: 618397202533596612, guid: e6c077414e0a2d4409f1f8c75881c674, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1547782070303013962, guid: e6c077414e0a2d4409f1f8c75881c674, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e6c077414e0a2d4409f1f8c75881c674, type: 3}
 --- !u!4 &4475956620541028472 stripped
@@ -6601,9 +6700,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 73628688}
     m_Modifications:
+    - target: {fileID: 4423671182435243648, guid: 6a9f1db0e8d93db4297fb118d62c5c9f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 8298836783613098264, guid: 6a9f1db0e8d93db4297fb118d62c5c9f, type: 3}
       propertyPath: m_Name
       value: Tower5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8298836783613098264, guid: 6a9f1db0e8d93db4297fb118d62c5c9f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8674131590898803618, guid: 6a9f1db0e8d93db4297fb118d62c5c9f, type: 3}
       propertyPath: m_RootOrder
@@ -6673,6 +6780,10 @@ PrefabInstance:
     - target: {fileID: 5613304519648704077, guid: 0ace3ec1520cef845aaeee40dd16faea, type: 3}
       propertyPath: m_Name
       value: boss_gate
+      objectReference: {fileID: 0}
+    - target: {fileID: 5613304519648704077, guid: 0ace3ec1520cef845aaeee40dd16faea, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5613304519648704078, guid: 0ace3ec1520cef845aaeee40dd16faea, type: 3}
       propertyPath: m_RootOrder
@@ -6787,6 +6898,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tower3
       objectReference: {fileID: 0}
+    - target: {fileID: 4575767364163864186, guid: 9f645fcdc4cba574882cb304944a9a4f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8935180977892125297, guid: 9f645fcdc4cba574882cb304944a9a4f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f645fcdc4cba574882cb304944a9a4f, type: 3}
 --- !u!4 &7036775484995630417 stripped
@@ -6801,9 +6920,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 73628688}
     m_Modifications:
+    - target: {fileID: 2695479790813323187, guid: 4f7abe75e8a93654a88c9e767628235b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4611802572629765587, guid: 4f7abe75e8a93654a88c9e767628235b, type: 3}
       propertyPath: m_Name
       value: Tower1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4611802572629765587, guid: 4f7abe75e8a93654a88c9e767628235b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5425635432474097513, guid: 4f7abe75e8a93654a88c9e767628235b, type: 3}
       propertyPath: m_RootOrder
@@ -6875,6 +7002,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 73628688}
     m_Modifications:
+    - target: {fileID: 2987157676571825449, guid: ab6bcfb42dfd9884a9736f3755d62239, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 6275705326151912389, guid: ab6bcfb42dfd9884a9736f3755d62239, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -6934,6 +7065,10 @@ PrefabInstance:
     - target: {fileID: 6655220818743628159, guid: ab6bcfb42dfd9884a9736f3755d62239, type: 3}
       propertyPath: m_Name
       value: Tower4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6655220818743628159, guid: ab6bcfb42dfd9884a9736f3755d62239, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ab6bcfb42dfd9884a9736f3755d62239, type: 3}

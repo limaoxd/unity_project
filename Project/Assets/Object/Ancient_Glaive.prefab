@@ -3132,7 +3132,7 @@ GameObject:
   - component: {fileID: 8661019606065367342}
   m_Layer: 0
   m_Name: spine_01
-  m_TagString: aim_point
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

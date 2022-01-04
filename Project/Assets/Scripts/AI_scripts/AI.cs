@@ -25,9 +25,6 @@ public class AI : MonoBehaviour
     public float           sp = 2.5f;
     public float           run_sp = 6f;
     public float           smoothTime = 0.1f;
-    public float           gravity = 0.1f;
-    public float           currentGravity;
-    public float           maxGravity = 5.0f;
     public float           Damage = 0f;
     public float           poise = 100.0f;
     public float           stamina = 100.0f;
@@ -35,8 +32,11 @@ public class AI : MonoBehaviour
     public int             atk_n = 0;
 
     protected float        player_dis = 0f , hurtTime = 0f;
+    protected float        gravity = 0.1f;
+    protected float        currentGravity;
+    protected float        maxGravity = 5.0f;
     protected bool[]       atk_state;
-    protected bool         dead , atking , dodge ,atked;
+    protected bool         dead , atking , dodge , atked , taunt;
     protected bool         p_atking;
     protected string[]     atk;
 
@@ -61,7 +61,8 @@ public class AI : MonoBehaviour
 
     protected bool IsGrounded()
     {
-        return controller.isGrounded;
+        if(Physics.Raycast(transform.position, Vector3.down.normalized, 0.1f)) return true;
+        return false;
     }
 
     protected void Set_state()
