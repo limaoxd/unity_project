@@ -36,7 +36,7 @@ public class AI : MonoBehaviour
     protected float        currentGravity;
     protected float        maxGravity = 5.0f;
     protected bool[]       atk_state;
-    protected bool         dead , atking , dodge , atked , taunt;
+    protected bool         dead , atking , dodge , atked , taunt , state_2;
     protected bool         p_atking;
     protected string[]     atk;
 
@@ -104,6 +104,8 @@ public class AI : MonoBehaviour
     public void Healthbar()
     {
         if (Health > maxHealth) Health = maxHealth;
+        if(Health <= maxHealth * 0.6f) state_2 = true;
+        else state_2 = false;
         Health_bar.fillAmount = Health / maxHealth;
         Health_load.fillAmount = Mathf.SmoothDampAngle(Health_load.fillAmount, Health_bar.fillAmount, ref healthTurnSmoothVelocity, 3 * smoothTime);
     }
