@@ -29,7 +29,7 @@ public class AI_Bearclaw : AI
     {
         atking = false;
         for (int i = 0; i < 5; i++) atk_state[i] = false;
-        if (stamina <= 70 || player_dis > 4 || (act_num == 7 && state_2)) return;
+        if (stamina <= 70 || player_dis > 6 ) return;
 
         int choosen = 0;
 
@@ -82,7 +82,7 @@ public class AI_Bearclaw : AI
         }
 
         if(state_2) {
-            animator.speed = 1.1f;
+            animator.speed = 1.15f;
             state2_particle.SetActive(true);
         }
         if (player_dis < 3 && p_atking) taunt = true;
@@ -224,14 +224,14 @@ public class AI_Bearclaw : AI
 
                 break;
             case 8:
-                smoothTime = 2f;
+                smoothTime = 0.25f;
                 obstacle.enabled = true;
                 agent.enabled = false;
 
-                if (timer < 0.2) movement = Vector3.zero;
-                else if (timer < 0.55) { transform.rotation = Quaternion.Euler(0f, angle, 0f); movement = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward.normalized * run_sp * Time.deltaTime; }
+                if (timer < 0.2) {transform.rotation = Quaternion.Euler(0f, angle, 0f);movement = Vector3.zero;}
+                else if (timer < 0.55) {transform.rotation = Quaternion.Euler(0f, angle, 0f); movement = Quaternion.Euler(0f, angle, 0f) * Vector3.forward.normalized * 1.2f * run_sp * Time.deltaTime; }
                 else if (timer < 0.65) movement = Vector3.zero;
-                else if (timer < 0.8) { transform.rotation = Quaternion.Euler(0f, angle, 0f); movement = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward.normalized * sp * Time.deltaTime; }
+                else if (timer < 0.8) { transform.rotation = Quaternion.Euler(0f, angle, 0f); movement = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward.normalized * 2f*sp * Time.deltaTime; }
                 else movement = Vector3.zero;
 
                 if(timer >= 0.3 && timer <= 0.54) {atkTrigger.GetComponent<atk_trigger>().atk = true;atkTrigger1.GetComponent<atk_trigger>().atk = true;}
