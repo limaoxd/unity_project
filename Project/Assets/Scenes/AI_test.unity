@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43185b14562e3dc4582cceec8698d109, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawn: {fileID: 6603362420418251165, guid: 7f466655e2f737740a38ec857e310c26, type: 3}
+  spawn: {fileID: 2718504120282680420, guid: da63f940b05d90f45a03a7dffeb907c7, type: 3}
   reset: 1
 --- !u!4 &26860199
 Transform:
@@ -253,7 +253,7 @@ MonoBehaviour:
   m_Heading:
     m_Definition: 3
     m_VelocityFilterStrength: 4
-    m_Bias: -395.305
+    m_Bias: -367.139
   m_RecenterToTargetHeading:
     m_enabled: 0
     m_WaitTime: 1
@@ -999,7 +999,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 1000000
+  m_Intensity: 510120
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -1083,7 +1083,7 @@ MonoBehaviour:
   m_PointlightHDType: 0
   m_SpotLightShape: 0
   m_AreaLightShape: 0
-  m_Intensity: 1000000
+  m_Intensity: 510120
   m_EnableSpotReflector: 1
   m_LuxAtDistance: 1
   m_InnerSpotPercent: 0
@@ -1754,7 +1754,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6198719273861297943, guid: 15789796ab9727348b6a53829668bc36, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6198719273861297943, guid: 15789796ab9727348b6a53829668bc36, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1798,7 +1798,7 @@ PrefabInstance:
       objectReference: {fileID: 941517742}
     - target: {fileID: 6198719273861297945, guid: 15789796ab9727348b6a53829668bc36, type: 3}
       propertyPath: health
-      value: 8000
+      value: 400
       objectReference: {fileID: 0}
     - target: {fileID: 6198719273861297945, guid: 15789796ab9727348b6a53829668bc36, type: 3}
       propertyPath: Hp_load
@@ -1818,7 +1818,7 @@ PrefabInstance:
       objectReference: {fileID: 398402573}
     - target: {fileID: 6198719273861297945, guid: 15789796ab9727348b6a53829668bc36, type: 3}
       propertyPath: maxHealth
-      value: 8000
+      value: 400
       objectReference: {fileID: 0}
     - target: {fileID: 6198719273861297945, guid: 15789796ab9727348b6a53829668bc36, type: 3}
       propertyPath: spawnPoint
@@ -2102,7 +2102,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 953802833}
-  m_LocalRotation: {x: 0.23921447, y: 0.5320033, z: 0.1598028, w: -0.7963743}
+  m_LocalRotation: {x: 0.09549859, y: -0.903417, z: -0.27136785, w: -0.3179266}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -2475,7 +2475,7 @@ MonoBehaviour:
   m_Heading:
     m_Definition: 3
     m_VelocityFilterStrength: 4
-    m_Bias: -395.305
+    m_Bias: -367.139
   m_RecenterToTargetHeading:
     m_enabled: 0
     m_WaitTime: 1
@@ -2664,7 +2664,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1403689298}
-  m_LocalRotation: {x: 0.25762257, y: 0.5281533, z: 0.1721, w: -0.7906113}
+  m_LocalRotation: {x: 0.102847375, y: -0.8968793, z: -0.29225022, w: -0.31562588}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -2757,7 +2757,7 @@ MonoBehaviour:
   m_Heading:
     m_Definition: 3
     m_VelocityFilterStrength: 4
-    m_Bias: -395.305
+    m_Bias: -367.139
   m_RecenterToTargetHeading:
     m_enabled: 0
     m_WaitTime: 1
@@ -2901,7 +2901,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1750461982
 GameObject:
@@ -2976,7 +2976,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1750461982}
-  m_LocalRotation: {x: 0.2945299, y: 0.51947254, z: 0.19675525, w: -0.7776168}
+  m_LocalRotation: {x: 0.11758146, y: -0.88213813, z: -0.33411834, w: -0.31043822}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -3270,7 +3270,7 @@ MonoBehaviour:
   m_Heading:
     m_Definition: 3
     m_VelocityFilterStrength: 4
-    m_Bias: -395.305
+    m_Bias: -367.139
   m_RecenterToTargetHeading:
     m_enabled: 0
     m_WaitTime: 1
@@ -3299,7 +3299,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2127207785}
   m_LocalRotation: {x: -0, y: 0.25885513, z: -0, w: -0.96591616}
-  m_LocalPosition: {x: 2.3752322, y: 25.449999, z: -36.404408}
+  m_LocalPosition: {x: -0.9526961, y: 25.449999, z: -36.00382}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1750461984}
@@ -3335,8 +3335,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2139610512}
-  m_LocalRotation: {x: -0.20429282, y: -0.7148057, z: -0.2329211, w: 0.6269491}
-  m_LocalPosition: {x: 2.3752322, y: 25.449999, z: -36.404408}
+  m_LocalRotation: {x: -0.17499243, y: 0.7846089, z: 0.25566664, w: 0.5370299}
+  m_LocalPosition: {x: -0.9526961, y: 25.449999, z: -36.00382}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

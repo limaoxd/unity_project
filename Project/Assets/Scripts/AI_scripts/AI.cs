@@ -28,13 +28,11 @@ public class AI : MonoBehaviour
     public float           Damage = 0f;
     public float           poise = 100.0f;
     public float           stamina = 100.0f;
-
+    public float           c_dis = 1f;
     public int             atk_n = 0;
-
     protected float        player_dis = 0f , hurtTime = 0f;
-    protected float        gravity = 0.1f;
-    protected float        currentGravity;
-    protected float        maxGravity = 5.0f;
+    protected float        gravity = 0.1f ,currentGravity = 0 , maxGravity = 5.0f;
+    protected bool         isDfc = false;
     protected bool[]       atk_state;
     protected bool         dead , atking , dodge , atked , taunt , state_2;
     protected bool         p_atking;
@@ -49,7 +47,7 @@ public class AI : MonoBehaviour
 
     public void takeDamage(float val,Vector3 pos)
     {
-        if (dead || hurtTime > 0) return;
+        if (dead || hurtTime > 0 || isDfc) return;
 
         audioSource.PlayOneShot(audios[Random.Range(0,audios.Length)]);
         hurtTime = 0.5f;
@@ -57,6 +55,16 @@ public class AI : MonoBehaviour
         blood.GetComponent<ParticleSystem>().Play();
         poise -= 200*val/maxHealth;
         Health -= val;
+    }
+
+    public void takeDfc()
+    {
+        isDfc = true;
+    }
+
+    public void noDfc()
+    {
+        isDfc = false;
     }
 
     protected bool IsGrounded()

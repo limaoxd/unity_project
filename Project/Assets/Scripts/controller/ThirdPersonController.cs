@@ -117,7 +117,7 @@ public class ThirdPersonController : MonoBehaviour
         }
         else
         {
-            cam_free_look.m_Lens.FieldOfView = 50;
+            cam_free_look.m_Lens.FieldOfView = 50 * Aim.GetComponent<AI>().c_dis;
             cam_free_look.m_YAxis.Value = 0.2f;
             cam_free_look.m_YAxis.m_MaxSpeed = 0;
             cam_free_look.m_XAxis.m_MaxSpeed = 0;
