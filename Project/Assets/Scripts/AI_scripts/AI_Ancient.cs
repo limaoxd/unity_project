@@ -205,10 +205,13 @@ public class AI_Ancient : AI
                 poise = 100;
                 break;
             case 9:
-                bar.SetActive(false);
                 agent.enabled = false;
-                obstacle.enabled = false;
+                controller.enabled = false;
                 movement = Vector3.zero;
+                bar.SetActive(false);
+                obstacle.enabled = false;
+                atkTrigger.GetComponent<atk_trigger>().atk = false;
+                this.tag = "Dead";
                 break;
         }
     }
