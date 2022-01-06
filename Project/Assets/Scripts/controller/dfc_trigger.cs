@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class dfc_trigger : MonoBehaviour
 {
+    public GameObject Spark;
     public AudioSource audioSource;
     public AudioClip[] audios;
     public int ind = 0;
@@ -12,6 +13,8 @@ public class dfc_trigger : MonoBehaviour
     {
         if (!other.GetComponentInParent<AI>() && other.GetComponentInParent<ThirdPersonController>().atking){
             this.GetComponentInParent<AI>().takeDfc();
+            Vector3 point = other.ClosestPoint(transform.position);
+            GameObject spark = Instantiate(Spark, point, Quaternion.identity);
             ind = Random.Range(0,audios.Length);
             audioSource.PlayOneShot(audios[ind]);
         }

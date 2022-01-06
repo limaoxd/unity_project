@@ -133,10 +133,8 @@ public class AI_Goldenking : AI
                 obstacle.enabled = true;
                 agent.enabled = false;
 
-                transform.rotation = Quaternion.Euler(0f, angle, 0f);
                 movement = Vector3.zero;
                 taunt = false;
-                Health += 50f * Time.deltaTime;
                 stamina += 30f * Time.deltaTime;
                 atking = false;
                 atkTrigger.GetComponent<atk_trigger>().atk = false;
@@ -147,7 +145,7 @@ public class AI_Goldenking : AI
                 agent.enabled = false;
 
                 if (timer < 0.23) movement = Vector3.zero;
-                else if (timer < 0.4) { transform.rotation = Quaternion.Euler(0f, angle, 0f); movement = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward.normalized * sp * Time.deltaTime; }
+                else if (timer < 0.4) { transform.rotation = Quaternion.Euler(0f, angle, 0f); movement = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward.normalized * run_sp * Time.deltaTime; }
                 else { movement = Vector3.zero; }
 
                 if (timer >= 0.3 && timer <= 0.4) atkTrigger.GetComponent<atk_trigger>().atk = true;
@@ -159,11 +157,11 @@ public class AI_Goldenking : AI
                 obstacle.enabled = true;
                 agent.enabled = false;
 
-                if (timer < 0.28) movement = Vector3.zero;
+                if (timer < 0.28) {transform.rotation = Quaternion.Euler(0f, angle, 0f);movement = Vector3.zero;}
                 else if (timer < 0.33) { transform.rotation = Quaternion.Euler(0f, angle, 0f); movement = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward.normalized * sp * Time.deltaTime; }
                 else { movement = Vector3.zero; }
 
-                if (timer >= 0.2 && timer <= 0.38) atkTrigger.GetComponent<atk_trigger>().atk = true;
+                if (timer >= 0.25 && timer <= 0.38) atkTrigger.GetComponent<atk_trigger>().atk = true;
                 else {atkTrigger.GetComponent<atk_trigger>().atk = false;atkTrigger1.GetComponent<atk_trigger>().atk = false;}
 
                 choose(timer,act_num);
@@ -173,9 +171,9 @@ public class AI_Goldenking : AI
                 agent.enabled = false;
 
                 if (timer < 0.12) { transform.rotation = Quaternion.Euler(0f, angle, 0f); movement = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.back.normalized * sp * Time.deltaTime; }
-                else if (timer < 0.28) movement = Vector3.zero;
-                else if (timer < 0.64) { transform.rotation = Quaternion.Euler(0f, angle, 0f); movement = Quaternion.Euler(0f, angle, 0f) * Vector3.forward.normalized * run_sp * Time.deltaTime; }
-                else { movement = Vector3.zero; }
+                else if (timer < 0.28) { transform.rotation = Quaternion.Euler(0f, angle, 0f);movement = Vector3.zero;}
+                else if (timer < 0.64) { bash = true ; transform.rotation = Quaternion.Euler(0f, angle, 0f); movement = Quaternion.Euler(0f, angle, 0f) * Vector3.forward.normalized * run_sp * Time.deltaTime; }
+                else { bash = false ; movement = Vector3.zero; }
 
                 if (timer >= 0.35 && timer <= 0.6) atkTrigger1.GetComponent<atk_trigger>().atk = true;
                 else {atkTrigger.GetComponent<atk_trigger>().atk = false;atkTrigger1.GetComponent<atk_trigger>().atk = false;}
@@ -186,9 +184,9 @@ public class AI_Goldenking : AI
                 obstacle.enabled = true;
                 agent.enabled = false;
 
-                if (timer < 0.21) movement = Vector3.zero;
-                else if (timer < 0.5) { transform.rotation = Quaternion.Euler(0f, angle, 0f); movement = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward.normalized * 2f * run_sp * Time.deltaTime; }
-                else { movement = Vector3.zero; }
+                if (timer < 0.21) {transform.rotation = Quaternion.Euler(0f, angle, 0f);movement = Vector3.zero;}
+                else if (timer < 0.5) { bash = true ; transform.rotation = Quaternion.Euler(0f, angle, 0f); movement = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward.normalized * run_sp * Time.deltaTime; }
+                else { bash = false ; movement = Vector3.zero; }
 
                 if (timer >= 0.38 && timer <= 0.5) atkTrigger1.GetComponent<atk_trigger>().atk = true;
                 else {atkTrigger.GetComponent<atk_trigger>().atk = false;atkTrigger1.GetComponent<atk_trigger>().atk = false;}

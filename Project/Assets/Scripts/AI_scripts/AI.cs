@@ -34,7 +34,7 @@ public class AI : MonoBehaviour
     protected float        gravity = 0.1f ,currentGravity = 0 , maxGravity = 5.0f;
     protected bool         isDfc = false;
     protected bool[]       atk_state;
-    protected bool         dead , atking , dodge , atked , taunt , state_2;
+    protected bool         dead , atking , dodge , atked , bash, taunt , state_2;
     protected bool         p_atking;
     protected string[]     atk;
 
@@ -76,7 +76,7 @@ public class AI : MonoBehaviour
     protected void Set_state()
     {
         float dis_x = Aim.transform.position.x - transform.position.x, dis_z = Aim.transform.position.z - transform.position.z;
-        targetAngle = Mathf.Atan2(dis_x, dis_z) * Mathf.Rad2Deg;
+        if(!bash) targetAngle = Mathf.Atan2(dis_x, dis_z) * Mathf.Rad2Deg;
         player_dis = Mathf.Sqrt(dis_x * dis_x + dis_z * dis_z);
         p_atking = Aim.GetComponent<ThirdPersonController>().atking;
 
