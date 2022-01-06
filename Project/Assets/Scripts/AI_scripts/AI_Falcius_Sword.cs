@@ -23,7 +23,7 @@ public class AI_Falcius_Sword : AI
     {
         atking = false;
         for (int i = 0; i < 3; i++) atk_state[i] = false;
-        if (stamina <= 70 || player_dis > 3) return; //return to idle
+        if (stamina <= 70 || player_dis > 3.5) return; //return to idle
         stamina -= 20+Random.Range(-8,1);
         int choosen = 0;
 
@@ -36,13 +36,13 @@ public class AI_Falcius_Sword : AI
         switch (choosen)
         {
             case 0:
-                Damage = 80;
+                Damage = 60;
                 break;
             case 1:
-                Damage = 70;
+                Damage = 50;
                 break;
             case 2:
-                Damage = 90;
+                Damage = 70;
                 break;
         }
         atkTrigger.GetComponent<atk_trigger>().Damage = this.Damage;
