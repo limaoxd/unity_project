@@ -40,12 +40,11 @@ public class AI_Bearclaw : AI
         else if(!state_2) choosen = Random.Range(0,4);
         else choosen = Random.Range(0,5);
 
-        if(choosen == 3 && !state_2) Damage = 90;
-        else if(choosen == 4 && !state_2) Damage = 100;
-        else if(!state_2) Damage = 80;
-        else if(choosen == 3) Damage = 140;
-        else if(choosen == 4) Damage = 160;
-        else Damage = 120;
+        if(choosen == 3) Damage = 90;
+        else if(choosen == 4) Damage = 100;
+        else  Damage = 80;
+
+        if(state_2) Damage *= 1.25f;
 
         atkTrigger.GetComponent<atk_trigger>().Damage = this.Damage;
         atkTrigger1.GetComponent<atk_trigger>().Damage = this.Damage;
@@ -280,6 +279,7 @@ public class AI_Bearclaw : AI
         maxHealth = 2000;
         Health = 2000;
         smoothTime = 0.3f;
+        c_dis = 1.15f;
 
         for(int i=0;i<5;i++)
             edge.Add(new List<int>());
