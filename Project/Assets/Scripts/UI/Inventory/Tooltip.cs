@@ -16,13 +16,7 @@ public class Tooltip : MonoBehaviour
     //check if there are stats to read inside the item
     public void GenerateTooltip(Item item)
     {
-        string statText = "";
-        if(item.stats.Count > 0)
-        {
-            foreach(var stat in item.stats)
-                statText += stat.Key.ToString() + ": " + stat.Value.ToString() + "\n";
-        }
-        string tooltip = string.Format("<b>{0}</b>\n{1}", item.itemname, statText);
+        string tooltip = string.Format("<b>{0}</b>\n{1}", item.itemname, item.description);
         tooltipText.text = tooltip;
         gameObject.SetActive(true);
     }

@@ -11,6 +11,7 @@ public class UIInventory : MonoBehaviour
     public Transform slotPanel;
     public int numberOfSlots = 12;
 
+
     //spawn each slot into the panel and save them into UIItem list
     private void Awake()
     { 
