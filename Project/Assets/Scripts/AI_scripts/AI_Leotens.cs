@@ -82,7 +82,7 @@ public class AI_Leotens : AI
         float timer = animator.GetCurrentAnimatorStateInfo(0).normalizedTime;
         angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, smoothTime);
         if (atking) {trail.SetActive(true);trail1.SetActive(true); }
-        else { trail.SetActive(false);trail1.SetActive(true); }
+        else { trail.SetActive(false);trail1.SetActive(false); }
 
         if (stamina > 70 && player_dis >7 ) taunt = true;
 

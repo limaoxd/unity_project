@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b85b8dd4c16b43341a7720a10c86c721, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timer: 1.5
+  timer: 2
 --- !u!114 &4786411323119828276
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62,7 +62,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isEnemy: 1
-  spell: 1
   atk: 1
   play: 0
   Damage: 100
@@ -100,7 +99,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sp: 20
-  smoothTime: 0.04
+  smoothTime: 0.023
+  explode: {fileID: 2086082451417308270, guid: 779142ab57b59f443ba9120b7eab034b, type: 3}
 --- !u!82 &5558202173391928100
 AudioSource:
   m_ObjectHideFlags: 0
