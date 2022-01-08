@@ -76,7 +76,7 @@ public class AI : MonoBehaviour
     protected void Set_state()
     {
         float dis_x = Aim.transform.position.x - transform.position.x, dis_z = Aim.transform.position.z - transform.position.z;
-        if(!bash) targetAngle = Mathf.Atan2(dis_x, dis_z) * Mathf.Rad2Deg;
+        targetAngle = Mathf.Atan2(dis_x, dis_z) * Mathf.Rad2Deg;
         player_dis = Mathf.Sqrt(dis_x * dis_x + dis_z * dis_z);
         p_atking = Aim.GetComponent<ThirdPersonController>().atking;
 

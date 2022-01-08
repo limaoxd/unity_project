@@ -5,6 +5,7 @@ using UnityEngine;
 public class atk_trigger : MonoBehaviour
 {
     public bool isEnemy = true;
+    public bool spell = false;
     public bool atk = false;
     public bool play = false;
     public float Damage = 50;
@@ -24,6 +25,9 @@ public class atk_trigger : MonoBehaviour
         {
             Vector3 point = other.ClosestPoint(transform.position);
             other.GetComponentInParent<ThirdPersonController>().takeDamage(Damage, point);
+        }
+        if(spell){
+            Object.Destroy(this.gameObject);
         }
     }
 

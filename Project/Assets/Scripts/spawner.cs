@@ -16,7 +16,7 @@ public class spawner : MonoBehaviour
     void Update()
     {
         if(lastreset!=reset && reset){
-            Instantiate(spawn, this.transform.position, Quaternion.Euler(0,transform.eulerAngles.y,0));
+            Instantiate(spawn, this.transform.position, Quaternion.Euler(transform.eulerAngles.x,transform.eulerAngles.y,transform.eulerAngles.z));
             reset = false;
         }
         lastreset = reset;
