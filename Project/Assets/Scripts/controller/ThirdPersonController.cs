@@ -13,17 +13,20 @@ public class ThirdPersonController : MonoBehaviour
     public GameObject free_cam;
     public GameObject aim_point;
     public GameObject trail;
+    public atk_trigger atkTrigger;
     public Image Hp_bar;
     public Image Hp_load;
     public Image Sp_bar;
     public Image Sp_load;
-    public GameObject atkTrigger;
     public Transform spawnPoint;
     public AudioSource audioSource;
     public AudioClip[] audios;
 
-    public float maxHealth = 200f,maxStamina = 150f;
-    public float health = 200f,stamina = 150f;
+    public int drinkMax = 3;
+    public int drinkLeft;
+    public float maxHealth = 400f,maxStamina = 150f;
+    public float health = 400f,stamina = 150f;
+    public float heal = 150f;
     public float sp = 6f;
     public float timer = 0f;
     public float run_sp = 10f;
@@ -32,7 +35,7 @@ public class ThirdPersonController : MonoBehaviour
     public float currentGravity;
     public float maxGravity;
     public float actingTime = 0.5f;
-    public bool rolling, dodging, jump,jumped, aim, prev_aim, atk, dfc, atking, turning, turn, landing, hurting,waking,dead = false;
+    public bool rolling, dodging, jump,jumped, aim, prev_aim, atk, dfc, atking, turning, drinking, turn, landing, hurting,waking,dead = false;
 
     private Cinemachine.CinemachineFreeLook cam_free_look;
     private Transform point_to_aim;
@@ -40,15 +43,15 @@ public class ThirdPersonController : MonoBehaviour
     private float defenceRate = 0.5f;
     private float degree = 0f , ini_degree = 0f;
     private float atkTime = 0f,shiftTime = 0f,hurtTime = 0f;
-    private bool W,A,S,D,SHIFT,CTRL,SPACE;
-    private bool acted = false;
+    private bool W,A,S,D,R,SHIFT,CTRL,SPACE;
+    private bool acted = false , drinked =  false ;
     private Vector3 movement;
     private Vector3 gravityDic;
     private Vector3 gravityMovement;
     float horizontal;
     float vertical;
     float turnSmoothVelocity;
-    float hpTurnSmoothVelocity,spTurnSmoothVelocity;
+    float hpTurnSmoothVelocity,hp1TurnSmoothVelocity,spTurnSmoothVelocity;
     float targetAngle , angle;
 
     public void takeDamage(float val,Vector3 pos)
@@ -64,6 +67,7 @@ public class ThirdPersonController : MonoBehaviour
     }
 
     public void Reset_state(){
+        drinkLeft = drinkMax;
         transform.position = spawnPoint.position;
         transform.rotation = spawnPoint.rotation;
         dead = false;
@@ -83,6 +87,7 @@ public class ThirdPersonController : MonoBehaviour
         S = (Input.GetKey("s") ? true : false);
         A = (Input.GetKey("a") ? true : false);
         D = (Input.GetKey("d") ? true : false);
+        R = (Input.GetKey("r") ? true : false);
         SPACE = (Input.GetKey("space") && stamina >= 10? true : false);
         bool lastCtrl = CTRL;
         CTRL = (Input.GetKey("left ctrl") && stamina >= 10? true : false);
@@ -104,7 +109,7 @@ public class ThirdPersonController : MonoBehaviour
             if (dis < dist)
             {
                 Aim = it;
-                    dist = dis;
+                dist = dis;
             }
         }
 
@@ -164,8 +169,8 @@ public class ThirdPersonController : MonoBehaviour
             Aim = GameObject.FindGameObjectWithTag("Player");
 
             cam_free_look.m_Lens.FieldOfView = 50;
-            cam_free_look.m_YAxis.m_MaxSpeed = 15;
-            cam_free_look.m_XAxis.m_MaxSpeed = 800;
+            cam_free_look.m_YAxis.m_MaxSpeed = 7;
+            cam_free_look.m_XAxis.m_MaxSpeed = 350;
             cam_free_look.m_BindingMode = Cinemachine.CinemachineTransposer.BindingMode.SimpleFollowWithWorldUp;
         }
 
@@ -205,7 +210,7 @@ public class ThirdPersonController : MonoBehaviour
 
         if (dead || waking)
         {
-            atkTrigger.GetComponent<atk_trigger>().atk = false;
+            atkTrigger.atk = false;
             movement = Vector3.zero;
             controller.enabled = false;
             aim = false;
@@ -215,19 +220,32 @@ public class ThirdPersonController : MonoBehaviour
 
         if (landing)
         {
-            atkTrigger.GetComponent<atk_trigger>().atk = false;
+            atkTrigger.atk = false;
             angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, smoothTime);
             movement = Vector3.zero;
         }
         else if (turning)
         {
-            atkTrigger.GetComponent<atk_trigger>().atk = false;
+            atkTrigger.atk = false;
             angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, smoothTime);
-            movement = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward.normalized *sp * Time.deltaTime;
+            movement = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward.normalized * sp * Time.deltaTime;
+        }
+        else if (drinking)
+        {
+
+            atkTrigger.atk = false;
+            movement = Vector3.zero;
+            if(!drinked && timer <=0.3f) {
+                health += heal;
+                drinked = true;
+                drinkLeft--;
+            }
+            else if(timer > 0.3f)
+                drinked = false;
         }
         else if (dic.magnitude >= 0.1f && !dodging && !rolling && !atking && !dfc)
         {
-            atkTrigger.GetComponent<atk_trigger>().atk = false;
+            atkTrigger.atk = false;
             targetAngle = cam.eulerAngles.y + Mathf.Atan2(dic.x, dic.z) * Mathf.Rad2Deg;
             if (CTRL)
             {
@@ -252,7 +270,7 @@ public class ThirdPersonController : MonoBehaviour
         else if (turning) { movement = Vector3.zero; }
         else if (dodging && timer <= 0.6)
         {
-            atkTrigger.GetComponent<atk_trigger>().atk = false;
+            atkTrigger.atk = false;
             if(timer <=0.4f&&!acted) {
                 stamina -= 30f;
                 acted = true;
@@ -264,7 +282,7 @@ public class ThirdPersonController : MonoBehaviour
         }
         else if (rolling)
         {
-            atkTrigger.GetComponent<atk_trigger>().atk = false;
+            atkTrigger.atk = false;
             if(timer <=0.4f&&!acted) {
                 stamina -= 35f;
                 acted = true;
@@ -294,54 +312,54 @@ public class ThirdPersonController : MonoBehaviour
             if(!animator.GetCurrentAnimatorStateInfo(0).IsName("kick")) trail.SetActive(true);
             if (animator.GetCurrentAnimatorStateInfo(0).IsName("jump_atk") && timer <= 0.56)
             {
-                atkTrigger.GetComponent<atk_trigger>().atk = true;
+                atkTrigger.atk = true;
                 movement = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward.normalized * 2.0f * sp * Time.deltaTime;
             }
             else if (animator.GetCurrentAnimatorStateInfo(0).IsName("run_atk") && timer <= 0.6)
             {
-                atkTrigger.GetComponent<atk_trigger>().atk = true;
+                atkTrigger.atk = true;
                 movement = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward.normalized * sp * Time.deltaTime;
             }
             else if (animator.GetCurrentAnimatorStateInfo(0).IsName("spin_atk") && timer <= 0.4)
             {
-                atkTrigger.GetComponent<atk_trigger>().atk = true;
+                atkTrigger.atk = true;
                 movement = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward.normalized * sp * Time.deltaTime;
             }
             else if((animator.GetCurrentAnimatorStateInfo(0).IsName("atk1")&& timer <= 0.25 || animator.GetCurrentAnimatorStateInfo(0).IsName("atk2")) && timer <= 0.25){
-                atkTrigger.GetComponent<atk_trigger>().atk = false;
+                atkTrigger.atk = false;
                 movement = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward.normalized * sp * Time.deltaTime;
             }
             else if (animator.GetCurrentAnimatorStateInfo(0).IsName("atk1") && timer > 0.25 && timer <= 0.6)
             {
-                atkTrigger.GetComponent<atk_trigger>().atk = true;
+                atkTrigger.atk = true;
                 movement =  Vector3.zero;
             }
             else if (animator.GetCurrentAnimatorStateInfo(0).IsName("atk2") && timer >= 0.4 && timer <= 0.6)
             {
-                atkTrigger.GetComponent<atk_trigger>().atk = true;
+                atkTrigger.atk = true;
                 movement =  Vector3.zero;
             }
             else if (animator.GetCurrentAnimatorStateInfo(0).IsName("atk4") && timer <= 0.5)
             {
-                atkTrigger.GetComponent<atk_trigger>().atk = false;
+                atkTrigger.atk = false;
                 movement = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward.normalized * sp * Time.deltaTime;
             }
             else if(animator.GetCurrentAnimatorStateInfo(0).IsName("atk4")){
-                atkTrigger.GetComponent<atk_trigger>().atk = true;
+                atkTrigger.atk = true;
             }
             else if(animator.GetCurrentAnimatorStateInfo(0).IsName("rolling_atk") && timer <= 0.4)
             {
-                atkTrigger.GetComponent<atk_trigger>().atk = true;
+                atkTrigger.atk = true;
             }
             else
             {
-                atkTrigger.GetComponent<atk_trigger>().atk = false;
+                atkTrigger.atk = false;
                 movement = Vector3.zero;
             }
         }
         else if(IsGrounded()){ movement = Vector3.zero;acted = false; }
         if(jump && timer <= 0.3) movement = Vector3.zero;
-        if (hurting) { atkTrigger.GetComponent<atk_trigger>().atk = false ; movement = Vector3.zero; }
+        if (hurting) { atkTrigger.atk = false ; movement = Vector3.zero; }
 
         transform.rotation = Quaternion.Euler(0f, angle, 0f);
     }
@@ -358,6 +376,7 @@ public class ThirdPersonController : MonoBehaviour
         hurting = (animator.GetCurrentAnimatorStateInfo(0).IsName("hurt_lite") || animator.GetCurrentAnimatorStateInfo(0).IsName("sword_blockreact") ? true : false);
         waking = (animator.GetCurrentAnimatorStateInfo(0).IsName("stand_up") ? true:false);
         jump = (animator.GetCurrentAnimatorStateInfo(0).IsName("jump") ? true : false);
+        drinking = (animator.GetCurrentAnimatorStateInfo(0).IsName("drink") ? true : false);
         atking = (animator.GetCurrentAnimatorStateInfo(0).IsName("atk1") || animator.GetCurrentAnimatorStateInfo(0).IsName("atk2") || animator.GetCurrentAnimatorStateInfo(0).IsName("atk4") || animator.GetCurrentAnimatorStateInfo(0).IsName("rolling_atk") || animator.GetCurrentAnimatorStateInfo(0).IsName("run_atk") || animator.GetCurrentAnimatorStateInfo(0).IsName("jump_atk") || animator.GetCurrentAnimatorStateInfo(0).IsName("spin_atk") || animator.GetCurrentAnimatorStateInfo(0).IsName("kick") ? true : false);
         aim = (Input.GetMouseButtonDown(2)?!aim:aim);
         atkTime = (Input.GetMouseButtonDown(0) && stamina >= 25?actingTime: atkTime);
@@ -372,6 +391,7 @@ public class ThirdPersonController : MonoBehaviour
         animator.SetBool("a", (A ? true : false));
         animator.SetBool("s", (S ? true : false));
         animator.SetBool("d", (D ? true : false));
+        animator.SetBool("r", (R && drinkLeft > 0 ? true : false));
         animator.SetBool("Dead", (dead ? true : false));
         animator.SetBool("Turning", (turning ? true : false));
         animator.SetBool("Hurt", (hurtTime > 0 ? true : false));
@@ -393,8 +413,9 @@ public class ThirdPersonController : MonoBehaviour
     void Bar()
     {
         if (health > maxHealth) health = maxHealth;
-        Hp_bar.fillAmount = health/maxHealth;
-        Hp_load.fillAmount = Mathf.SmoothDampAngle(Hp_load.fillAmount, Hp_bar.fillAmount, ref hpTurnSmoothVelocity, 0.3f);
+        if (Hp_bar.fillAmount < health / maxHealth) Hp_bar.fillAmount = Mathf.SmoothDampAngle(Hp_bar.fillAmount, health/maxHealth , ref hpTurnSmoothVelocity, 0.15f);
+        else Hp_bar.fillAmount = health / maxHealth;
+        Hp_load.fillAmount = Mathf.SmoothDampAngle(Hp_load.fillAmount, Hp_bar.fillAmount, ref hp1TurnSmoothVelocity, 0.3f);
         
         if (stamina > maxStamina) stamina = maxStamina;
         if (stamina < maxStamina && Sp_load.fillAmount - Sp_bar.fillAmount < 0.01f) stamina += maxStamina/5f*Time.deltaTime;
@@ -411,7 +432,10 @@ public class ThirdPersonController : MonoBehaviour
         targetAngle = ini_degree;
         angle = targetAngle;
         Aim = GameObject.FindGameObjectWithTag("Player");
+        drinkLeft = drinkMax;
   
+        atkTrigger = this.GetComponentInChildren<atk_trigger>();
+        trail = GameObject.FindGameObjectWithTag("Weapon");
         cam_free_look = free_cam.GetComponent<Cinemachine.CinemachineFreeLook>();
         audioSource = this.GetComponent<AudioSource>();
     }

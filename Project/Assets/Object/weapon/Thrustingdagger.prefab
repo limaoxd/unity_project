@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 295319996811655233}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.3, y: 1.3, z: 1.3}
   m_Children: []
   m_Father: {fileID: 236482371885616066}
   m_RootOrder: 0
@@ -131,14 +131,14 @@ MonoBehaviour:
   isEnemy: 0
   atk: 0
   play: 0
-  Damage: 33
+  Damage: 35
   audioSource: {fileID: 0}
   audios:
-  - {fileID: 8300000, guid: 0ea6d9f4e5cf1d343ab83484e4eed0ef, type: 3}
-  - {fileID: 8300000, guid: 13045beeed3118c459e1f0ab1e2e7838, type: 3}
-  - {fileID: 8300000, guid: dd5c74a4809aee9409c2df7c21ba87e3, type: 3}
-  - {fileID: 8300000, guid: 8a39e3a02da838642b0dfe45124fd646, type: 3}
-  - {fileID: 8300000, guid: 9862ff87cf82f684bb81c201442621f7, type: 3}
+  - {fileID: 8300000, guid: f94a6e16e73443944afa7f83e4118349, type: 3}
+  - {fileID: 8300000, guid: 0faf433b5d019a449b29f36e7dd144e3, type: 3}
+  - {fileID: 8300000, guid: df4b0a34069dfee4bbadff3e38e09e5a, type: 3}
+  - {fileID: 8300000, guid: 11cfc52c1a75db144aa989a2c9d64c88, type: 3}
+  - {fileID: 8300000, guid: 86737aa327ee5474db282e45016f64fb, type: 3}
   ind: 0
   time: 0
 --- !u!65 &9062129276060301209
@@ -152,8 +152,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 0
   serializedVersion: 2
-  m_Size: {x: 16.388767, y: 1.1261497, z: 5.137066}
-  m_Center: {x: -11.382031, y: 0.56307423, z: 0.000015657208}
+  m_Size: {x: 22.10955, y: 1.1261497, z: 5.137066}
+  m_Center: {x: -14.242467, y: 0.5630743, z: 0.000017195278}
 --- !u!82 &5850742894470032281
 AudioSource:
   m_ObjectHideFlags: 0
@@ -263,7 +263,7 @@ GameObject:
   - component: {fileID: 5116464412053104293}
   m_Layer: 0
   m_Name: trail
-  m_TagString: Untagged
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -276,8 +276,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2131792033482999963}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0.7071068, w: 0}
-  m_LocalPosition: {x: -10.27, y: 0, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_LocalPosition: {x: -13.44, y: 0, z: 0}
+  m_LocalScale: {x: 0.04, y: 0.04, z: 0.04}
   m_Children: []
   m_Father: {fileID: 236482371885616066}
   m_RootOrder: 1

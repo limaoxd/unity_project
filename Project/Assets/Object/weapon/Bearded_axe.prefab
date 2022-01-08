@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4751347110731425799}
   m_Layer: 0
   m_Name: trail
-  m_TagString: Untagged
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26,8 +26,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2432834058801440890}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0.7071068, w: 0}
-  m_LocalPosition: {x: -36.19, y: 0, z: 0}
-  m_LocalScale: {x: 3, y: 5, z: 5}
+  m_LocalPosition: {x: -19.5, y: -0.4, z: -1.2}
+  m_LocalScale: {x: 0.08, y: 0.1, z: 0.1}
   m_Children: []
   m_Father: {fileID: 3363978145108487318}
   m_RootOrder: 1
@@ -4933,8 +4933,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 0
   serializedVersion: 2
-  m_Size: {x: 40.692333, y: 2.5059865, z: 12.0212345}
-  m_Center: {x: -36.327282, y: 0.0000021457672, z: -2.6805172}
+  m_Size: {x: 43.931267, y: 2.5059865, z: 12.0212345}
+  m_Center: {x: -22.379156, y: -0.0000042087536, z: -2.6805007}
 --- !u!82 &4428669241717748056
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5057,7 +5057,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7871476446561503958}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalPosition: {x: 12.58, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3363978145108487318}

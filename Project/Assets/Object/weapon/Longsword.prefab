@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 1524319436799535628}
   m_Layer: 0
   m_Name: trail
-  m_TagString: Untagged
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -108,7 +108,7 @@ Transform:
   m_GameObject: {fileID: 4628030098979607464}
   m_LocalRotation: {x: 0, y: -0.70710677, z: 0.70710677, w: 0}
   m_LocalPosition: {x: -32.73, y: 0, z: 0}
-  m_LocalScale: {x: 4.28, y: 5, z: 5}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children: []
   m_Father: {fileID: 6689610728824575568}
   m_RootOrder: 1

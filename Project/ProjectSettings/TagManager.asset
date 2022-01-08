@@ -8,6 +8,7 @@ TagManager:
   - Bar
   - Aim_point
   - Dead
+  - Weapon
   layers:
   - Default
   - TransparentFX

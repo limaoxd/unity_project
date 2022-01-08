@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5314194873199251871}
   m_Layer: 0
   m_Name: trail
-  m_TagString: Untagged
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 3821336043163036894}
   m_LocalRotation: {x: -0, y: -0.7071068, z: 0.7071068, w: 0}
   m_LocalPosition: {x: -12.26, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
   m_Children: []
   m_Father: {fileID: 7626970175504132558}
   m_RootOrder: 1
@@ -5010,11 +5010,11 @@ MonoBehaviour:
   Damage: 35
   audioSource: {fileID: 0}
   audios:
-  - {fileID: 8300000, guid: 0ea6d9f4e5cf1d343ab83484e4eed0ef, type: 3}
-  - {fileID: 8300000, guid: 13045beeed3118c459e1f0ab1e2e7838, type: 3}
-  - {fileID: 8300000, guid: dd5c74a4809aee9409c2df7c21ba87e3, type: 3}
-  - {fileID: 8300000, guid: 8a39e3a02da838642b0dfe45124fd646, type: 3}
-  - {fileID: 8300000, guid: 9862ff87cf82f684bb81c201442621f7, type: 3}
+  - {fileID: 8300000, guid: f94a6e16e73443944afa7f83e4118349, type: 3}
+  - {fileID: 8300000, guid: 0faf433b5d019a449b29f36e7dd144e3, type: 3}
+  - {fileID: 8300000, guid: df4b0a34069dfee4bbadff3e38e09e5a, type: 3}
+  - {fileID: 8300000, guid: 11cfc52c1a75db144aa989a2c9d64c88, type: 3}
+  - {fileID: 8300000, guid: 86737aa327ee5474db282e45016f64fb, type: 3}
   ind: 0
   time: 0
 --- !u!82 &3975578481517328939

@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 373052135493415389}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.08, y: -3.18, z: 0.02}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 284012586111089431}
@@ -127,8 +127,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 0
   serializedVersion: 2
-  m_Size: {x: 95.65946, y: 6.4368935, z: 25.41059}
-  m_Center: {x: -29.364742, y: 3.2184446, z: 0.000009267295}
+  m_Size: {x: 71.69792, y: 6.4368935, z: 15.6}
+  m_Center: {x: -41.345646, y: -0.36001137, z: 0.0000036797292}
 --- !u!114 &9012297234187237001
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -262,7 +262,7 @@ GameObject:
   - component: {fileID: 8670116494947203734}
   m_Layer: 0
   m_Name: trail
-  m_TagString: Untagged
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -276,7 +276,7 @@ Transform:
   m_GameObject: {fileID: 7687400077312135430}
   m_LocalRotation: {x: -0.011705381, y: -0.7070099, z: 0.70708424, w: 0.005646109}
   m_LocalPosition: {x: -41.66, y: 0, z: 0}
-  m_LocalScale: {x: 6.2, y: 5, z: 5}
+  m_LocalScale: {x: 0.124, y: 0.1, z: 0.1}
   m_Children: []
   m_Father: {fileID: 284012586111089431}
   m_RootOrder: 1
