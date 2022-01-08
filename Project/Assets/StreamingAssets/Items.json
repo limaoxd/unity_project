@@ -1,30 +1,128 @@
 [
     {
         "id": 0,
-        "itemname": "Weapon",
+        "itemname": "BeardedAxe",
         "stackable": false,
         "slug": "Weapon",
         "description": "Can attack someone."
     },
     {
         "id": 1,
-        "itemname": "Armor",
+        "itemname": "BroadDagger",
         "stackable": false,
-        "slug": "Armor",
-        "description":"Can protect someone."
+        "slug": "Weapon",
+        "description":"Can attack someone."
     },
     {
         "id": 2,
+        "itemname": "BroadSword",
+        "stackable": false,
+        "slug": "Weapon",
+        "description": "Can attack someone."
+    },
+    {
+        "id": 3,
+        "itemname": "Claymore",
+        "stackable": false,
+        "slug": "Weapon",
+        "description": "Can attack someone."
+    }, 
+    {
+        "id": 4,
+        "itemname": "GrandMace",
+        "stackable": false,
+        "slug": "Weapon",
+        "description": "Can attack someone."
+    },  
+    {
+        "id": 5,
+        "itemname": "GreatSword",
+        "stackable": false,
+        "slug": "Weapon",
+        "description": "Can attack someone."
+    },
+    {
+        "id": 6,
+        "itemname": "LongSword",
+        "stackable": false,
+        "slug": "Weapon",
+        "description": "Can attack someone."
+    },
+    {
+        "id": 7,
+        "itemname": "Maul",
+        "stackable": false,
+        "slug": "Weapon",
+        "description": "Can attack someone."
+    },
+    {
+        "id": 8,
+        "itemname": "NorseSword",
+        "stackable": false,
+        "slug": "Weapon",
+        "description": "Can attack someone."
+    },
+    {
+        "id": 9,
+        "itemname": "Saber",
+        "stackable": false,
+        "slug": "Weapon",
+        "description": "Can attack someone."
+    },
+    {
+        "id": 10,
+        "itemname": "ShortSword",
+        "stackable": false,
+        "slug": "Weapon",
+        "description": "Can attack someone."
+    },
+    {
+        "id": 11,
+        "itemname": "SilverWind",
+        "stackable": false,
+        "slug": "Weapon",
+        "description": "Can attack someone."
+    },
+    {
+        "id": 12,
+        "itemname": "StraightSword",
+        "stackable": false,
+        "slug": "Weapon",
+        "description": "Can attack someone."
+    },
+    {
+        "id": 13,
+        "itemname": "SwordOfWar",
+        "stackable": false,
+        "slug": "Weapon",
+        "description": "Can attack someone."
+    },
+    {
+        "id": 14,
+        "itemname": "ThrustingDagger",
+        "stackable": false,
+        "slug": "Weapon",
+        "description": "Can attack someone."
+    },
+    {
+        "id": 15,
+        "itemname": "Zweihander",
+        "stackable": false,
+        "slug": "Weapon",
+        "description": "Can attack someone."
+    },
+    {
+        "id": 16,
         "itemname": "Stone",
         "stackable": true,
         "slug": "Stone",
         "description": "A stone."
     },
     {
-        "id": 3,
+        "id": 17,
         "itemname": "Potion",
         "stackable": true,
         "slug": "Potion",
-        "description": "For healing."
+        "description": "Can heal."
     }
 ]

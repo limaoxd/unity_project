@@ -10,6 +10,7 @@ public class MainMenu : MonoBehaviour
     public GameObject LoadGamePanel;
     public GameObject SettingsPanel;
     public Sound_emitter MenuSound;
+    public LevelChanger levelChanger;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,7 +20,8 @@ public class MainMenu : MonoBehaviour
     // Update is called once per frame
     public void NewGameClick()
     {
-        SceneManager.LoadScene(part0);
+        levelChanger.FadeToLevel(1);
+        //SceneManager.LoadScene(part0);
     }
 
     public void LoadGameClick()

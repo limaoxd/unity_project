@@ -9,7 +9,7 @@ public class UIInventory : MonoBehaviour
     public List<UIItem> uIItems = new List<UIItem>();
     public GameObject slotPrefab; //spawn the slot dynamically
     public Transform slotPanel;
-    public int numberOfSlots = 12;
+    public int numberOfSlots = 20;
 
 
     //spawn each slot into the panel and save them into UIItem list
