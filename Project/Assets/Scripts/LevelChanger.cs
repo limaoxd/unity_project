@@ -5,11 +5,6 @@ public class LevelChanger : MonoBehaviour
 {
     public Animator animator;
     private int levelToLoad;
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.O))
-            FadeToLevel(1);
-    }
 
     // Update is called once per frame
     public void FadeToLevel(int levelIndex)
@@ -24,7 +19,8 @@ public class LevelChanger : MonoBehaviour
     }
 
     public void OnFadeComplete()
-    { 
+    {
+        Time.timeScale = 1;
         SceneManager.LoadScene(levelToLoad);
     }
 }
