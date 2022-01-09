@@ -1116,6 +1116,10 @@ PrefabInstance:
       propertyPath: run
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1290301579243457850, guid: 15789796ab9727348b6a53829668bc36, type: 3}
+      propertyPath: ind
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 5245201609080223233, guid: 15789796ab9727348b6a53829668bc36, type: 3}
       propertyPath: run
       value: 0
@@ -1681,6 +1685,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 603954401}
     - target: {fileID: 6198719273861297945, guid: 15789796ab9727348b6a53829668bc36, type: 3}
+      propertyPath: health
+      value: 400
+      objectReference: {fileID: 0}
+    - target: {fileID: 6198719273861297945, guid: 15789796ab9727348b6a53829668bc36, type: 3}
       propertyPath: Hp_load
       value: 
       objectReference: {fileID: 395605788}
@@ -1696,6 +1704,10 @@ PrefabInstance:
       propertyPath: aim_point
       value: 
       objectReference: {fileID: 768656753}
+    - target: {fileID: 6198719273861297945, guid: 15789796ab9727348b6a53829668bc36, type: 3}
+      propertyPath: maxHealth
+      value: 400
+      objectReference: {fileID: 0}
     - target: {fileID: 6198719273861297945, guid: 15789796ab9727348b6a53829668bc36, type: 3}
       propertyPath: spawnPoint
       value: 
@@ -3823,7 +3835,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 829686776}
-  m_LocalRotation: {x: 0.3541695, y: -0.012967974, z: -0.0049117357, w: -0.9350785}
+  m_LocalRotation: {x: 0.35416952, y: -0.012967959, z: -0.004911728, w: -0.93507844}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
