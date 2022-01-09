@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-// created from video, edited from article
 public class Inventory : MonoBehaviour
 {
     public List<Item> characterItems = new List<Item>();
     public ItemDatabase itemDatabase;
     public UIInventory inventoryUI;
-    private bool isPause = false;
+    public bool isPause = false;
+    private ThirdPersonController player;
 
     //add the item
     public void GiveItem(int id)
@@ -24,7 +24,7 @@ public class Inventory : MonoBehaviour
                     UIItem data = inventoryUI.uIItems[i].transform.GetComponent<UIItem>();
                     data.item.amount++;
                     data.transform.GetChild(0).GetComponent<Text>().text = data.item.amount.ToString();
-                    Debug.Log("Increased item amount: " + itemToAdd.itemname);
+                    //Debug.Log("Increased item amount: " + itemToAdd.itemname);
                     break;
                 }
             }
@@ -33,7 +33,7 @@ public class Inventory : MonoBehaviour
         {
             characterItems.Add(itemToAdd);
             inventoryUI.AddNewItem(itemToAdd);
-            Debug.Log("Added item: " + itemToAdd.itemname);
+            //Debug.Log("Added item: " + itemToAdd.itemname);
         }
     }
     //add the item
@@ -42,7 +42,7 @@ public class Inventory : MonoBehaviour
         Item itemToAdd = itemDatabase.GetItem(itemName);
         characterItems.Add(itemToAdd);
         inventoryUI.AddNewItem(itemToAdd);
-        Debug.Log("Added item: " + itemToAdd.itemname);
+        //Debug.Log("Added item: " + itemToAdd.itemname);
     }
 
     //see if the player's inventory holds the item
@@ -68,31 +68,28 @@ public class Inventory : MonoBehaviour
         {
             characterItems.Remove(itemToRemove);
             inventoryUI.RemoveItem(itemToRemove);
-            Debug.Log("Item removed: " + itemToRemove.itemname);
+            //Debug.Log("Item removed: " + itemToRemove.itemname);
         }
     }
 
     private void Start()
     {
-        GiveItem(0);
-        GiveItem(2);
-        GiveItem(1);
-        GiveItem(2);
         inventoryUI.gameObject.SetActive(false);
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<ThirdPersonController>();
     }
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape))
+        if(Input.GetKeyDown(KeyCode.Escape) && player.hurtTime == 0) 
         {
             if (!isPause)
             {
-                Time.timeScale = 0;
+                Cursor.visible = true;
                 isPause = true;
             }
             else
             {
-                Time.timeScale = 1;
+                Cursor.visible = false;
                 isPause = false;
             }
             inventoryUI.gameObject.SetActive(!inventoryUI.gameObject.activeSelf);

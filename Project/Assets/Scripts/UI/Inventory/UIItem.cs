@@ -2,7 +2,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-//created from article
 public class UIItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
     public Item item;
@@ -33,7 +32,6 @@ public class UIItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, 
     }
 
     //drag and drop the item
-
     public void OnPointerClick(PointerEventData eventData)
     {
         if (this.item != null)
@@ -75,9 +73,7 @@ public class UIItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, 
     public void OnPointerEnter(PointerEventData eventData)
     {
         if(this.item != null)
-        {
             tooltip.GenerateTooltip(this.item);
-        }
     }
 
     public void OnPointerExit(PointerEventData eventData)

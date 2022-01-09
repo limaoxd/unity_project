@@ -10,10 +10,12 @@ public class death_effect : MonoBehaviour
     public GameObject player;
     public GameObject death_text;
     public float smoothTime = 1f;
+    public Inventory inventory;
     private float val = 0;
     private Volume volume;
     private ColorAdjustments tmp;
     private ColorAdjustments color;
+ 
     // Start is called before the first frame update
     void Start()
     {
@@ -32,7 +34,8 @@ public class death_effect : MonoBehaviour
             death_text.GetComponent<Text>().color = new Color(0.84f,0,0,Mathf.Abs(val/100));
         }
         else {
-            Cursor.visible = false;
+            if(!inventory.isPause)
+                Cursor.visible = false;
             val = 0;
             death_text.GetComponent<Text>().color = new Color(0.84f,0,0,0);
         }
