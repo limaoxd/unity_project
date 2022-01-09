@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    private string part0 = "part_0";
     public GameObject MainPanel;
     public GameObject LoadGamePanel;
     public GameObject SettingsPanel;
@@ -20,8 +19,8 @@ public class MainMenu : MonoBehaviour
     // Update is called once per frame
     public void NewGameClick()
     {
+        MenuSound.run = true;
         levelChanger.FadeToLevel(1);
-        //SceneManager.LoadScene(part0);
     }
 
     public void LoadGameClick()
@@ -42,15 +41,22 @@ public class MainMenu : MonoBehaviour
 
     public void QuitGameClick()
     {
+        MenuSound.run = true;
         UnityEditor.EditorApplication.isPlaying = false;
         Application.Quit();
     }
 
     public void BackClick()
     {
-        MenuSound.run = true;
         MainPanel.SetActive(true);
         LoadGamePanel.SetActive(false);
         SettingsPanel.SetActive(false);
+        MenuSound.run = true;
+    }
+
+    public void ButtonClickUp()
+    {
+        Debug.Log("AAA");
+        MenuSound.run = false;
     }
 }

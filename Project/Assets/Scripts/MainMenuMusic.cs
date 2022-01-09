@@ -10,7 +10,7 @@ public class MainMenuMusic : MonoBehaviour
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
-        audioSource.volume = 0.75f;
+        audioSource.volume = 0.2f;
         muteState = false;
         preVolume = audioSource.volume;
     }
