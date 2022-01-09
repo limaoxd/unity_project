@@ -20,6 +20,7 @@ public class AI : MonoBehaviour
     public AudioSource audioSource;
     public AudioClip[] audios;
 
+    public bool            dead = false;
     public float           maxHealth = 100;
     public float           Health = 100;
     public float           sp = 2.5f;
@@ -34,7 +35,7 @@ public class AI : MonoBehaviour
     protected float        gravity = 0.1f ,currentGravity = 0 , maxGravity = 5.0f;
     protected bool         isDfc = false;
     protected bool[]       atk_state;
-    protected bool         dead , atking , dodge , atked , bash, taunt , state_2;
+    protected bool         atking , dodge , atked , bash, taunt , state_2;
     protected bool         p_atking;
     protected string[]     atk;
 

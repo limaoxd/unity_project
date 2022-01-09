@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//created from article
 public class UIInventory : MonoBehaviour
 {//to keep track of all UIItems and
  //be able to determine which ones are being visible or not, and where they are

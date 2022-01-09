@@ -9,6 +9,7 @@ TagManager:
   - Aim_point
   - Dead
   - Weapon
+  - Interactive
   layers:
   - Default
   - TransparentFX
