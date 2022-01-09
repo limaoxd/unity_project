@@ -44,7 +44,7 @@ public class SaveGame : MonoBehaviour
         //save max_potion
         PotionSave potion = new PotionSave(Player.drinkMax);
         JsonData potionData = JsonMapper.ToJson(potion);
-        SW.WriteLine(potionData);
+        SW.WriteLine(potionData.ToString());
     }
 
     public void SaveStats()
@@ -104,7 +104,7 @@ class PotionSave
     public int id = 16;
     public string name = "Potion";
     public string slug = "Potion";
-    int max_drink;
+    public int max_drink;
 
     public PotionSave(int max)
     {
