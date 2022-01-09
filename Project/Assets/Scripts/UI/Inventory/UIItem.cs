@@ -9,7 +9,6 @@ public class UIItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, 
     private Image spriteImage;
     private UIItem selectedItem;
     private Tooltip tooltip;
-    private Transform originalParent;
 
     private void Awake() //get the image of the slot
     {
@@ -41,10 +40,7 @@ public class UIItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, 
         {
             if (selectedItem.item != null)
             {
-                Debug.Log("Swap the item");
                 Item clone = new Item(selectedItem.item);
-                Debug.Log("Slot: " + clone.itemname);
-                Debug.Log("Clone: " + item.itemname);
                 //grab item and put it inside
                 if (!item.stackable)
                     transform.GetChild(0).GetComponent<Text>().text = "";
@@ -88,29 +84,4 @@ public class UIItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, 
     {
         tooltip.gameObject.SetActive(false);
     }
-
-    //public void OnBeginDrag(PointerEventData eventData)
-    //{
-    //    if(item != null)
-    //    {
-    //        originalParent = this.transform.parent;
-    //        this.transform.SetParent(this.transform.parent.parent);
-    //        this.transform.position = eventData.position;
-    //        GetComponent<CanvasGroup>().blocksRaycasts = false;
-    //    }
-    //}
-    //public void OnDrag(PointerEventData eventData)
-    //{
-    //    if (item != null)
-    //    {
-    //        tooltip.gameObject.SetActive(false);
-    //        this.transform.position = eventData.position;
-    //    }
-    //}
-    //public void OnEndDrag(PointerEventData eventData)
-    //{
-    //    this.transform.SetParent(originalParent);
-    //    this.transform.position = originalParent.transform.position;
-    //    GetComponent<CanvasGroup>().blocksRaycasts = true;
-    //}
 }

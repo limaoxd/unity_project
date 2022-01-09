@@ -1,128 +1,120 @@
 [
     {
         "id": 0,
-        "itemname": "BeardedAxe",
-        "stackable": false,
-        "slug": "Weapon",
-        "description": "Can attack someone."
-    },
-    {
-        "id": 1,
         "itemname": "BroadDagger",
         "stackable": false,
         "slug": "Weapon",
-        "description":"Can attack someone."
+        "description": "Attack: 35"
     },
     {
-        "id": 2,
-        "itemname": "BroadSword",
-        "stackable": false,
-        "slug": "Weapon",
-        "description": "Can attack someone."
-    },
-    {
-        "id": 3,
-        "itemname": "Claymore",
-        "stackable": false,
-        "slug": "Weapon",
-        "description": "Can attack someone."
-    }, 
-    {
-        "id": 4,
-        "itemname": "GrandMace",
-        "stackable": false,
-        "slug": "Weapon",
-        "description": "Can attack someone."
-    },  
-    {
-        "id": 5,
-        "itemname": "GreatSword",
-        "stackable": false,
-        "slug": "Weapon",
-        "description": "Can attack someone."
-    },
-    {
-        "id": 6,
-        "itemname": "LongSword",
-        "stackable": false,
-        "slug": "Weapon",
-        "description": "Can attack someone."
-    },
-    {
-        "id": 7,
-        "itemname": "Maul",
-        "stackable": false,
-        "slug": "Weapon",
-        "description": "Can attack someone."
-    },
-    {
-        "id": 8,
-        "itemname": "NorseSword",
-        "stackable": false,
-        "slug": "Weapon",
-        "description": "Can attack someone."
-    },
-    {
-        "id": 9,
-        "itemname": "Saber",
-        "stackable": false,
-        "slug": "Weapon",
-        "description": "Can attack someone."
-    },
-    {
-        "id": 10,
-        "itemname": "ShortSword",
-        "stackable": false,
-        "slug": "Weapon",
-        "description": "Can attack someone."
-    },
-    {
-        "id": 11,
-        "itemname": "SilverWind",
-        "stackable": false,
-        "slug": "Weapon",
-        "description": "Can attack someone."
-    },
-    {
-        "id": 12,
-        "itemname": "StraightSword",
-        "stackable": false,
-        "slug": "Weapon",
-        "description": "Can attack someone."
-    },
-    {
-        "id": 13,
-        "itemname": "SwordOfWar",
-        "stackable": false,
-        "slug": "Weapon",
-        "description": "Can attack someone."
-    },
-    {
-        "id": 14,
+        "id": 1,
         "itemname": "ThrustingDagger",
         "stackable": false,
         "slug": "Weapon",
-        "description": "Can attack someone."
+        "description": "Attack: 35"
     },
     {
-        "id": 15,
+        "id": 2,
+        "itemname": "ShortSword",
+        "stackable": false,
+        "slug": "Weapon",
+        "description": "Attack: 45"},
+    {
+        "id": 3,
+        "itemname": "Messer",
+        "stackable": false,
+        "slug": "Weapon",
+        "description": "Attack: 55"},
+    }, 
+    {
+        "id": 4,
+        "itemname": "Saber",
+        "stackable": false,
+        "slug": "Weapon",
+        "description": "Attack: 50"},
+    },  
+    {
+        "id": 5,
+        "itemname": "NorseSword",
+        "stackable": false,
+        "slug": "Weapon",
+        "description": "Attack: 45"},
+    },
+    {
+        "id": 6,
+        "itemname": "StraightSword",
+        "stackable": false,
+        "slug": "Weapon",
+        "description": "Attack: 50"},
+    },
+    {
+        "id": 7,
+        "itemname": "LongSword",
+        "stackable": false,
+        "slug": "Weapon",
+        "description": "Attack: 65"},
+    },
+    {
+        "id": 8,
+        "itemname": "BeardedAxe",
+        "stackable": false,
+        "slug": "Weapon",
+        "description": "Attack: 65"},
+    },
+    {
+        "id": 9,
+        "itemname": "Maul",
+        "stackable": false,
+        "slug": "Weapon",
+        "description": "Attack: 70"},
+    },
+    {
+        "id": 10,
+        "itemname": "GrandMace",
+        "stackable": false,
+        "slug": "Weapon",
+        "description": "Attack: 65"},
+    },
+    {
+        "id": 11,
+        "itemname": "SwordOfWar",
+        "stackable": false,
+        "slug": "Weapon",
+        "description": "Attack: 70"},
+    },
+    {
+        "id": 12,
+        "itemname": "Claymore",
+        "stackable": false,
+        "slug": "Weapon",
+        "description": "Attack: 75"},
+    },
+    {
+        "id": 13,
+        "itemname": "GreatSword",
+        "stackable": false,
+        "slug": "Weapon",
+        "description": "Attack: 80"},
+    },
+    {
+        "id": 14,
         "itemname": "Zweihander",
         "stackable": false,
         "slug": "Weapon",
-        "description": "Can attack someone."
+        "description": "Attack: 85"},
+    },
+    {
+        "id": 15,
+        "itemname": "SilverWind",
+        "stackable": false,
+        "slug": "Weapon",
+        "description": "Attack: 90"},
     },
     {
         "id": 16,
-        "itemname": "Stone",
-        "stackable": true,
-        "slug": "Stone",
-        "description": "A stone."
-    },
-    {
-        "id": 17,
         "itemname": "Potion",
         "stackable": true,
         "slug": "Potion",
-        "description": "Can heal."
+        "description": "Heal 1/3 HP"
     }
 ]

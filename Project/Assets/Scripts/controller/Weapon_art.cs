@@ -8,6 +8,8 @@ public class Weapon_art : MonoBehaviour
     public RuntimeAnimatorController animController;
     public RuntimeAnimatorController animController1;
     public GameObject[] Weapons;
+    public UIItem item;
+    public ItemDatabase itemDatabase;
 
     private int preInd = -1;
     private Animator animator;
@@ -17,11 +19,14 @@ public class Weapon_art : MonoBehaviour
     void Start()
     {
         animator = GetComponentInParent<Animator>();
+        item.item = itemDatabase.GetItem(0);
+        item.UpdateItem(item.item);
     }
 
     // Update is called once per frame
     void Update()
     {
+        ind = item.item.id;
         if(ind != preInd){
             if(myWeapon) Object.Destroy(this.myWeapon);
             myWeapon = Instantiate(Weapons[ind], this.transform.position , transform.rotation);
