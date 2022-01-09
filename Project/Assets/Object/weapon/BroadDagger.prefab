@@ -5007,7 +5007,7 @@ MonoBehaviour:
   isEnemy: 0
   atk: 0
   play: 0
-  Damage: 10000
+  Damage: 35
   audioSource: {fileID: 0}
   audios:
   - {fileID: 8300000, guid: f94a6e16e73443944afa7f83e4118349, type: 3}
