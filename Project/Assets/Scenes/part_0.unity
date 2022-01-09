@@ -866,7 +866,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 384139623}
-  m_LocalRotation: {x: 0.30978873, y: -0.013184682, z: -0.004296258, w: -0.95070434}
+  m_LocalRotation: {x: 0.3097883, y: -0.013182805, z: -0.004295647, w: -0.9507045}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1356,11 +1356,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1290301579243457850, guid: 15789796ab9727348b6a53829668bc36, type: 3}
-<<<<<<< Updated upstream
-      propertyPath: ind
-      value: 8
-      objectReference: {fileID: 0}
-=======
       propertyPath: item
       value: 
       objectReference: {fileID: 1172038160}
@@ -1368,7 +1363,6 @@ PrefabInstance:
       propertyPath: itemDatabase
       value: 
       objectReference: {fileID: 1303209856}
->>>>>>> Stashed changes
     - target: {fileID: 5245201609080223233, guid: 15789796ab9727348b6a53829668bc36, type: 3}
       propertyPath: run
       value: 0
@@ -2476,8 +2470,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 469345759}
-  m_LocalRotation: {x: -0.30034208, y: -0.23335941, z: -0.07604056, w: 0.9217136}
-  m_LocalPosition: {x: 92.473236, y: -1.924995, z: -155.80157}
+  m_LocalRotation: {x: -0.30034146, y: -0.23336123, z: -0.07604107, w: 0.92171323}
+  m_LocalPosition: {x: 92.47324, y: -1.924995, z: -155.80157}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -4244,7 +4238,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 829686776}
-  m_LocalRotation: {x: 0.35416952, y: -0.012967959, z: -0.004911728, w: -0.93507844}
+  m_LocalRotation: {x: 0.35416898, y: -0.012966171, z: -0.0049110427, w: -0.9350787}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -8194,7 +8188,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1795587238}
-  m_LocalRotation: {x: 0.2876531, y: -0.013280779, z: -0.003989272, w: -0.9576343}
+  m_LocalRotation: {x: 0.2876527, y: -0.013278902, z: -0.0039886907, w: -0.95763445}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -9051,7 +9045,7 @@ MonoBehaviour:
   m_YAxis:
     Value: -0.3
     m_SpeedMode: 0
-    m_MaxSpeed: 15
+    m_MaxSpeed: 7
     m_AccelTime: 0.2
     m_DecelTime: 0.1
     m_InputAxisName: Mouse Y
@@ -9075,7 +9069,7 @@ MonoBehaviour:
   m_XAxis:
     Value: 0
     m_SpeedMode: 0
-    m_MaxSpeed: 800
+    m_MaxSpeed: 350
     m_AccelTime: 0.1
     m_DecelTime: 0.1
     m_InputAxisName: Mouse X
@@ -9122,7 +9116,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2090630090}
   m_LocalRotation: {x: -0, y: 0.25885513, z: -0, w: -0.96591616}
-  m_LocalPosition: {x: 92.473236, y: -1.924995, z: -155.80157}
+  m_LocalPosition: {x: 92.47324, y: -1.924995, z: -155.80157}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 829686778}
