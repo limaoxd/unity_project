@@ -6,7 +6,6 @@ public class AI_Ancient : AI
 {
     public Dictionary<int, int> map = new Dictionary<int, int>();
     private List<List<int>> edge = new List<List<int>>();
-
     void build()
     {
         map.Add(Animator.StringToHash("Walk"),0);
@@ -209,7 +208,7 @@ public class AI_Ancient : AI
                 controller.enabled = false;
                 movement = Vector3.zero;
                 bar.SetActive(false);
-                obstacle.enabled = false;
+                obstacle.enabled = true;
                 atkTrigger.GetComponent<atk_trigger>().atk = false;
                 this.tag = "Dead";
                 break;

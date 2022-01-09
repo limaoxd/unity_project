@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class Boss_gate : MonoBehaviour
 {
+    public string BossName;
+
+    public GameObject boss;
+
     public void OnTriggerExit(Collider other)
     {
         foreach(var it in GetComponents<BoxCollider>())
@@ -20,6 +24,8 @@ public class Boss_gate : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(!boss && GameObject.Find(BossName)) boss = GameObject.Find(BossName);
+
+        if(boss && boss.GetComponent<AI>().dead)  Object.Destroy(this.gameObject);
     }
 }

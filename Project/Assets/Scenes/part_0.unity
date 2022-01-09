@@ -866,7 +866,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 384139623}
-  m_LocalRotation: {x: 0.3097883, y: -0.013182805, z: -0.004295647, w: -0.9507045}
+  m_LocalRotation: {x: 0.24529493, y: -0.58080727, z: -0.18925771, w: -0.752778}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -2470,8 +2470,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 469345759}
-  m_LocalRotation: {x: -0.30034146, y: -0.23336123, z: -0.07604107, w: 0.92171323}
-  m_LocalPosition: {x: 92.47324, y: -1.924995, z: -155.80157}
+  m_LocalRotation: {x: -0.28592467, y: 0.3661507, z: 0.119311266, w: 0.8774654}
+  m_LocalPosition: {x: 90.42033, y: -1.924995, z: -155.49687}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2562,7 +2562,7 @@ MonoBehaviour:
   m_Heading:
     m_Definition: 3
     m_VelocityFilterStrength: 4
-    m_Bias: -196.1273
+    m_Bias: -337.3932
   m_RecenterToTargetHeading:
     m_enabled: 0
     m_WaitTime: 1
@@ -2693,7 +2693,7 @@ MonoBehaviour:
   m_Heading:
     m_Definition: 3
     m_VelocityFilterStrength: 4
-    m_Bias: -196.1273
+    m_Bias: -337.3932
   m_RecenterToTargetHeading:
     m_enabled: 0
     m_WaitTime: 1
@@ -3510,7 +3510,7 @@ MonoBehaviour:
   m_Heading:
     m_Definition: 3
     m_VelocityFilterStrength: 4
-    m_Bias: -196.1273
+    m_Bias: -337.3932
   m_RecenterToTargetHeading:
     m_enabled: 0
     m_WaitTime: 1
@@ -3832,7 +3832,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &740174272
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4238,7 +4238,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 829686776}
-  m_LocalRotation: {x: 0.35416898, y: -0.012966171, z: -0.0049110427, w: -0.9350787}
+  m_LocalRotation: {x: 0.28043622, y: -0.57126105, z: -0.21637106, w: -0.7404053}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -6247,9 +6247,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9044012728290044065, guid: 0ace3ec1520cef845aaeee40dd16faea, type: 3}
+      propertyPath: BossName
+      value: Ancient_Glaive(Clone)
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3920823272853254803, guid: 0ace3ec1520cef845aaeee40dd16faea, type: 3}
-    - {fileID: 9044012728290044065, guid: 0ace3ec1520cef845aaeee40dd16faea, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 0ace3ec1520cef845aaeee40dd16faea, type: 3}
 --- !u!4 &1391834687 stripped
 Transform:
@@ -8188,7 +8191,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1795587238}
-  m_LocalRotation: {x: 0.2876527, y: -0.013278902, z: -0.0039886907, w: -0.95763445}
+  m_LocalRotation: {x: 0.22776775, y: -0.5850409, z: -0.1757346, w: -0.7582654}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -9087,7 +9090,7 @@ MonoBehaviour:
   m_Heading:
     m_Definition: 3
     m_VelocityFilterStrength: 4
-    m_Bias: -196.1273
+    m_Bias: -337.3932
   m_RecenterToTargetHeading:
     m_enabled: 0
     m_WaitTime: 1
@@ -9116,7 +9119,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2090630090}
   m_LocalRotation: {x: -0, y: 0.25885513, z: -0, w: -0.96591616}
-  m_LocalPosition: {x: 92.47324, y: -1.924995, z: -155.80157}
+  m_LocalPosition: {x: 90.42033, y: -1.924995, z: -155.49687}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 829686778}
@@ -9521,10 +9524,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: boss_gate
       objectReference: {fileID: 0}
-    - target: {fileID: 5613304519648704077, guid: 0ace3ec1520cef845aaeee40dd16faea, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 5613304519648704078, guid: 0ace3ec1520cef845aaeee40dd16faea, type: 3}
       propertyPath: m_RootOrder
       value: 13
@@ -9568,6 +9567,10 @@ PrefabInstance:
     - target: {fileID: 5613304519648704078, guid: 0ace3ec1520cef845aaeee40dd16faea, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9044012728290044065, guid: 0ace3ec1520cef845aaeee40dd16faea, type: 3}
+      propertyPath: BossName
+      value: Ancient_Glaive(Clone)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0ace3ec1520cef845aaeee40dd16faea, type: 3}
