@@ -2145,12 +2145,10 @@ MonoBehaviour:
   sp: 2.5
   run_sp: 6
   smoothTime: 0.1
-  gravity: 0.1
-  currentGravity: 0
-  maxGravity: 5
   Damage: 0
   poise: 100
   stamina: 100
+  c_dis: 1
   atk_n: 3
 --- !u!143 &13379846919768820
 CharacterController:
@@ -3785,6 +3783,10 @@ PrefabInstance:
     - target: {fileID: 3166816422659114953, guid: eeba8b8061150774ab5c4ba1c0863001, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 3424318919047110023, guid: eeba8b8061150774ab5c4ba1c0863001, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 3638337716192705847, guid: eeba8b8061150774ab5c4ba1c0863001, type: 3}
       propertyPath: m_Name
