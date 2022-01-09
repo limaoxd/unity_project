@@ -14,6 +14,7 @@ public class ThirdPersonController : MonoBehaviour
     public GameObject aim_point;
     public GameObject trail;
     public atk_trigger atkTrigger;
+    public atk_trigger lastAtkTrigger;
     public Image Hp_bar;
     public Image Hp_load;
     public Image Sp_bar;
@@ -22,7 +23,7 @@ public class ThirdPersonController : MonoBehaviour
     public AudioSource audioSource;
     public AudioClip[] audios;
 
-    public int drinkMax = 3;
+    public int drinkMax = 5;
     public int drinkLeft;
     public float maxHealth = 400f,maxStamina = 150f;
     public float health = 400f,stamina = 150f;
@@ -83,6 +84,11 @@ public class ThirdPersonController : MonoBehaviour
 
     private void KeyInput()
     {
+        atkTrigger = this.GetComponentInChildren<atk_trigger>();
+        if(lastAtkTrigger != atkTrigger) trail = GameObject.FindGameObjectWithTag("Weapon");
+
+        lastAtkTrigger = atkTrigger;
+
         W = (Input.GetKey("w") ? true : false);
         S = (Input.GetKey("s") ? true : false);
         A = (Input.GetKey("a") ? true : false);
@@ -434,8 +440,6 @@ public class ThirdPersonController : MonoBehaviour
         Aim = GameObject.FindGameObjectWithTag("Player");
         drinkLeft = drinkMax;
   
-        atkTrigger = this.GetComponentInChildren<atk_trigger>();
-        trail = GameObject.FindGameObjectWithTag("Weapon");
         cam_free_look = free_cam.GetComponent<Cinemachine.CinemachineFreeLook>();
         audioSource = this.GetComponent<AudioSource>();
     }

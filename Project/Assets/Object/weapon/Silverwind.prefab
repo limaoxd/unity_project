@@ -67,10 +67,10 @@ MonoBehaviour:
   Damage: 90
   audioSource: {fileID: 0}
   audios:
-  - {fileID: 8300000, guid: 92ab81cfa5de22340b79e76148d22484, type: 3}
-  - {fileID: 8300000, guid: 858eae54e9f7be94fb8fdcd0b3dd456a, type: 3}
-  - {fileID: 8300000, guid: 6f27a0c1bafdf32478d24703b4246413, type: 3}
-  - {fileID: 8300000, guid: 6698b7ed244d0c443910af39b0a95fee, type: 3}
+  - {fileID: 8300000, guid: 0b8af19fa6ca0214fb3bbbecd7ad6ca2, type: 3}
+  - {fileID: 8300000, guid: 06bc250cfe23b0e489b45a15b0863a38, type: 3}
+  - {fileID: 8300000, guid: 1ebb1f3c2458156499617493652b5f14, type: 3}
+  - {fileID: 8300000, guid: 23ff0dfb1df302d4984641b3797a9059, type: 3}
   ind: 0
   time: 0
 --- !u!82 &524852769348309230
@@ -193,7 +193,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5571972511902589684}
   m_LocalRotation: {x: -4.3297806e-17, y: -0.7071068, z: 0.7071068, w: 4.3297806e-17}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalPosition: {x: -0, y: 0.001, z: 0.025}
   m_LocalScale: {x: -1, y: -1, z: -1}
   m_Children: []
   m_Father: {fileID: 2968141561312466708}
