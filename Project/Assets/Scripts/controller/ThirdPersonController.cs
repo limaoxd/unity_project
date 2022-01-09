@@ -345,7 +345,7 @@ public class ThirdPersonController : MonoBehaviour
                 atkTrigger.atk = true;
                 movement =  Vector3.zero;
             }
-            else if (animator.GetCurrentAnimatorStateInfo(0).IsName("atk4") && timer <= 0.5)
+            else if (animator.GetCurrentAnimatorStateInfo(0).IsName("atk4") && (timer <= 0.5 || timer >0.8))
             {
                 atkTrigger.atk = false;
                 movement = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward.normalized * sp * Time.deltaTime;
