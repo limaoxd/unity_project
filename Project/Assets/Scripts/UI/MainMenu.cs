@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.IO;
 
 public class MainMenu : MonoBehaviour
 {
     public GameObject MainPanel;
+    public GameObject ContinueButton;
     public GameObject LoadGamePanel;
     public GameObject SettingsPanel;
     public Sound_emitter MenuSound;
@@ -14,6 +16,14 @@ public class MainMenu : MonoBehaviour
     void Start()
     {
         MenuSound = GetComponent<Sound_emitter>();
+        try
+        {
+            File.ReadAllText(Application.dataPath + @"/StreamingAssets/archive.json");
+        }
+        catch
+        {
+            ContinueButton.SetActive(false);
+        }
     }
 
     // Update is called once per frame
@@ -23,7 +33,7 @@ public class MainMenu : MonoBehaviour
         levelChanger.FadeToLevel(1);
     }
 
-    public void LoadGameClick()
+    public void ContinueClick()
     {
         MenuSound.run = true;
         MainPanel.SetActive(false);
@@ -56,7 +66,6 @@ public class MainMenu : MonoBehaviour
 
     public void ButtonClickUp()
     {
-        Debug.Log("AAA");
         MenuSound.run = false;
     }
 }
