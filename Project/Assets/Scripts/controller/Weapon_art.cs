@@ -31,7 +31,7 @@ public class Weapon_art : MonoBehaviour
             myWeapon.transform.localScale = new Vector3(1,1,1);
         }
         
-        if(ind > 8)
+        if(ind > 7)
             animator.runtimeAnimatorController = animController1 as RuntimeAnimatorController;
         else
             animator.runtimeAnimatorController = animController as RuntimeAnimatorController;
