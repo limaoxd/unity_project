@@ -90,8 +90,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 236482371885616066}
-  - component: {fileID: 3840310041608404584}
   - component: {fileID: 9062129276060301209}
+  - component: {fileID: 3840310041608404584}
   - component: {fileID: 5850742894470032281}
   m_Layer: 0
   m_Name: Thrustingdagger
@@ -116,6 +116,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 90}
+--- !u!65 &9062129276060301209
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 577577694004384120}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 22.10955, y: 1.1261497, z: 5.137066}
+  m_Center: {x: -14.242467, y: 0.5630743, z: 0.000017195278}
 --- !u!114 &3840310041608404584
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -141,19 +154,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 86737aa327ee5474db282e45016f64fb, type: 3}
   ind: 0
   time: 0
---- !u!65 &9062129276060301209
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 577577694004384120}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Size: {x: 22.10955, y: 1.1261497, z: 5.137066}
-  m_Center: {x: -14.242467, y: 0.5630743, z: 0.000017195278}
 --- !u!82 &5850742894470032281
 AudioSource:
   m_ObjectHideFlags: 0

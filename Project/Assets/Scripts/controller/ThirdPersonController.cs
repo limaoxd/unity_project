@@ -27,7 +27,7 @@ public class ThirdPersonController : MonoBehaviour
     public int drinkLeft;
     public float maxHealth = 400f,maxStamina = 150f;
     public float health = 400f,stamina = 150f;
-    public float heal = 150f;
+    public float heal;
     public float sp = 6f;
     public float timer = 0f;
     public float run_sp = 10f;
@@ -72,6 +72,7 @@ public class ThirdPersonController : MonoBehaviour
         transform.position = spawnPoint.position;
         transform.rotation = spawnPoint.rotation;
         dead = false;
+        heal = maxHealth / 3;
         health = maxHealth;
         stamina = maxStamina;
     }
@@ -345,12 +346,13 @@ public class ThirdPersonController : MonoBehaviour
                 atkTrigger.atk = true;
                 movement =  Vector3.zero;
             }
-            else if (animator.GetCurrentAnimatorStateInfo(0).IsName("atk4") && (timer <= 0.5 || timer >0.8))
+            else if (animator.GetCurrentAnimatorStateInfo(0).IsName("atk4") && (timer <= 0.2 || timer >0.6))
             {
                 atkTrigger.atk = false;
-                movement = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward.normalized * sp * Time.deltaTime;
+                movement =  Vector3.zero;
             }
             else if(animator.GetCurrentAnimatorStateInfo(0).IsName("atk4")){
+                movement = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward.normalized * sp * Time.deltaTime;
                 atkTrigger.atk = true;
             }
             else if(animator.GetCurrentAnimatorStateInfo(0).IsName("rolling_atk") && timer <= 0.4)
@@ -438,6 +440,7 @@ public class ThirdPersonController : MonoBehaviour
         targetAngle = ini_degree;
         angle = targetAngle;
         Aim = GameObject.FindGameObjectWithTag("Player");
+        heal = maxHealth / 3;
         drinkLeft = drinkMax;
   
         cam_free_look = free_cam.GetComponent<Cinemachine.CinemachineFreeLook>();

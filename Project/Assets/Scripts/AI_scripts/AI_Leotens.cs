@@ -45,16 +45,16 @@ public class AI_Leotens : AI
         switch (choosen)
         {
             case 0:
-                Damage = 100;
+                Damage = 130;
                 break;
             case 1:
-                Damage = 90;
+                Damage = 150;
                 break;
             case 2:
-                Damage = 120;
+                Damage = 150;
                 break;
             case 3:
-                Damage = 120;
+                Damage = 150;
                 break;
         }
         atkTrigger.GetComponent<atk_trigger>().Damage = this.Damage;

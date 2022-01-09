@@ -4872,8 +4872,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3363978145108487318}
-  - component: {fileID: 8164860162358338025}
   - component: {fileID: 7249164389322376158}
+  - component: {fileID: 8164860162358338025}
   - component: {fileID: 4428669241717748056}
   m_Layer: 0
   m_Name: Bearded_axe
@@ -4898,6 +4898,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 90}
+--- !u!65 &7249164389322376158
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2730466567349220908}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 43.931267, y: 2.5059865, z: 12.0212345}
+  m_Center: {x: -22.379156, y: -0.0000042087536, z: -2.6805007}
 --- !u!114 &8164860162358338025
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4922,19 +4935,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 6698b7ed244d0c443910af39b0a95fee, type: 3}
   ind: 0
   time: 0
---- !u!65 &7249164389322376158
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2730466567349220908}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Size: {x: 43.931267, y: 2.5059865, z: 12.0212345}
-  m_Center: {x: -22.379156, y: -0.0000042087536, z: -2.6805007}
 --- !u!82 &4428669241717748056
 AudioSource:
   m_ObjectHideFlags: 0
