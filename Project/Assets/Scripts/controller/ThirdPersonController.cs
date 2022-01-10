@@ -98,8 +98,7 @@ public class ThirdPersonController : MonoBehaviour
         R = (Input.GetKey("r") ? true : false);
         SPACE = (Input.GetKey("space") && stamina >= 10? true : false);
         bool lastCtrl = CTRL;
-        CTRL = (Input.GetKey("left ctrl") && stamina >= 10? true : false);
-        if(CTRL!=lastCtrl && CTRL)  stamina -= 5;
+        CTRL = (Input.GetKey("left ctrl")? true : false);
     }
 
     public bool Aimset(){
