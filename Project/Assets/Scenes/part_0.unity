@@ -5545,6 +5545,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa9755d155ea3b44c9dbc1b0fe719558, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayerLocation: {fileID: 1817316625}
   CharacterInventory: {fileID: 432581758}
   Player: {fileID: 432581759}
   HPPoint: {fileID: 133026419}

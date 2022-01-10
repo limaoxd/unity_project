@@ -4,9 +4,11 @@ using UnityEngine;
 using UnityEngine.UI;
 using LitJson;
 using System.IO;
+using UnityEngine.SceneManagement;
 
 public class SaveGame : MonoBehaviour
 {
+    public Transform PlayerLocation;
     public Inventory CharacterInventory;
     public ThirdPersonController Player;
     public Text HPPoint;
@@ -75,6 +77,9 @@ public class SaveGame : MonoBehaviour
         SW.WriteLine(statsData);
 
         //save spawn point
+        SpawnPointSave SP = new SpawnPointSave(SceneManager.GetActiveScene().buildIndex, PlayerLocation);
+        JsonData SPData = JsonMapper.ToJson(SP);
+        SW.WriteLine(SPData);
 
         //save boss progress
     }
@@ -95,15 +100,19 @@ class BossSave
 
 class SpawnPointSave
 {
-    public string name = "SpawnPoint";
+    public string name = "Scene";
     public string slug = "SpawnPoint";
     public int scene;
-    public int fire;
+    public string x;
+    public string y;
+    public string z;
 
-    public SpawnPointSave(int scene,int fire)
+    public SpawnPointSave(int scene, Transform SPLocation)
     {
         this.scene = scene;
-        this.fire = fire;
+        x = SPLocation.position.x + "";
+        y = SPLocation.position.y + "";
+        z = SPLocation.position.z + "";
     }
 }
 

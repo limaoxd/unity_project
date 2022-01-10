@@ -37,9 +37,6 @@ public class MainMenu : MonoBehaviour
     public void ContinueClick()
     {
         MenuSound.run = true;
-        MainPanel.SetActive(false);
-        LoadGamePanel.SetActive(true);
-        SettingsPanel.SetActive(false);
     }
 
     public void SettingsClick()
