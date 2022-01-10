@@ -1,7 +1,0 @@
-{"id":16,"name":"Potion","slug":"Potion","max_drink":5}
-{"name":"HP","slug":"Stats","Level":1}
-{"name":"ATK","slug":"Stats","Level":1}
-{"name":"Stamina","slug":"Stats","Level":1}
-{"name":"Level","slug":"Stats","Level":1}
-{"name":"Skill","slug":"Stats","Level":2}
-{"name":"RequiredEXP","slug":"Stats","Level":1200}
