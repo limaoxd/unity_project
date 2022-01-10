@@ -74,6 +74,9 @@ public class Inventory : MonoBehaviour
 
     private void Start()
     {
+        GiveItem(2);
+        GiveItem(1);
+        GiveItem(3);
         inventoryUI.gameObject.SetActive(false);
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<ThirdPersonController>();
     }

@@ -10,6 +10,7 @@ TagManager:
   - Dead
   - Weapon
   - Interactive
+  - EquipWeapon
   layers:
   - Default
   - TransparentFX
