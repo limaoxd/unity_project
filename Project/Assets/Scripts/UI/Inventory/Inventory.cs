@@ -92,6 +92,9 @@ public class Inventory : MonoBehaviour
 
     private void Start()
     {
+        GiveItem(4);
+        GiveItem(7);
+        GiveItem(12);
         inventoryUI.gameObject.SetActive(false);
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<ThirdPersonController>();
     }
@@ -102,11 +105,13 @@ public class Inventory : MonoBehaviour
         { 
             Cursor.visible = true;
             isPause = true;
+            player.menuing = true;
             inventoryUI.gameObject.SetActive(true);
         }
         else if((Input.GetKeyDown(KeyCode.Escape) && isPause) || player.hurtTime > 0)
         {
             Cursor.visible = false;
+            player.menuing = false;
             isPause = false;
             inventoryUI.gameObject.SetActive(false);
         }
