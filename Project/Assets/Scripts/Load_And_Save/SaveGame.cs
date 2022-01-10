@@ -141,7 +141,6 @@ class StatsSave
 
 class PotionSave
 {
-    public int id = 16;
     public string name = "Potion";
     public string slug = "Potion";
     public int max_drink;

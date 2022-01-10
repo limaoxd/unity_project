@@ -8,12 +8,14 @@ public class UIInventory : MonoBehaviour
     public List<UIItem> uIItems = new List<UIItem>();
     public GameObject slotPrefab; //spawn the slot dynamically
     public Transform slotPanel;
+    public LoadGame load;
     public int numberOfSlots = 20;
 
 
     //spawn each slot into the panel and save them into UIItem list
     private void Awake()
-    { 
+    {
+        load.Load();
         for(int i=0;i<numberOfSlots;i++)
         {
             GameObject instance = Instantiate(slotPrefab);

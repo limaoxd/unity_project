@@ -18,60 +18,71 @@ public class LoadGame : MonoBehaviour
     public Text SKILL;
     public Text EXP;
     public Transform SP;
+    public Level level;
 
     // Start is called before the first frame update
-    void Awake()
+    public void Load()
     {
-        JsonString = File.ReadAllText(Application.dataPath + @"/StreamingAssets/archive.json");
-        allData = JsonMapper.ToObject(JsonString);
-        int number = allData.Count;
-
-        for (int i = 0; i < allData.Count; i++)
+        try
         {
-            if (allData[i]["name"].ToString() == "HP")
+            JsonString = File.ReadAllText(Application.dataPath + @"/StreamingAssets/archive.json");
+            allData = JsonMapper.ToObject(JsonString);
+            int number = allData.Count;
+
+            for (int i = 0; i < allData.Count; i++)
             {
-                HP.text = (int)allData[i]["Level"] + "";
-                number--;
+                if (allData[i]["name"].ToString() == "HP")
+                {
+                    HP.text = (int)allData[i]["Level"] + "";
+                    number--;
+                }
+                if (allData[i]["name"].ToString() == "ATK")
+                {
+                    ATK.text = (int)allData[i]["Level"] + "";
+                    number--;
+                }
+                if (allData[i]["name"].ToString() == "Stamina")
+                {
+                    STAMINA.text = (int)allData[i]["Level"] + "";
+                    number--;
+                }
+                if (allData[i]["name"].ToString() == "Level")
+                {
+                    LEVEL.text = (int)allData[i]["Level"] + "";
+                    number--;
+                }
+                if (allData[i]["name"].ToString() == "Skill")
+                {
+                    SKILL.text = (int)allData[i]["Level"] + "";
+                    number--;
+                }
+                if (allData[i]["name"].ToString() == "RequiredEXP")
+                {
+                    EXP.text = (int)allData[i]["Level"] + "";
+                    number--;
+                }
+                if (allData[i]["name"].ToString() == "Scene")
+                {
+                    ;
+                }
             }
-            if (allData[i]["name"].ToString() == "ATK")
-            { 
-                ATK.text = (int)allData[i]["Level"] + "";
-                number--;
-            }
-            if (allData[i]["name"].ToString() == "Stamina")
-            { 
-                STAMINA.text = (int)allData[i]["Level"] + "";
-                number--;
-            }
-            if (allData[i]["name"].ToString() == "Level")
-            { 
-                LEVEL.text = (int)allData[i]["Level"] + "";
-                number--;
-            }
-            if (allData[i]["name"].ToString() == "Skill")
-            { 
-                SKILL.text = (int)allData[i]["Level"] + "";
-                number--;
-            }
-            if (allData[i]["name"].ToString() == "RequiredEXP")
-            { 
-                EXP.text = (int)allData[i]["Level"] + "";
-                number--;
-            }
-            if (allData[i]["name"].ToString() == "Scene")
-            {
-                
-            }
+            level.LevelSearch();
+        }
+        catch
+        {
+            ;
         }
     }
 
     public int CheckScene()
     {
-        for (int i = 0; i < allData.Count; i++)
+        string String = File.ReadAllText(Application.dataPath + @"/StreamingAssets/archive.json");
+        JsonData Data = JsonMapper.ToObject(String);
+        for (int i = 0; i < Data.Count; i++)
         {
-            if (allData[i]["name"].ToString() == "Scene")
+            if (Data[i]["name"].ToString() == "Scene")
             {
-                return (int)allData[i]["scene"];
+                return (int)Data[i]["Scene"];
             }
         }
         return 0;
