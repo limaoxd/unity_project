@@ -3277,6 +3277,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 835264145150d594c80e2040bfa387b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Player: {fileID: 0}
+  HP: {fileID: 0}
+  ATK: {fileID: 0}
+  STAMINA: {fileID: 0}
+  LEVEL: {fileID: 0}
+  SKILL: {fileID: 0}
+  EXP: {fileID: 0}
+  SP: {fileID: 0}
+  level: {fileID: 0}
 --- !u!4 &1962738993
 Transform:
   m_ObjectHideFlags: 0

@@ -2630,6 +2630,7 @@ MonoBehaviour:
   SKILL: {fileID: 1268250475}
   EXP: {fileID: 2030318020}
   SP: {fileID: 1817316625}
+  level: {fileID: 2637474521664796218}
 --- !u!4 &649704020
 Transform:
   m_ObjectHideFlags: 0
@@ -7025,6 +7026,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 1048979814}
+    - target: {fileID: 2637474520507413812, guid: 39cf3158bca694c5aa963105b5a75fc9, type: 3}
+      propertyPath: load
+      value: 
+      objectReference: {fileID: 649704019}
     - target: {fileID: 2637474520637925045, guid: 39cf3158bca694c5aa963105b5a75fc9, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -7143,6 +7148,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39cf3158bca694c5aa963105b5a75fc9, type: 3}
+--- !u!114 &2637474521664796218 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2637474519987451893, guid: 39cf3158bca694c5aa963105b5a75fc9, type: 3}
+  m_PrefabInstance: {fileID: 2637474521664796217}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cf6f9d3fa0cd4dc0bab81a15b0b1f09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &3271948986877005422
 PrefabInstance:
   m_ObjectHideFlags: 0
