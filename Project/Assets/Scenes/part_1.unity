@@ -3584,6 +3584,7 @@ MonoBehaviour:
   uIItems: []
   slotPrefab: {fileID: 1554749076959710698, guid: a2f909c6ada6e42f6a0d89a37abb11d5, type: 3}
   slotPanel: {fileID: 2077165154}
+  load: {fileID: 742797752}
   numberOfSlots: 20
 --- !u!114 &114443318
 MonoBehaviour:
@@ -8723,7 +8724,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 363781533}
-  m_LocalRotation: {x: 0.13606524, y: 0.8541954, z: 0.2783414, w: -0.41756752}
+  m_LocalRotation: {x: 0.13606526, y: 0.85419536, z: 0.27834144, w: -0.41756746}
   m_LocalPosition: {x: 4.5251665, y: 1.7190031, z: 10.662648}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -11004,7 +11005,7 @@ MonoBehaviour:
   m_Heading:
     m_Definition: 3
     m_VelocityFilterStrength: 4
-    m_Bias: -127.8973
+    m_Bias: -94.19714
   m_RecenterToTargetHeading:
     m_enabled: 0
     m_WaitTime: 1
@@ -11584,7 +11585,7 @@ MonoBehaviour:
   m_Heading:
     m_Definition: 3
     m_VelocityFilterStrength: 4
-    m_Bias: -127.8973
+    m_Bias: -94.19714
   m_RecenterToTargetHeading:
     m_enabled: 0
     m_WaitTime: 1
@@ -15767,7 +15768,7 @@ MonoBehaviour:
   m_Heading:
     m_Definition: 3
     m_VelocityFilterStrength: 4
-    m_Bias: -127.8973
+    m_Bias: -94.19714
   m_RecenterToTargetHeading:
     m_enabled: 0
     m_WaitTime: 1
@@ -17075,6 +17076,58 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b9f14b7bbd2e9164b9b4f56941b2b0bb, type: 3}
+--- !u!1 &742797751
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 742797753}
+  - component: {fileID: 742797752}
+  m_Layer: 0
+  m_Name: Loader
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &742797752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 742797751}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 835264145150d594c80e2040bfa387b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Player: {fileID: 0}
+  HP: {fileID: 0}
+  ATK: {fileID: 0}
+  STAMINA: {fileID: 0}
+  LEVEL: {fileID: 0}
+  SKILL: {fileID: 0}
+  EXP: {fileID: 0}
+  SP: {fileID: 0}
+  level: {fileID: 0}
+--- !u!4 &742797753
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 742797751}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -62.82994, y: 4.5198927, z: -2.6320877}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &743901010
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31332,7 +31385,7 @@ MonoBehaviour:
   m_Heading:
     m_Definition: 3
     m_VelocityFilterStrength: 4
-    m_Bias: -127.8973
+    m_Bias: -94.19714
   m_RecenterToTargetHeading:
     m_enabled: 0
     m_WaitTime: 1
@@ -32217,7 +32270,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1357440539}
-  m_LocalRotation: {x: -0.18893848, y: -0.722218, z: -0.21693927, w: 0.6289999}
+  m_LocalRotation: {x: -0.18893847, y: -0.72221804, z: -0.2169393, w: 0.6289999}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -34956,7 +35009,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1453333771}
-  m_LocalRotation: {x: -0.20347771, y: -0.7169916, z: -0.23363328, w: 0.62444806}
+  m_LocalRotation: {x: -0.20347774, y: -0.71699166, z: -0.23363328, w: 0.62444806}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
