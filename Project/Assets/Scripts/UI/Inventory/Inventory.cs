@@ -74,28 +74,23 @@ public class Inventory : MonoBehaviour
 
     private void Start()
     {
-        GiveItem(2);
-        GiveItem(1);
-        GiveItem(3);
         inventoryUI.gameObject.SetActive(false);
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<ThirdPersonController>();
     }
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape) && player.hurtTime == 0) 
+        if(Input.GetKeyDown(KeyCode.Escape) && !isPause)
+        { 
+            Cursor.visible = true;
+            isPause = true;
+            inventoryUI.gameObject.SetActive(true);
+        }
+        else if((Input.GetKeyDown(KeyCode.Escape) && isPause) || player.hurtTime > 0)
         {
-            if (!isPause)
-            {
-                Cursor.visible = true;
-                isPause = true;
-            }
-            else
-            {
-                Cursor.visible = false;
-                isPause = false;
-            }
-            inventoryUI.gameObject.SetActive(!inventoryUI.gameObject.activeSelf);
+            Cursor.visible = false;
+            isPause = false;
+            inventoryUI.gameObject.SetActive(false);
         }
     }
 }
