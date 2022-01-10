@@ -11,6 +11,7 @@ public class MainMenu : MonoBehaviour
     public GameObject ContinueButton;
     public GameObject LoadGamePanel;
     public GameObject SettingsPanel;
+    public LoadGame Loader;
     public Sound_emitter MenuSound;
     public LevelChanger levelChanger;
     // Start is called before the first frame update
@@ -37,6 +38,7 @@ public class MainMenu : MonoBehaviour
     public void ContinueClick()
     {
         MenuSound.run = true;
+        levelChanger.FadeToLevel(Loader.CheckScene());
     }
 
     public void SettingsClick()

@@ -1,0 +1,9 @@
+[
+{"id":16,"name":"Potion","slug":"Potion","max_drink":5},
+{"name":"HP","slug":"Stats","Level":1},
+{"name":"ATK","slug":"Stats","Level":1},
+{"name":"Stamina","slug":"Stats","Level":1},
+{"name":"Level","slug":"Stats","Level":1},
+{"name":"Skill","slug":"Stats","Level":0},
+{"name":"RequiredEXP","slug":"Stats","Level":1200},
+{"name":"Scene","slug":"SpawnPoint","scene":1,"x":"91.65","y":"-1.894995","z":"-154.28"}]

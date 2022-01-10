@@ -25,12 +25,14 @@ public class SaveGame : MonoBehaviour
     {
         Finfo = new FileInfo(Application.dataPath + @"/StreamingAssets/archive.json");
         SW = Finfo.CreateText();
+        SW.WriteLine("[");
     }
 
     public void Save()
     {
         SaveItems();
         SaveStats();
+        SW.Write("]");
         SW.Close();
     }
 
@@ -45,13 +47,15 @@ public class SaveGame : MonoBehaviour
         {
             item = new ItemSave(Items[i]);
             ItemData = JsonMapper.ToJson(item);
-            SW.WriteLine(ItemData.ToString());
+            SW.Write(ItemData.ToString());
+            SW.WriteLine(",");
         }
 
         //save max_potion
         PotionSave potion = new PotionSave(Player.drinkMax);
         JsonData potionData = JsonMapper.ToJson(potion);
-        SW.WriteLine(potionData.ToString());
+        SW.Write(potionData.ToString());
+        SW.WriteLine(",");
     }
 
     public void SaveStats()
@@ -59,27 +63,33 @@ public class SaveGame : MonoBehaviour
         //save level
         StatsSave stats = new StatsSave("HP", int.Parse(HPPoint.text));
         JsonData statsData = JsonMapper.ToJson(stats);
-        SW.WriteLine(statsData);
+        SW.Write(statsData);
+        SW.WriteLine(",");
         stats = new StatsSave("ATK", int.Parse(ATKPoint.text));
         statsData = JsonMapper.ToJson(stats);
-        SW.WriteLine(statsData);
+        SW.Write(statsData);
+        SW.WriteLine(",");
         stats = new StatsSave("Stamina", int.Parse(StaminaPoint.text));
         statsData = JsonMapper.ToJson(stats);
-        SW.WriteLine(statsData);
+        SW.Write(statsData);
+        SW.WriteLine(",");
         stats = new StatsSave("Level", int.Parse(LevelPoint.text));
         statsData = JsonMapper.ToJson(stats);
-        SW.WriteLine(statsData);
+        SW.Write(statsData);
+        SW.WriteLine(",");
         stats = new StatsSave("Skill", int.Parse(SkillPoint.text));
         statsData = JsonMapper.ToJson(stats);
-        SW.WriteLine(statsData);
+        SW.Write(statsData);
+        SW.WriteLine(",");
         stats = new StatsSave("RequiredEXP", int.Parse(EXPPoint.text));
         statsData = JsonMapper.ToJson(stats);
-        SW.WriteLine(statsData);
+        SW.Write(statsData);
+        SW.WriteLine(",");
 
         //save spawn point
         SpawnPointSave SP = new SpawnPointSave(SceneManager.GetActiveScene().buildIndex, PlayerLocation);
         JsonData SPData = JsonMapper.ToJson(SP);
-        SW.WriteLine(SPData);
+        SW.Write(SPData);
 
         //save boss progress
     }
@@ -102,14 +112,14 @@ class SpawnPointSave
 {
     public string name = "Scene";
     public string slug = "SpawnPoint";
-    public int scene;
+    public int Scene;
     public string x;
     public string y;
     public string z;
 
     public SpawnPointSave(int scene, Transform SPLocation)
     {
-        this.scene = scene;
+        this.Scene = scene;
         x = SPLocation.position.x + "";
         y = SPLocation.position.y + "";
         z = SPLocation.position.z + "";
