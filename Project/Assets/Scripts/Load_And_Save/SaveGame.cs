@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using LitJson;
 using System.IO;
 
@@ -8,14 +9,18 @@ public class SaveGame : MonoBehaviour
 {
     public Inventory CharacterInventory;
     public ThirdPersonController Player;
+    public Text HPPoint;
+    public Text ATKPoint;
+    public Text StaminaPoint;
+    public Text LevelPoint;
+    public Text SkillPoint;
+    public Text EXPPoint;
     FileInfo Finfo;
     StreamWriter SW;
 
     // Start is called before the first frame update
     void Start()
     {
-        Player = GameObject.FindGameObjectWithTag("Player").GetComponent<ThirdPersonController>();
-        CharacterInventory = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
         Finfo = new FileInfo(Application.dataPath + @"/StreamingAssets/archive.json");
         SW = Finfo.CreateText();
     }
@@ -50,9 +55,24 @@ public class SaveGame : MonoBehaviour
     public void SaveStats()
     {
         //save level
-        //StatsSave stats = new StatsSave();
-        //JsonData statsData = JsonMapper.ToJson(stats);
-        //SW.WriteLine(statsData);
+        StatsSave stats = new StatsSave("HP", int.Parse(HPPoint.text));
+        JsonData statsData = JsonMapper.ToJson(stats);
+        SW.WriteLine(statsData);
+        stats = new StatsSave("ATK", int.Parse(ATKPoint.text));
+        statsData = JsonMapper.ToJson(stats);
+        SW.WriteLine(statsData);
+        stats = new StatsSave("Stamina", int.Parse(StaminaPoint.text));
+        statsData = JsonMapper.ToJson(stats);
+        SW.WriteLine(statsData);
+        stats = new StatsSave("Level", int.Parse(LevelPoint.text));
+        statsData = JsonMapper.ToJson(stats);
+        SW.WriteLine(statsData);
+        stats = new StatsSave("Skill", int.Parse(SkillPoint.text));
+        statsData = JsonMapper.ToJson(stats);
+        SW.WriteLine(statsData);
+        stats = new StatsSave("RequiredEXP", int.Parse(EXPPoint.text));
+        statsData = JsonMapper.ToJson(stats);
+        SW.WriteLine(statsData);
 
         //save spawn point
 
@@ -89,13 +109,14 @@ class SpawnPointSave
 
 class StatsSave
 {
-    public string name = "Level";
-    public string slug = "Level";
+    public string name;
+    public string slug = "Stats";
     public int Level;
 
-    public StatsSave(int level)
+    public StatsSave(string name,int level)
     {
-        Level = level;
+        this.name = name;
+        this.Level = level;
     }
 }
 

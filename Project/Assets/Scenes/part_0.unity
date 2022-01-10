@@ -2352,6 +2352,17 @@ MonoBehaviour:
   itemDatabase: {fileID: 1303209856}
   inventoryUI: {fileID: 1158005517}
   isPause: 0
+--- !u!114 &432581759 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6198719273861297945, guid: 15789796ab9727348b6a53829668bc36, type: 3}
+  m_PrefabInstance: {fileID: 432581756}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 432581757}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75c3c6e7271a14a4ea9840943428d51f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &462996161
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5534,8 +5545,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa9755d155ea3b44c9dbc1b0fe719558, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CharacterInventory: {fileID: 0}
-  Player: {fileID: 0}
+  CharacterInventory: {fileID: 432581758}
+  Player: {fileID: 432581759}
+  HPPoint: {fileID: 133026419}
+  ATKPoint: {fileID: 815687743}
+  StaminaPoint: {fileID: 358106125}
+  LevelPoint: {fileID: 1851571662}
+  SkillPoint: {fileID: 1268250475}
+  EXPPoint: {fileID: 2030318020}
 --- !u!4 &1048979815
 Transform:
   m_ObjectHideFlags: 0
