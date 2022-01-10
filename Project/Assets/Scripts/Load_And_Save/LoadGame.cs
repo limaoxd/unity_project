@@ -66,7 +66,6 @@ public class LoadGame : MonoBehaviour
                     ;
                 }
             }
-            level.LevelSearch();
         }
         catch
         {
