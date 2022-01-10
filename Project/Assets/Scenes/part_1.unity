@@ -8724,7 +8724,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 363781533}
-  m_LocalRotation: {x: 0.13606524, y: 0.8541954, z: 0.2783414, w: -0.41756752}
+  m_LocalRotation: {x: 0.13606526, y: 0.85419536, z: 0.27834144, w: -0.41756746}
   m_LocalPosition: {x: 4.5251665, y: 1.7190031, z: 10.662648}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -23874,7 +23874,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1032386918}
-  m_LocalRotation: {x: -0.23262826, y: -0.70520705, z: -0.2671039, w: 0.61418456}
+  m_LocalRotation: {x: -0.2326282, y: -0.7052071, z: -0.26710394, w: 0.61418444}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -32270,7 +32270,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1357440539}
-  m_LocalRotation: {x: -0.18893847, y: -0.722218, z: -0.2169393, w: 0.6289998}
+  m_LocalRotation: {x: -0.18893848, y: -0.722218, z: -0.21693927, w: 0.6289999}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -34321,6 +34321,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1409990477}
   - component: {fileID: 1409990476}
+  - component: {fileID: 1409990478}
   m_Layer: 0
   m_Name: Terrain
   m_TagString: Untagged
@@ -34441,6 +34442,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1409990478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1409990475}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a241ac86f814b0a4eb7314c4a5c269ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Bearclaw: {fileID: 0}
+  levelChanger: {fileID: 43534602}
+  Saver: {fileID: 401642964}
 --- !u!1001 &1419374201
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -35009,7 +35025,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1453333771}
-  m_LocalRotation: {x: -0.20347771, y: -0.7169916, z: -0.23363328, w: 0.62444806}
+  m_LocalRotation: {x: -0.20347774, y: -0.71699166, z: -0.23363328, w: 0.62444806}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
