@@ -3289,7 +3289,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6196286255398937958}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.48, y: 25.28993, z: -31.43}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3019100724692332570}
@@ -3367,6 +3367,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 8be0690036fa97d448d8f5d96c9a3f5b, type: 3}
   - {fileID: 8300000, guid: 90c2dc6b40f928d4097419e5bd4c1d4a, type: 3}
   - {fileID: 8300000, guid: e18da735ed91bed4a8ec624f3be639c0, type: 3}
+  dead: 0
   maxHealth: 2000
   Health: 2000
   sp: 2
