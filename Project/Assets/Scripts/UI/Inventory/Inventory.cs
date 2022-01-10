@@ -93,7 +93,7 @@ public class Inventory : MonoBehaviour
     private void Start()
     {
         GiveItem(4);
-        GiveItem(7);
+        GiveItem(6);
         GiveItem(12);
         inventoryUI.gameObject.SetActive(false);
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<ThirdPersonController>();

@@ -46,7 +46,7 @@ public class ThirdPersonController : MonoBehaviour
     private float degree = 0f , ini_degree = 0f;
     private float atkTime = 0f,shiftTime = 0f;
     private bool W,A,S,D,R,SHIFT,CTRL,SPACE;
-    private bool acted = false , drinked =  false ;
+    private bool acted = false , drinked =  false , hausted = false;
     private Vector3 movement;
     private Vector3 gravityDic;
     private Vector3 gravityMovement;
@@ -97,8 +97,9 @@ public class ThirdPersonController : MonoBehaviour
         D = (Input.GetKey("d") ? true : false);
         R = (Input.GetKey("r") ? true : false);
         SPACE = (Input.GetKey("space") && stamina >= 10? true : false);
-        bool lastCtrl = CTRL;
-        CTRL = (Input.GetKey("left ctrl")? true : false);
+        if(stamina <= 0) hausted = true;
+        else if(stamina >= 50f) hausted = false;
+        CTRL = (Input.GetKey("left ctrl") && !hausted ? true : false);
     }
 
     public bool Aimset(){
