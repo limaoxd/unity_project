@@ -69,7 +69,6 @@ public class UIItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, 
         }
     }
 
-
     public void OnPointerEnter(PointerEventData eventData)
     {
         if(this.item != null)

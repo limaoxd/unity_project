@@ -2352,6 +2352,17 @@ MonoBehaviour:
   itemDatabase: {fileID: 1303209856}
   inventoryUI: {fileID: 1158005517}
   isPause: 0
+--- !u!114 &432581759 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6198719273861297945, guid: 15789796ab9727348b6a53829668bc36, type: 3}
+  m_PrefabInstance: {fileID: 432581756}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 432581757}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75c3c6e7271a14a4ea9840943428d51f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &462996161
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3390,6 +3401,7 @@ GameObject:
   m_Component:
   - component: {fileID: 631375253}
   - component: {fileID: 631375255}
+  - component: {fileID: 631375256}
   - component: {fileID: 631375254}
   m_Layer: 5
   m_Name: weapon_icon
@@ -3414,8 +3426,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 59, y: 76.10004}
-  m_SizeDelta: {x: 38.6013, y: 38.6013}
+  m_AnchoredPosition: {x: 33.9, y: 15.8168}
+  m_SizeDelta: {x: 190, y: 190}
   m_Pivot: {x: 0.6785867, y: 0.5833402}
 --- !u!114 &631375254
 MonoBehaviour:
@@ -3437,7 +3449,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: f507f03eb80bcbf49bb458bd6a54bd9a, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3455,6 +3467,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 631375252}
   m_CullTransparentMesh: 1
+--- !u!114 &631375256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 631375252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0da5e2859ddb548319aea0b02b04ba57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weapon: {fileID: 654445500}
 --- !u!4 &635636290 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 68e5a3e0aeb51a548947fd435bd3f159, type: 3}
@@ -3603,6 +3628,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3b5b53b5870c786418440364c27d24fe, type: 3}
+--- !u!114 &654445500 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1290301579243457850, guid: 15789796ab9727348b6a53829668bc36, type: 3}
+  m_PrefabInstance: {fileID: 432581756}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 052cef5e2fa261c4bac5791d12da48f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &671259332
 GameObject:
   m_ObjectHideFlags: 0
@@ -5534,8 +5570,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa9755d155ea3b44c9dbc1b0fe719558, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CharacterInventory: {fileID: 0}
-  Player: {fileID: 0}
+  PlayerLocation: {fileID: 1817316625}
+  CharacterInventory: {fileID: 432581758}
+  Player: {fileID: 432581759}
+  HPPoint: {fileID: 133026419}
+  ATKPoint: {fileID: 815687743}
+  StaminaPoint: {fileID: 358106125}
+  LevelPoint: {fileID: 1851571662}
+  SkillPoint: {fileID: 1268250475}
+  EXPPoint: {fileID: 2030318020}
 --- !u!4 &1048979815
 Transform:
   m_ObjectHideFlags: 0
@@ -6220,7 +6263,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 2
+  m_Text: 0
 --- !u!222 &1268250476
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6886,6 +6929,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1158005516}
     m_Modifications:
+    - target: {fileID: 1328356306129164310, guid: a2f909c6ada6e42f6a0d89a37abb11d5, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 1554749076959710698, guid: a2f909c6ada6e42f6a0d89a37abb11d5, type: 3}
       propertyPath: m_Name
       value: Weapon
@@ -7008,6 +7055,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9205732430081675118, guid: a2f909c6ada6e42f6a0d89a37abb11d5, type: 3}
       propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9205732430081675118, guid: a2f909c6ada6e42f6a0d89a37abb11d5, type: 3}
+      propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -10095,7 +10146,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 780.6, y: -410.7}
-  m_SizeDelta: {x: 150, y: 190}
+  m_SizeDelta: {x: 190, y: 190}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2144792735
 MonoBehaviour:

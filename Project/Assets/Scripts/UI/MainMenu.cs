@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using LitJson;
 using System.IO;
 
 public class MainMenu : MonoBehaviour
@@ -36,9 +37,6 @@ public class MainMenu : MonoBehaviour
     public void ContinueClick()
     {
         MenuSound.run = true;
-        MainPanel.SetActive(false);
-        LoadGamePanel.SetActive(true);
-        SettingsPanel.SetActive(false);
     }
 
     public void SettingsClick()
