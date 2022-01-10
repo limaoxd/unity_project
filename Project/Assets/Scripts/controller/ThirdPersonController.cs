@@ -213,7 +213,7 @@ public class ThirdPersonController : MonoBehaviour
 
         Vector3 dic = new Vector3(horizontal, 0f, vertical).normalized;
         turn = false;
-        if (!atking) trail.SetActive(false);
+        if (!atking && trail) trail.SetActive(false);
         if (!animator.GetCurrentAnimatorStateInfo(0).IsName("180turn")) turning = false;
 
         if (dead || waking)
