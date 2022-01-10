@@ -90,8 +90,7 @@ public class SaveGame : MonoBehaviour
         SpawnPointSave SP = new SpawnPointSave(SceneManager.GetActiveScene().buildIndex, PlayerLocation);
         JsonData SPData = JsonMapper.ToJson(SP);
         SW.Write(SPData);
-
-        //save boss progress
+        
     }
 }
 

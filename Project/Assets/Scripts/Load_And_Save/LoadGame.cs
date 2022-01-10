@@ -61,10 +61,6 @@ public class LoadGame : MonoBehaviour
                     EXP.text = (int)allData[i]["Level"] + "";
                     number--;
                 }
-                if (allData[i]["name"].ToString() == "Scene")
-                {
-                    ;
-                }
             }
         }
         catch
