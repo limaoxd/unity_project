@@ -35,8 +35,6 @@ public class Level : MonoBehaviour
             else if (i >= 23 && i <= 29)
                 req.Add(250 * i * i - 1500 * i - 22750);
         }
-        //for (int i = 0; i < 29; i++)
-        //    Debug.Log(req[i]);
     }
 
     public void LevelUp(int index)
@@ -71,15 +69,15 @@ public class Level : MonoBehaviour
     {
         if(Int32.Parse(PointLeft.text) == 0)
         {
-            hpButton.enabled = false;
-            atkButton.enabled = false;
-            staminaButton.enabled = false;
+            hpButton.gameObject.SetActive(false);
+            atkButton.gameObject.SetActive(false);
+            staminaButton.gameObject.SetActive(false);
         }
         else
         {
-            hpButton.enabled = true;
-            atkButton.enabled = true;
-            staminaButton.enabled = true;
+            hpButton.gameObject.SetActive(true);
+            atkButton.gameObject.SetActive(true);
+            staminaButton.gameObject.SetActive(true);
         }
         while(mobexp != 0)
         {

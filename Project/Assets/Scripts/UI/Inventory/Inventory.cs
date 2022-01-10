@@ -40,9 +40,27 @@ public class Inventory : MonoBehaviour
     public void GiveItem(string itemName)
     {
         Item itemToAdd = itemDatabase.GetItem(itemName);
-        characterItems.Add(itemToAdd);
-        inventoryUI.AddNewItem(itemToAdd);
-        //Debug.Log("Added item: " + itemToAdd.itemname);
+        int id = itemToAdd.id;
+        if (CheckItemInCharacterInventory(itemToAdd) && itemToAdd.stackable)
+        {
+            for (int i = 0; i < characterItems.Count; i++)
+            {
+                if (characterItems[i].id == id)
+                {
+                    UIItem data = inventoryUI.uIItems[i].transform.GetComponent<UIItem>();
+                    data.item.amount++;
+                    data.transform.GetChild(0).GetComponent<Text>().text = data.item.amount.ToString();
+                    //Debug.Log("Increased item amount: " + itemToAdd.itemname);
+                    break;
+                }
+            }
+        }
+        else
+        {
+            characterItems.Add(itemToAdd);
+            inventoryUI.AddNewItem(itemToAdd);
+            //Debug.Log("Added item: " + itemToAdd.itemname);
+        }
     }
 
     //see if the player's inventory holds the item
