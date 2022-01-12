@@ -10,8 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 6198719273861297943}
   - component: {fileID: 6198719273861297944}
-  - component: {fileID: 6198719273861297945}
   - component: {fileID: 502332315}
+  - component: {fileID: 1395543758}
+  - component: {fileID: 2542741920281423629}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -52,69 +53,6 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0.9, z: 0}
---- !u!114 &6198719273861297945
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6198719273861297946}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75c3c6e7271a14a4ea9840943428d51f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  controller: {fileID: 6198719273861297944}
-  cam: {fileID: 0}
-  animator: {fileID: 2288408418262460284}
-  bloodEffect: {fileID: 186584, guid: b85ef8139fbcfa746b2954a470627418, type: 3}
-  Aim: {fileID: 0}
-  free_cam: {fileID: 0}
-  aim_point: {fileID: 0}
-  trail: {fileID: 0}
-  atkTrigger: {fileID: 0}
-  lastAtkTrigger: {fileID: 0}
-  Hp_bar: {fileID: 0}
-  Hp_load: {fileID: 0}
-  Sp_bar: {fileID: 0}
-  Sp_load: {fileID: 0}
-  spawnPoint: {fileID: 0}
-  audioSource: {fileID: 0}
-  audios:
-  - {fileID: 8300000, guid: 4ba2a329bbe9d174cb8df98a2d00bcbd, type: 3}
-  - {fileID: 8300000, guid: 626cfe58666ba064f98797d9efcfd1c2, type: 3}
-  - {fileID: 8300000, guid: efed935f5c2042c40a056ec2b2f374f5, type: 3}
-  drinkMax: 5
-  drinkLeft: 0
-  maxHealth: 400
-  maxStamina: 150
-  health: 400
-  stamina: 150
-  heal: 150
-  sp: 2.5
-  timer: 0
-  run_sp: 5
-  smoothTime: 0.1
-  gravity: 0.2
-  currentGravity: 0
-  maxGravity: 5
-  actingTime: 0.5
-  rolling: 0
-  dodging: 0
-  jump: 0
-  jumped: 0
-  aim: 0
-  prev_aim: 0
-  atk: 0
-  dfc: 0
-  atking: 0
-  turning: 0
-  drinking: 0
-  turn: 0
-  landing: 0
-  hurting: 0
-  waking: 0
-  dead: 0
 --- !u!82 &502332315
 AudioSource:
   m_ObjectHideFlags: 0
@@ -211,6 +149,86 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1395543758
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6198719273861297946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4960a77eacde427e8b229bcff77dd76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemDatabase: {fileID: 0}
+  inventoryUI: {fileID: 0}
+  isPause: 0
+--- !u!114 &2542741920281423629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6198719273861297946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75c3c6e7271a14a4ea9840943428d51f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controller: {fileID: 6198719273861297944}
+  cam: {fileID: 0}
+  animator: {fileID: 2288408418262460284}
+  bloodEffect: {fileID: 186584, guid: b85ef8139fbcfa746b2954a470627418, type: 3}
+  Aim: {fileID: 0}
+  free_cam: {fileID: 0}
+  aim_point: {fileID: 0}
+  trail: {fileID: 0}
+  atkTrigger: {fileID: 0}
+  lastAtkTrigger: {fileID: 0}
+  Hp_bar: {fileID: 0}
+  Hp_load: {fileID: 0}
+  Sp_bar: {fileID: 0}
+  Sp_load: {fileID: 0}
+  spawnPoint: {fileID: 0}
+  audioSource: {fileID: 0}
+  audios:
+  - {fileID: 8300000, guid: 4ba2a329bbe9d174cb8df98a2d00bcbd, type: 3}
+  - {fileID: 8300000, guid: 626cfe58666ba064f98797d9efcfd1c2, type: 3}
+  - {fileID: 8300000, guid: efed935f5c2042c40a056ec2b2f374f5, type: 3}
+  drinkMax: 5
+  drinkLeft: 0
+  maxHealth: 400
+  maxStamina: 150
+  health: 400
+  stamina: 150
+  heal: 150
+  sp: 2.5
+  timer: 0
+  run_sp: 5
+  smoothTime: 0.1
+  gravity: 0.2
+  currentGravity: 0
+  maxGravity: 5
+  actingTime: 0.5
+  hurtTime: 0
+  rolling: 0
+  dodging: 0
+  jump: 0
+  jumped: 0
+  aim: 0
+  prev_aim: 0
+  atk: 0
+  dfc: 0
+  atking: 0
+  turning: 0
+  drinking: 0
+  turn: 0
+  landing: 0
+  hurting: 0
+  waking: 0
+  menuing: 0
+  dead: 0
 --- !u!1001 &5315453737100661952
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -904,7 +922,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2288408418262460286, guid: 3676e80d120225247bf0342d6a7a9837, type: 3}
       propertyPath: m_TagString
-      value: Player
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 2288408418292353579, guid: 3676e80d120225247bf0342d6a7a9837, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1759,6 +1777,8 @@ MonoBehaviour:
   - {fileID: 1349617591794245588, guid: 6d76f7d057a78d746be71fe895b8b686, type: 3}
   - {fileID: 629047497046909357, guid: 9cb73648c6bce1141bfce50578adb272, type: 3}
   - {fileID: 2484621034581003694, guid: 9c5878f79eef2554396c27b0218da0e7, type: 3}
+  item: {fileID: 0}
+  itemDatabase: {fileID: 0}
 --- !u!1001 &5802232017881818972
 PrefabInstance:
   m_ObjectHideFlags: 0

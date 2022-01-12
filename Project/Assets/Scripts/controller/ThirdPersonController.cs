@@ -37,8 +37,7 @@ public class ThirdPersonController : MonoBehaviour
     public float maxGravity;
     public float actingTime = 0.5f;
     public float hurtTime = 0f;
-    public bool rolling, dodging, jump,jumped, aim, prev_aim, atk, dfc, atking, turning, drinking, turn, landing, hurting,waking,menuing = false,dead = false;
-
+    public bool rolling, dodging, jump,jumped, aim, prev_aim, atk, dfc, atking, turning, drinking, turn, landing, hurting,waking,menuing = false, dead = false;
     private Cinemachine.CinemachineFreeLook cam_free_look;
     private Transform point_to_aim;
     private int prev_state;

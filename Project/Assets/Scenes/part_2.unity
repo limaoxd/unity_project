@@ -1801,6 +1801,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1395543758, guid: 15789796ab9727348b6a53829668bc36, type: 3}
+      propertyPath: inventoryUI
+      value: 
+      objectReference: {fileID: 877577433}
+    - target: {fileID: 1395543758, guid: 15789796ab9727348b6a53829668bc36, type: 3}
+      propertyPath: itemDatabase
+      value: 
+      objectReference: {fileID: 659370875}
     - target: {fileID: 1290301579243457850, guid: 15789796ab9727348b6a53829668bc36, type: 3}
       propertyPath: ind
       value: 15
@@ -1813,6 +1821,30 @@ PrefabInstance:
       propertyPath: itemDatabase
       value: 
       objectReference: {fileID: 659370875}
+    - target: {fileID: 2542741920281423629, guid: 15789796ab9727348b6a53829668bc36, type: 3}
+      propertyPath: Hp_bar
+      value: 
+      objectReference: {fileID: 1229329713}
+    - target: {fileID: 2542741920281423629, guid: 15789796ab9727348b6a53829668bc36, type: 3}
+      propertyPath: Sp_bar
+      value: 
+      objectReference: {fileID: 1729901995}
+    - target: {fileID: 2542741920281423629, guid: 15789796ab9727348b6a53829668bc36, type: 3}
+      propertyPath: Hp_load
+      value: 
+      objectReference: {fileID: 1905249534}
+    - target: {fileID: 2542741920281423629, guid: 15789796ab9727348b6a53829668bc36, type: 3}
+      propertyPath: Sp_load
+      value: 
+      objectReference: {fileID: 466261031}
+    - target: {fileID: 2542741920281423629, guid: 15789796ab9727348b6a53829668bc36, type: 3}
+      propertyPath: free_cam
+      value: 
+      objectReference: {fileID: 1255759592}
+    - target: {fileID: 2542741920281423629, guid: 15789796ab9727348b6a53829668bc36, type: 3}
+      propertyPath: aim_point
+      value: 
+      objectReference: {fileID: 735977206}
     - target: {fileID: 6198719272779543485, guid: 15789796ab9727348b6a53829668bc36, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2071,7 +2103,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 835264145150d594c80e2040bfa387b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 663313856}
+  Player: {fileID: 0}
   HP: {fileID: 347635018}
   ATK: {fileID: 17460906}
   STAMINA: {fileID: 1462543209}
@@ -2556,7 +2588,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerLocation: {fileID: 1349798865}
   CharacterInventory: {fileID: 663313855}
-  Player: {fileID: 663313856}
+  Player: {fileID: 0}
   HPPoint: {fileID: 347635018}
   ATKPoint: {fileID: 17460906}
   StaminaPoint: {fileID: 1462543209}
@@ -5051,17 +5083,6 @@ MonoBehaviour:
   itemDatabase: {fileID: 659370875}
   inventoryUI: {fileID: 877577433}
   isPause: 0
---- !u!114 &663313856 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6198719273861297945, guid: 15789796ab9727348b6a53829668bc36, type: 3}
-  m_PrefabInstance: {fileID: 191403742}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 663313854}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75c3c6e7271a14a4ea9840943428d51f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &666899710
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14373,7 +14394,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1986031767}
-  m_LocalRotation: {x: -0.0037695693, y: -0.9576438, z: -0.28765714, w: 0.012549356}
+  m_LocalRotation: {x: -0.003769584, y: -0.95764387, z: -0.28765708, w: 0.012549356}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:

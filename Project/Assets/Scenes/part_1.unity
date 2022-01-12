@@ -6416,11 +6416,10 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6198719273861297946, guid: 15789796ab9727348b6a53829668bc36, type: 3}
   m_PrefabInstance: {fileID: 1200470292}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &281377869
+--- !u!114 &281377870 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 1395543758, guid: 15789796ab9727348b6a53829668bc36, type: 3}
+  m_PrefabInstance: {fileID: 1200470292}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 281377868}
   m_Enabled: 1
@@ -6428,9 +6427,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4960a77eacde427e8b229bcff77dd76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemDatabase: {fileID: 1572554343}
-  inventoryUI: {fileID: 114443317}
-  isPause: 0
 --- !u!4 &281377872 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6198719273861297943, guid: 15789796ab9727348b6a53829668bc36, type: 3}
@@ -28336,6 +28332,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1395543758, guid: 15789796ab9727348b6a53829668bc36, type: 3}
+      propertyPath: inventoryUI
+      value: 
+      objectReference: {fileID: 114443317}
+    - target: {fileID: 1395543758, guid: 15789796ab9727348b6a53829668bc36, type: 3}
+      propertyPath: itemDatabase
+      value: 
+      objectReference: {fileID: 1572554343}
     - target: {fileID: 1290301579243457850, guid: 15789796ab9727348b6a53829668bc36, type: 3}
       propertyPath: item
       value: 
@@ -28344,6 +28348,38 @@ PrefabInstance:
       propertyPath: itemDatabase
       value: 
       objectReference: {fileID: 1572554343}
+    - target: {fileID: 2542741920281423629, guid: 15789796ab9727348b6a53829668bc36, type: 3}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 363781538}
+    - target: {fileID: 2542741920281423629, guid: 15789796ab9727348b6a53829668bc36, type: 3}
+      propertyPath: Hp_bar
+      value: 
+      objectReference: {fileID: 1015962014}
+    - target: {fileID: 2542741920281423629, guid: 15789796ab9727348b6a53829668bc36, type: 3}
+      propertyPath: Sp_bar
+      value: 
+      objectReference: {fileID: 853705836}
+    - target: {fileID: 2542741920281423629, guid: 15789796ab9727348b6a53829668bc36, type: 3}
+      propertyPath: Hp_load
+      value: 
+      objectReference: {fileID: 583314301}
+    - target: {fileID: 2542741920281423629, guid: 15789796ab9727348b6a53829668bc36, type: 3}
+      propertyPath: Sp_load
+      value: 
+      objectReference: {fileID: 315543006}
+    - target: {fileID: 2542741920281423629, guid: 15789796ab9727348b6a53829668bc36, type: 3}
+      propertyPath: free_cam
+      value: 
+      objectReference: {fileID: 657493633}
+    - target: {fileID: 2542741920281423629, guid: 15789796ab9727348b6a53829668bc36, type: 3}
+      propertyPath: aim_point
+      value: 
+      objectReference: {fileID: 1067476973}
+    - target: {fileID: 2542741920281423629, guid: 15789796ab9727348b6a53829668bc36, type: 3}
+      propertyPath: spawnPoint
+      value: 
+      objectReference: {fileID: 107273663}
     - target: {fileID: 4463240738888982889, guid: 15789796ab9727348b6a53829668bc36, type: 3}
       propertyPath: m_Intensity
       value: 80000000
@@ -35960,7 +35996,7 @@ MonoBehaviour:
   player: {fileID: 281377868}
   death_text: {fileID: 49255768}
   smoothTime: 40
-  inventory: {fileID: 281377869}
+  inventory: {fileID: 281377870}
 --- !u!114 &1496515999
 MonoBehaviour:
   m_ObjectHideFlags: 0

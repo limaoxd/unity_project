@@ -52,7 +52,7 @@ public class MainMenu : MonoBehaviour
     public void QuitGameClick()
     {
         MenuSound.run = true;
-        UnityEditor.EditorApplication.isPlaying = false;
+        //UnityEditor.EditorApplication.isPlaying = false;
         Application.Quit();
     }
 

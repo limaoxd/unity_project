@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class P0P1 : MonoBehaviour
 {
-    public GameObject ancient;
     public ThirdPersonController player;
     public LevelChanger levelChanger;
     public SaveGame Saver;
